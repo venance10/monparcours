@@ -1,13 +1,12 @@
 {
   "_v": 2,
-  "_updated": "2026-07-09T15:33:52.160Z",
-  
+  "_updated": "2026-07-09T15:53:09.319Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon Houndété",
     "shortName": "Venance Houndété",
     "role": "Cybersécurité · GRC · Pentest Web",
     "roleEn": "Cybersecurity · GRC · Web Pentesting",
-    "tagline": "J'aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d'intrusion web black-box, rédaction de politiques de sécurité, avec des livrables concrets et professionnels.",
+    "tagline": "J'aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d'intrusion web black-box, rédaction de politiques de sécurité, avec des livrables concrets et professionnels.......",
     "taglineEn": "I help organizations secure their information systems through GRC audits, black-box web penetration testing and security policy documentation.",
     "location": "Abomey-Calavi, Bénin · Travail à distance possible",
     "email": "vhoundete@gmail.com",
@@ -19,22 +18,74 @@
     "availability": "Freelance · Stage académique · Missions GRC & Pentest",
     "speciality": "Gouvernance SI · Audit & Pentest Web · Conformité ISO 27001",
     "languages": "Français courant · Anglais intermédiaire B1",
-    "about": "Je suis Venance Arnolde Yéminvènon Houndété, étudiant en Licence 3 Sécurité Informatique à l'IFRI, Université d'Abomey-Calavi au Bénin, aspirant RSSI.\n\nJ'ai une expérience pratique en audit GRC et en tests d'intrusion web black-box réels. J'ai conduit des audits pour l'Université d'Abomey-Calavi, notamment autour de la PSSI-UAC v2.0 pour un SI de 60 000 utilisateurs, et pour GRAFNET Consulting, où j'ai identifié des vulnérabilités critiques sur des plateformes e-commerce en production.\n\nJe suis disponible pour des missions freelance ou un stage académique en cybersécurité offensive et défensive, gestion des risques et conformité.",
-    "aboutEn": "I am Venance Arnolde Yéminvènon Houndété, a third-year Cybersecurity student at IFRI, University of Abomey-Calavi in Benin, and an aspiring CISO.\n\nI have practical experience in GRC audits and real black-box web penetration testing. I worked on audits for the University of Abomey-Calavi and GRAFNET Consulting, where I identified critical vulnerabilities on production e-commerce platforms.\n\nI am available for freelance missions or an academic internship in offensive and defensive cybersecurity, risk management and compliance.",
     "stats": [
-      { "label": "Vulnérabilités identifiées lors d'audits web réels", "labelEn": "Vulnerabilities identified during real web audits", "value": "18+" },
-      { "label": "Points de contrôle vérifiés sur l'audit SI de l'UAC", "labelEn": "Control points checked during the UAC IS audit", "value": "33" },
-      { "label": "Règles de sécurité rédigées pour la PSSI-UAC v2.0", "labelEn": "Security rules written for PSSI-UAC v2.0", "value": "50+" },
-      { "label": "Normes maîtrisées : ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE", "labelEn": "Frameworks: ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE", "value": "5" }
-    ]
+      {
+        "label": "Vulnérabilités identifiées lors d'audits web réels",
+        "labelEn": "Vulnerabilities identified during real web audits",
+        "value": "18+"
+      },
+      {
+        "label": "Points de contrôle vérifiés sur l'audit SI de l'UAC",
+        "labelEn": "Control points checked during the UAC IS audit",
+        "value": "33"
+      },
+      {
+        "label": "Règles de sécurité rédigées pour la PSSI-UAC v2.0",
+        "labelEn": "Security rules written for PSSI-UAC v2.0",
+        "value": "50+"
+      },
+      {
+        "label": "Normes maîtrisées : ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE",
+        "labelEn": "Frameworks: ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE",
+        "value": "5"
+      }
+    ],
+    "about": "Je suis Venance Arnolde Yéminvènon Houndété, étudiant en Licence 3 Sécurité Informatique à l'IFRI, Université d'Abomey-Calavi au Bénin, aspirant RSSI.\n\nJ'ai une expérience pratique en audit GRC et en tests d'intrusion web black-box réels. J'ai conduit des audits pour l'Université d'Abomey-Calavi, notamment autour de la PSSI-UAC v2.0 pour un SI de 60 000 utilisateurs, et pour GRAFNET Consulting, où j'ai identifié des vulnérabilités critiques sur des plateformes e-commerce en production.\n\nJe suis disponible pour des missions freelance ou un stage académique en cybersécurité offensive et défensive, gestion des risques et conformité.",
+    "aboutEn": "I am Venance Arnolde Yéminvènon Houndété, a third-year Cybersecurity student at IFRI, University of Abomey-Calavi in Benin, and an aspiring CISO.\n\nI have practical experience in GRC audits and real black-box web penetration testing. I worked on audits for the University of Abomey-Calavi and GRAFNET Consulting, where I identified critical vulnerabilities on production e-commerce platforms.\n\nI am available for freelance missions or an academic internship in offensive and defensive cybersecurity, risk management and compliance."
   },
   "services": [
-    { "id": "srv-pentest", "title": "Pentest Web Black-box", "titleEn": "Black-box Web Penetration Testing", "description": "Test d'intrusion boîte noire sur applications web : reconnaissance, énumération, OWASP Top 10, API Security Top 10 et rapport de remédiation priorisé.", "icon": "shield" },
-    { "id": "srv-grc", "title": "Audit de Sécurité & GRC", "titleEn": "Security Audit & GRC", "description": "Analyse des écarts sur procédures et politiques de sécurité : ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Bénin.", "icon": "search" },
-    { "id": "srv-pssi", "title": "Politique de Sécurité (PSSI)", "titleEn": "Security Policy (ISSP)", "description": "Rédaction de documents de gouvernance SI : règles de sécurité, matrice RACI, KPI, registre des traitements et conformité réglementaire.", "icon": "file" },
-    { "id": "srv-iso", "title": "Conformité ISO 27001 & RGPD", "titleEn": "ISO 27001 & GDPR Compliance", "description": "Comparaison aux exigences ISO 27001:2022, analyse RGPD / Code du Numérique du Bénin et feuille de route de conformité.", "icon": "check" },
-    { "id": "srv-risk", "title": "Cartographie & Analyse de risques", "titleEn": "Risk Mapping & Analysis", "description": "Cartographie d'infrastructure, actifs, données sensibles, points vulnérables, analyse de risques et matrice de criticité.", "icon": "map" },
-    { "id": "srv-training", "title": "Formation des équipes", "titleEn": "Team Training", "description": "Sessions pratiques pour comprendre les risques cyber, les bonnes pratiques et les procédures de réponse aux incidents.", "icon": "book" }
+    {
+      "id": "srv-pentest",
+      "title": "Pentest Web Black-box",
+      "titleEn": "Black-box Web Penetration Testing",
+      "description": "Test d'intrusion boîte noire sur applications web : reconnaissance, énumération, OWASP Top 10, API Security Top 10 et rapport de remédiation priorisé.",
+      "icon": "shield"
+    },
+    {
+      "id": "srv-grc",
+      "title": "Audit de Sécurité & GRC",
+      "titleEn": "Security Audit & GRC",
+      "description": "Analyse des écarts sur procédures et politiques de sécurité : ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Bénin.",
+      "icon": "search"
+    },
+    {
+      "id": "srv-pssi",
+      "title": "Politique de Sécurité (PSSI)",
+      "titleEn": "Security Policy (ISSP)",
+      "description": "Rédaction de documents de gouvernance SI : règles de sécurité, matrice RACI, KPI, registre des traitements et conformité réglementaire.",
+      "icon": "file"
+    },
+    {
+      "id": "srv-iso",
+      "title": "Conformité ISO 27001 & RGPD",
+      "titleEn": "ISO 27001 & GDPR Compliance",
+      "description": "Comparaison aux exigences ISO 27001:2022, analyse RGPD / Code du Numérique du Bénin et feuille de route de conformité.",
+      "icon": "check"
+    },
+    {
+      "id": "srv-risk",
+      "title": "Cartographie & Analyse de risques",
+      "titleEn": "Risk Mapping & Analysis",
+      "description": "Cartographie d'infrastructure, actifs, données sensibles, points vulnérables, analyse de risques et matrice de criticité.",
+      "icon": "map"
+    },
+    {
+      "id": "srv-training",
+      "title": "Formation des équipes",
+      "titleEn": "Team Training",
+      "description": "Sessions pratiques pour comprendre les risques cyber, les bonnes pratiques et les procédures de réponse aux incidents.",
+      "icon": "book"
+    }
   ],
   "projects": [
     {
@@ -45,7 +96,6 @@
       "date": "Depuis juin 2026",
       "badge": "GRC · Stage",
       "badgeStyle": "grc",
-      "category": "GRC",
       "description": "Analyse de conformité documentaire couvrant plusieurs référentiels majeurs.",
       "bullets": [
         "Analyse de conformité de 27 procédures croisant ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 et COBIT 2019.",
@@ -54,9 +104,26 @@
         "Production de registres d'écarts et rapports de conformité pour certification ISO 27001 / ISO 20000.",
         "Intervention de récupération d'urgence sur VPS Ubuntu 24.04 avec Odoo 18, Nginx, PostgreSQL, MariaDB et Docker."
       ],
-      "tags": ["ISO 27001:2022", "ISO 20000-1", "ITIL 4", "COBIT 2019", "PSSIE", "RACI"],
+      "bulletsEn": [
+        "Analyse de conformité de 27 procédures croisant ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 et COBIT 2019.",
+        "Identification des écarts, lacunes documentaires et risques de non-conformité avec recommandations correctives.",
+        "Vérification des rôles, matrice RACI, contrôles internes, KPI et mécanismes de traçabilité.",
+        "Production de registres d'écarts et rapports de conformité pour certification ISO 27001 / ISO 20000.",
+        "Intervention de récupération d'urgence sur VPS Ubuntu 24.04 avec Odoo 18, Nginx, PostgreSQL, MariaDB et Docker."
+      ],
+      "category": "GRC",
+      "tags": [
+        "ISO 27001:2022",
+        "ISO 20000-1",
+        "ITIL 4",
+        "COBIT 2019",
+        "PSSIE",
+        "RACI"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
       "link": "#",
-      "repo": "#"
+      "repo": "#",
+      "featured": false
     },
     {
       "id": "prj-asofind",
@@ -66,7 +133,6 @@
       "date": "23 juin 2026",
       "badge": "Pentest Web",
       "badgeStyle": "pentest",
-      "category": "Pentest",
       "description": "Test d'intrusion boîte noire sur une plateforme e-commerce en production.",
       "bullets": [
         "Test d'intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB.",
@@ -74,9 +140,27 @@
         "5 failles supplémentaires : absence de CSP, fuite Sentry DSN et hash Git, absence de rate limiting.",
         "Total : 6 vulnérabilités dont 1 critique, avec rapport de remédiation priorisé livré."
       ],
-      "tags": ["OWASP Top 10", "API Security", "RGPD", "nmap", "nikto", "sqlmap", "whatweb", "curl"],
+      "bulletsEn": [
+        "Test d'intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB.",
+        "CRITIQUE : exposition de données personnelles de 9 comptes via API publique non protégée.",
+        "5 failles supplémentaires : absence de CSP, fuite Sentry DSN et hash Git, absence de rate limiting.",
+        "Total : 6 vulnérabilités dont 1 critique, avec rapport de remédiation priorisé livré."
+      ],
+      "category": "Pentest",
+      "tags": [
+        "OWASP Top 10",
+        "API Security",
+        "RGPD",
+        "nmap",
+        "nikto",
+        "sqlmap",
+        "whatweb",
+        "curl"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
       "link": "#",
-      "repo": "#"
+      "repo": "#",
+      "featured": false
     },
     {
       "id": "prj-giftyzi",
@@ -86,7 +170,6 @@
       "date": "17–20 juin 2026",
       "badge": "Pentest Web",
       "badgeStyle": "pentest",
-      "category": "Pentest",
       "description": "Audit de sécurité sur infrastructure Django / Next.js / PostgreSQL / Redis.",
       "bullets": [
         "CRITIQUE : mode DEBUG actif en production avec exposition de l'infrastructure interne.",
@@ -94,9 +177,26 @@
         "CRITIQUE : sous-domaines exposés et mauvaise configuration TLS.",
         "Total : 12 vulnérabilités dont 3 critiques, avec recommandations headers et durcissement TLS."
       ],
-      "tags": ["OWASP Top 10", "DEBUG", "RGPD", "Nmap", "OWASP ZAP", "curl", "DevTools"],
+      "bulletsEn": [
+        "CRITIQUE : mode DEBUG actif en production avec exposition de l'infrastructure interne.",
+        "CRITIQUE : collecte massive de données personnelles sans politique de confidentialité.",
+        "CRITIQUE : sous-domaines exposés et mauvaise configuration TLS.",
+        "Total : 12 vulnérabilités dont 3 critiques, avec recommandations headers et durcissement TLS."
+      ],
+      "category": "Pentest",
+      "tags": [
+        "OWASP Top 10",
+        "DEBUG",
+        "RGPD",
+        "Nmap",
+        "OWASP ZAP",
+        "curl",
+        "DevTools"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
       "link": "#",
-      "repo": "#"
+      "repo": "#",
+      "featured": false
     },
     {
       "id": "prj-uac-audit",
@@ -106,7 +206,6 @@
       "date": "2025–2026",
       "badge": "Audit réel",
       "badgeStyle": "grc",
-      "category": "Audit",
       "description": "Audit complet autour de la gouvernance et de la conformité du système d'information.",
       "bullets": [
         "Audit complet : 33 points de contrôle alignés PSSIE, ISO 27001:2022 et Code du Numérique.",
@@ -114,9 +213,24 @@
         "12 points critiques dont non-conformité Code du Numérique sur données de santé et financières.",
         "Analyse et documentation d'un incident réel de type ransomware avec rapport et recommandations."
       ],
-      "tags": ["ISO 27001", "PSSIE", "Code du Numérique", "Audit", "Gap Analysis"],
+      "bulletsEn": [
+        "Audit complet : 33 points de contrôle alignés PSSIE, ISO 27001:2022 et Code du Numérique.",
+        "27 questions de diagnostic sur 7 domaines via Google Forms / Apps Script.",
+        "12 points critiques dont non-conformité Code du Numérique sur données de santé et financières.",
+        "Analyse et documentation d'un incident réel de type ransomware avec rapport et recommandations."
+      ],
+      "category": "Audit",
+      "tags": [
+        "ISO 27001",
+        "PSSIE",
+        "Code du Numérique",
+        "Audit",
+        "Gap Analysis"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
       "link": "#",
-      "repo": "#"
+      "repo": "#",
+      "featured": false
     },
     {
       "id": "prj-pssi",
@@ -126,7 +240,6 @@
       "date": "2025–2026",
       "badge": "Historique",
       "badgeStyle": "grc",
-      "category": "Gouvernance",
       "description": "Document officiel de gouvernance SI pour un système d'information universitaire.",
       "bullets": [
         "Premier document de gouvernance SI de l'UAC.",
@@ -134,9 +247,24 @@
         "Feuille de route en 4 phases sur 18–24 mois pour un SI de 60 000 utilisateurs.",
         "Conforme PSSIE Bénin, ISO 27001:2022 et Code du Numérique."
       ],
-      "tags": ["PSSI", "ISO 27001", "Gouvernance", "PSSIE Bénin", "60 000 utilisateurs"],
+      "bulletsEn": [
+        "Premier document de gouvernance SI de l'UAC.",
+        "13 sections, 50+ règles de sécurité codées, validé par le Chef du SPTIC.",
+        "Feuille de route en 4 phases sur 18–24 mois pour un SI de 60 000 utilisateurs.",
+        "Conforme PSSIE Bénin, ISO 27001:2022 et Code du Numérique."
+      ],
+      "category": "Gouvernance",
+      "tags": [
+        "PSSI",
+        "ISO 27001",
+        "Gouvernance",
+        "PSSIE Bénin",
+        "60 000 utilisateurs"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
       "link": "#",
-      "repo": "#"
+      "repo": "#",
+      "featured": false
     },
     {
       "id": "prj-ai4bmi",
@@ -146,103 +274,318 @@
       "date": "Fév. 2026",
       "badge": "Hackathon",
       "badgeStyle": "hack",
-      "category": "Hackathon",
       "description": "Plateforme IA avec chiffrement et contrôles de sécurité applicative.",
       "bullets": [
         "Chiffrement AES-256-GCM, MFA, anti-brute force et JWT.",
         "Documentation technique complète et rapport de sécurité remis au jury.",
         "Conforme aux recommandations NIST sur les mots de passe."
       ],
-      "tags": ["Python", "Flask", "AES-256-GCM", "MFA", "JWT", "NIST"],
+      "bulletsEn": [
+        "Chiffrement AES-256-GCM, MFA, anti-brute force et JWT.",
+        "Documentation technique complète et rapport de sécurité remis au jury.",
+        "Conforme aux recommandations NIST sur les mots de passe."
+      ],
+      "category": "Hackathon",
+      "tags": [
+        "Python",
+        "Flask",
+        "AES-256-GCM",
+        "MFA",
+        "JWT",
+        "NIST"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
       "link": "#",
-      "repo": "#"
+      "repo": "#",
+      "featured": false
     }
   ],
   "skills": [
-    { "id": "sk-pentest", "name": "Pentest Web Black-box", "level": 78, "category": "Sécurité Offensive" },
-    { "id": "sk-owasp", "name": "OWASP Top 10 / API Security", "level": 82, "category": "Sécurité Offensive" },
-    { "id": "sk-recon", "name": "Reconnaissance & Énumération", "level": 75, "category": "Sécurité Offensive" },
-    { "id": "sk-burp", "name": "Burp Suite", "level": 72, "category": "Sécurité Offensive" },
-    { "id": "sk-zap", "name": "OWASP ZAP / Nikto", "level": 75, "category": "Sécurité Offensive" },
-    { "id": "sk-nmap", "name": "SQLMap / WhatWeb / Nmap", "level": 78, "category": "Sécurité Offensive" },
-    { "id": "sk-iso", "name": "ISO 27001:2022", "level": 85, "category": "Gouvernance & Conformité" },
-    { "id": "sk-iso2", "name": "ISO 20000-1 / ISO 27035", "level": 80, "category": "Gouvernance & Conformité" },
-    { "id": "sk-itil", "name": "ITIL 4 / COBIT 2019", "level": 78, "category": "Gouvernance & Conformité" },
-    { "id": "sk-pssie", "name": "PSSIE Bénin / Code Numérique", "level": 88, "category": "Gouvernance & Conformité" },
-    { "id": "sk-raci", "name": "Rédaction PSSI & RACI", "level": 85, "category": "Gouvernance & Conformité" },
-    { "id": "sk-gap", "name": "Gap Analysis / Audit", "level": 82, "category": "Gouvernance & Conformité" },
-    { "id": "sk-wireshark", "name": "Analyse réseau (Wireshark)", "level": 80, "category": "Cybersécurité Défensive" },
-    { "id": "sk-crypto", "name": "Chiffrement AES-256-GCM/JWT", "level": 78, "category": "Cybersécurité Défensive" },
-    { "id": "sk-kali", "name": "Kali Linux", "level": 78, "category": "Cybersécurité Défensive" },
-    { "id": "sk-siem", "name": "Analyse incidents / SIEM", "level": 65, "category": "Cybersécurité Défensive" },
-    { "id": "sk-python", "name": "Python / Flask", "level": 75, "category": "Développement" },
-    { "id": "sk-web", "name": "HTML/CSS/JavaScript", "level": 72, "category": "Développement" },
-    { "id": "sk-git", "name": "Git / GitHub", "level": 72, "category": "Développement" },
-    { "id": "sk-linux", "name": "Bash / Linux", "level": 62, "category": "Développement" }
+    {
+      "id": "sk-pentest",
+      "name": "Pentest Web Black-box",
+      "level": 78,
+      "category": "Sécurité Offensive"
+    },
+    {
+      "id": "sk-owasp",
+      "name": "OWASP Top 10 / API Security",
+      "level": 82,
+      "category": "Sécurité Offensive"
+    },
+    {
+      "id": "sk-recon",
+      "name": "Reconnaissance & Énumération",
+      "level": 75,
+      "category": "Sécurité Offensive"
+    },
+    {
+      "id": "sk-burp",
+      "name": "Burp Suite",
+      "level": 72,
+      "category": "Sécurité Offensive"
+    },
+    {
+      "id": "sk-zap",
+      "name": "OWASP ZAP / Nikto",
+      "level": 75,
+      "category": "Sécurité Offensive"
+    },
+    {
+      "id": "sk-nmap",
+      "name": "SQLMap / WhatWeb / Nmap",
+      "level": 78,
+      "category": "Sécurité Offensive"
+    },
+    {
+      "id": "sk-iso",
+      "name": "ISO 27001:2022",
+      "level": 85,
+      "category": "Gouvernance & Conformité"
+    },
+    {
+      "id": "sk-iso2",
+      "name": "ISO 20000-1 / ISO 27035",
+      "level": 80,
+      "category": "Gouvernance & Conformité"
+    },
+    {
+      "id": "sk-itil",
+      "name": "ITIL 4 / COBIT 2019",
+      "level": 78,
+      "category": "Gouvernance & Conformité"
+    },
+    {
+      "id": "sk-pssie",
+      "name": "PSSIE Bénin / Code Numérique",
+      "level": 88,
+      "category": "Gouvernance & Conformité"
+    },
+    {
+      "id": "sk-raci",
+      "name": "Rédaction PSSI & RACI",
+      "level": 85,
+      "category": "Gouvernance & Conformité"
+    },
+    {
+      "id": "sk-gap",
+      "name": "Gap Analysis / Audit",
+      "level": 82,
+      "category": "Gouvernance & Conformité"
+    },
+    {
+      "id": "sk-wireshark",
+      "name": "Analyse réseau (Wireshark)",
+      "level": 80,
+      "category": "Cybersécurité Défensive"
+    },
+    {
+      "id": "sk-crypto",
+      "name": "Chiffrement AES-256-GCM/JWT",
+      "level": 78,
+      "category": "Cybersécurité Défensive"
+    },
+    {
+      "id": "sk-kali",
+      "name": "Kali Linux",
+      "level": 78,
+      "category": "Cybersécurité Défensive"
+    },
+    {
+      "id": "sk-siem",
+      "name": "Analyse incidents / SIEM",
+      "level": 65,
+      "category": "Cybersécurité Défensive"
+    },
+    {
+      "id": "sk-python",
+      "name": "Python / Flask",
+      "level": 75,
+      "category": "Développement"
+    },
+    {
+      "id": "sk-web",
+      "name": "HTML/CSS/JavaScript",
+      "level": 72,
+      "category": "Développement"
+    },
+    {
+      "id": "sk-git",
+      "name": "Git / GitHub",
+      "level": 72,
+      "category": "Développement"
+    },
+    {
+      "id": "sk-linux",
+      "name": "Bash / Linux",
+      "level": 62,
+      "category": "Développement"
+    }
   ],
-  "tools": ["Burp Suite", "OWASP ZAP", "Nmap", "Nikto", "SQLMap", "WhatWeb", "Kali Linux", "Aircrack-ng", "Wireshark", "ArcSight", "QRadar", "Netdata", "Python", "Flask", "Git", "JWT", "AES-256", "bcrypt", "curl", "OSINT Framework"],
-  "toolsOffensive": ["Burp Suite", "OWASP ZAP", "Nmap", "Nikto", "SQLMap", "WhatWeb", "Kali Linux", "Aircrack-ng"],
+  "tools": [
+    "Burp Suite",
+    "OWASP ZAP",
+    "Nmap",
+    "Nikto",
+    "SQLMap",
+    "WhatWeb",
+    "Kali Linux",
+    "Aircrack-ng",
+    "Wireshark",
+    "ArcSight",
+    "QRadar",
+    "Netdata",
+    "Python",
+    "Flask",
+    "Git",
+    "JWT",
+    "AES-256",
+    "bcrypt",
+    "curl",
+    "OSINT Framework"
+  ],
+  "toolsOffensive": [
+    "Burp Suite",
+    "OWASP ZAP",
+    "Nmap",
+    "Nikto",
+    "SQLMap",
+    "WhatWeb",
+    "Kali Linux",
+    "Aircrack-ng"
+  ],
   "experience": [
-    { "id": "exp-grafnet", "role": "Stage GRC / Audit SSI", "company": "GRAFNET Consulting", "period": "Depuis juin 2026", "description": "Audit documentaire, analyse de conformité ISO, tests web black-box et recommandations de remédiation." },
-    { "id": "exp-uac", "role": "Audit SI et PSSI-UAC v2.0", "company": "SPTIC — Université d'Abomey-Calavi", "period": "2025–2026", "description": "Audit de gouvernance SI, documentation d'incident, rédaction de politique de sécurité et feuille de route." }
+    {
+      "id": "exp-grafnet",
+      "role": "Stage GRC / Audit SSI",
+      "company": "GRAFNET Consulting",
+      "period": "Depuis juin 2026",
+      "description": "Audit documentaire, analyse de conformité ISO, tests web black-box et recommandations de remédiation."
+    },
+    {
+      "id": "exp-uac",
+      "role": "Audit SI et PSSI-UAC v2.0",
+      "company": "SPTIC — Université d'Abomey-Calavi",
+      "period": "2025–2026",
+      "description": "Audit de gouvernance SI, documentation d'incident, rédaction de politique de sécurité et feuille de route."
+    }
   ],
   "edu": [
-    { "id": "edu-ifri", "degree": "Licence 3 — Sécurité Informatique (en cours)", "school": "IFRI — Université d'Abomey-Calavi, Bénin", "period": "2023 – présent", "description": "Cybersécurité offensive et défensive, gouvernance SI, réseaux, développement et conformité." },
-    { "id": "edu-bac", "degree": "Baccalauréat Série D — Mention Bien", "school": "Bénin", "period": "2023", "description": "Parcours scientifique." }
+    {
+      "id": "edu-ifri",
+      "degree": "Licence 3 — Sécurité Informatique (en cours)",
+      "school": "IFRI — Université d'Abomey-Calavi, Bénin",
+      "period": "2023 – présent",
+      "description": "Cybersécurité offensive et défensive, gouvernance SI, réseaux, développement et conformité."
+    },
+    {
+      "id": "edu-bac",
+      "degree": "Baccalauréat Série D — Mention Bien",
+      "school": "Bénin",
+      "period": "2023",
+      "description": "Parcours scientifique."
+    }
   ],
   "certs": [
-    { "id": "cert-cisco", "title": "Introduction to Cyber Security", "issuer": "Cisco Networking Academy", "date": "2025", "description": "Fondamentaux de cybersécurité, risques, menaces et bonnes pratiques.", "logo": "", "pdf": "", "link": "https://www.netacad.com/" },
-    { "id": "cert-grafnet", "title": "Internship GRC / Audit SSI", "issuer": "GRAFNET Consulting", "date": "2026", "description": "Audit GRC, analyse de conformité et tests de sécurité web.", "logo": "", "pdf": "", "link": "#" }
+    {
+      "id": "cert-cisco",
+      "title": "Introduction to Cyber Security",
+      "issuer": "Cisco Networking Academy",
+      "date": "2025",
+      "description": "Fondamentaux de cybersécurité, risques, menaces et bonnes pratiques.",
+      "logo": "",
+      "pdf": "",
+      "link": "https://www.netacad.com/"
+    },
+    {
+      "id": "cert-grafnet",
+      "title": "Internship GRC / Audit SSI",
+      "issuer": "GRAFNET Consulting",
+      "date": "2026",
+      "description": "Audit GRC, analyse de conformité et tests de sécurité web.",
+      "logo": "",
+      "pdf": "",
+      "link": "#"
+    }
   ],
   "knowledge": [],
   "gallery": [],
   "articles": [],
   "contacts": [
-    { "id": "ct-email", "label": "Email", "value": "vhoundete@gmail.com", "url": "mailto:vhoundete@gmail.com", "icon": "mail" },
-    { "id": "ct-whatsapp", "label": "WhatsApp", "value": "+229 01 69 95 94 07", "url": "https://wa.me/22901699559407", "icon": "phone" },
-    { "id": "ct-linkedin", "label": "LinkedIn", "value": "linkedin.com/in/venancehoundete", "url": "https://linkedin.com/in/venancehoundete", "icon": "linkedin" },
-    { "id": "ct-github", "label": "GitHub", "value": "github.com/venance10", "url": "https://github.com/venance10", "icon": "github" }
+    {
+      "id": "ct-email",
+      "label": "Email",
+      "value": "vhoundete@gmail.com",
+      "url": "mailto:vhoundete@gmail.com",
+      "icon": "mail"
+    },
+    {
+      "id": "ct-whatsapp",
+      "label": "WhatsApp",
+      "value": "+229 01 69 95 94 07",
+      "url": "https://wa.me/22901699559407",
+      "icon": "phone"
+    },
+    {
+      "id": "ct-linkedin",
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/venancehoundete",
+      "url": "https://linkedin.com/in/venancehoundete",
+      "icon": "linkedin"
+    },
+    {
+      "id": "ct-github",
+      "label": "GitHub",
+      "value": "github.com/venance10",
+      "url": "https://github.com/venance10",
+      "icon": "github"
+    }
   ],
   "activity": [
-      {
-        "date": "2026-07-09T15:33:52.160Z",
-        "type": "edit",
-        "message": "Mise a jour des infos principales"
-      },
-      {
-        "date": "2026-07-09T15:19:47.042Z",
-        "type": "github",
-        "message": "Sauvegarde GitHub data.json"
-      },
-      {
-        "date": "2026-07-09T15:18:43.039Z",
-        "type": "github",
-        "message": "Sauvegarde GitHub data.json"
-      },
-      {
-        "date": "2026-07-09T15:17:43.023Z",
-        "type": "github",
-        "message": "Synchronisation GitHub automatique"
-      },
-      {
-        "date": "2026-07-09T15:17:41.240Z",
-        "type": "edit",
-        "message": "Mise a jour des infos principales"
-      },
-      {
-        "date": "2026-07-09T15:15:28.619Z",
-        "type": "github",
-        "message": "Sauvegarde GitHub data.json"
-      },
-      {
-        "date": "2026-07-09T14:57:29.456Z",
-        "type": "edit",
-        "message": "Mise a jour des infos principales"
-      },
-      {
-        "date": "2026-07-09T13:20:00.000Z",
-        "type": "content",
-        "message": "Contenu réaligné depuis index source cyber/GRC."
-      }
-    ]
-  }
+    {
+      "date": "2026-07-09T15:53:09.318Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
+    {
+      "date": "2026-07-09T15:33:52.160Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
+    {
+      "date": "2026-07-09T15:19:47.042Z",
+      "type": "github",
+      "message": "Sauvegarde GitHub data.json"
+    },
+    {
+      "date": "2026-07-09T15:18:43.039Z",
+      "type": "github",
+      "message": "Sauvegarde GitHub data.json"
+    },
+    {
+      "date": "2026-07-09T15:17:43.023Z",
+      "type": "github",
+      "message": "Synchronisation GitHub automatique"
+    },
+    {
+      "date": "2026-07-09T15:17:41.240Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
+    {
+      "date": "2026-07-09T15:15:28.619Z",
+      "type": "github",
+      "message": "Sauvegarde GitHub data.json"
+    },
+    {
+      "date": "2026-07-09T14:57:29.456Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
+    {
+      "date": "2026-07-09T13:20:00.000Z",
+      "type": "content",
+      "message": "Contenu réaligné depuis index source cyber/GRC."
+    }
+  ]
+}
