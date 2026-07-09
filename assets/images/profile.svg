@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100">
+  <rect width="900" height="1100" fill="#eef5f1"/>
+  <path d="M0 830c180-80 320-88 450-26s277 69 450-14v310H0z" fill="#0f766e"/>
+  <circle cx="450" cy="360" r="190" fill="#f7f4ee" stroke="#18211f" stroke-width="18"/>
+  <path d="M285 690c31-128 114-198 165-198s134 70 165 198" fill="#c2410c"/>
+  <path d="M335 340c35-76 90-114 170-100 51 9 95 37 132 84-42-165-290-191-302 16z" fill="#18211f"/>
+  <circle cx="390" cy="378" r="16" fill="#18211f"/>
+  <circle cx="512" cy="378" r="16" fill="#18211f"/>
+  <path d="M392 460c43 34 84 34 123 0" fill="none" stroke="#18211f" stroke-width="14" stroke-linecap="round"/>
+  <text x="450" y="940" text-anchor="middle" font-size="66" font-family="Georgia,serif" font-weight="700" fill="#f7f4ee">Venance Houndete</text>
+</svg>

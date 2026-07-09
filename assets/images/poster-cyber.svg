@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 920">
+  <rect width="700" height="920" fill="#f7f4ee"/>
+  <rect x="58" y="58" width="584" height="804" rx="18" fill="#18211f"/>
+  <path d="M350 150 520 220v110c0 95-58 165-170 212-112-47-170-117-170-212V220z" fill="#0f766e"/>
+  <text x="350" y="640" text-anchor="middle" font-size="62" font-family="Georgia,serif" font-weight="700" fill="#f7f4ee">SECURITE</text>
+  <text x="350" y="705" text-anchor="middle" font-size="31" font-family="Arial,sans-serif" fill="#facc15">Verifier · Sauvegarder · Signaler</text>
+</svg>

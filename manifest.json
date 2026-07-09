@@ -1,0 +1,11 @@
+{
+  "name": "Venance Houndete Portfolio",
+  "short_name": "VH Portfolio",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#c9a84c",
+  "icons": [
+    { "src": "./assets/images/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

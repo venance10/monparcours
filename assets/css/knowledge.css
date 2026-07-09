@@ -1,0 +1,6 @@
+.article-content { display: grid; gap: 16px; }
+.article-content p, .ql-editor p { margin: 0 0 12px; }
+.article-content ul, .ql-editor ul { padding-left: 22px; }
+.ql-toolbar.ql-snow, .ql-container.ql-snow { border-color: var(--line); }
+.ql-container { min-height: 220px; background: var(--surface); color: var(--text); }
+.article-meta { display: flex; flex-wrap: wrap; gap: 8px; }

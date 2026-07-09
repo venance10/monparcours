@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <rect width="900" height="560" fill="#f7f4ee"/>
+  <rect x="70" y="70" width="760" height="420" rx="16" fill="#18211f"/>
+  <rect x="100" y="112" width="280" height="38" rx="8" fill="#2dd4bf"/>
+  <rect x="100" y="188" width="360" height="210" rx="8" fill="#eef5f1"/>
+  <rect x="500" y="188" width="260" height="70" rx="8" fill="#fb923c"/>
+  <rect x="500" y="284" width="260" height="114" rx="8" fill="#facc15"/>
+  <text x="120" y="455" font-size="44" font-family="Georgia,serif" fill="#f7f4ee">Portfolio CMS</text>
+</svg>
