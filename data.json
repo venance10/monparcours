@@ -1,9 +1,9 @@
 {
   "_v": 2,
-  "_updated": "2026-07-09T16:02:40.732Z",
+  "_updated": "2026-07-09T18:42:29.365Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon Houndété",
-    "shortName": "Venance Houndété",
+    "shortName": "Venance A.Y  Houndété",
     "role": "Cybersécurité · GRC · Pentest Web",
     "roleEn": "Cybersecurity · GRC · Web Pentesting",
     "tagline": "J'aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d'intrusion web black-box, rédaction de politiques de sécurité, avec des livrables concrets et professionnels.",
@@ -542,6 +542,21 @@
     }
   ],
   "activity": [
+    {
+      "date": "2026-07-09T18:42:29.364Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
+    {
+      "date": "2026-07-09T18:42:25.398Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
+    {
+      "date": "2026-07-09T18:42:19.188Z",
+      "type": "edit",
+      "message": "Mise a jour des infos principales"
+    },
     {
       "date": "2026-07-09T16:02:40.728Z",
       "type": "edit",
