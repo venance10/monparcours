@@ -1,4 +1,4 @@
-const CACHE = "venanceportfolio-v8";
+const CACHE = "venanceportfolio-v9";
 const ASSETS = [
   "./",
   "./index.html",

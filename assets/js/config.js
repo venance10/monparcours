@@ -8,6 +8,6 @@ export const ADMIN_LOCAL_HASH_KEY = "venanceportfolio:adminHash";
 export const GITHUB_CONFIG_KEY = "venanceportfolio:github";
 export const ADMIN_PASS_HASH = "3d2d940665a34415e08f6814661e6898a6f8fd7035d9a8093f8f747b18513fc2";
 export const DEFAULT_OWNER = "venance10";
-export const DEFAULT_REPO = "venanceportfolio";
+export const DEFAULT_REPO = "monparcours";
 export const DEFAULT_BRANCH = "main";
 

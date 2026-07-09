@@ -1,5 +1,7 @@
 import { D } from "./data.js";
 import { metrics } from "./admin-dashboard.js";
+import { DEFAULT_BRANCH, DEFAULT_OWNER, DEFAULT_REPO } from "./config.js";
+import { getGitHubConfig } from "./github.js";
 import { escapeHtml, icon } from "./utils.js";
 
 const collections = {
@@ -114,6 +116,7 @@ export function renderAdmin(tab = "dashboard") {
 
 function renderDashboard() {
   return `<div class="admin-grid">${metrics().map(([label, value]) => `<div class="card metric"><span class="muted">${label}</span><strong>${escapeHtml(value)}</strong></div>`).join("")}</div>
+  <section class="card" style="padding:18px"><div class="admin-top"><div><h3>Sauvegarde en ligne</h3><p class="muted">Après configuration GitHub, chaque enregistrement peut être publié pour tous les appareils.</p></div><button class="btn primary" data-gh-save>${icon("save")} Sauvegarder maintenant sur GitHub</button></div></section>
   <section class="card" style="padding:18px"><h3>Activite recente</h3><div class="admin-list">${(D.activity || []).slice(0, 10).map(a => `<div class="admin-row"><span>${escapeHtml(a.message)}</span><span class="badge">${new Date(a.date).toLocaleString("fr-FR")}</span></div>`).join("")}</div></section>`;
 }
 
@@ -135,12 +138,14 @@ function renderInfos() {
 }
 
 function renderGithub() {
-  return `<div class="card" style="padding:18px"><h2>GitHub API</h2><p class="muted">Le token reste dans le stockage local du navigateur.</p><div class="form-grid" style="margin-top:16px">
-    <label class="field"><span>Owner</span><input id="ghOwner" placeholder="venance10"></label>
-    <label class="field"><span>Repo</span><input id="ghRepo" placeholder="venanceportfolio"></label>
-    <label class="field"><span>Branch</span><input id="ghBranch" placeholder="main"></label>
+  const cfg = getGitHubConfig();
+  const configured = Boolean(cfg.token);
+  return `<div class="card" style="padding:18px"><h2>Sauvegarde GitHub</h2><p class="muted">À configurer une seule fois. Ensuite, les boutons Enregistrer synchronisent automatiquement les changements en ligne.</p><div class="form-grid" style="margin-top:16px">
+    <label class="field"><span>Owner</span><input id="ghOwner" value="${escapeHtml(cfg.owner || DEFAULT_OWNER)}" placeholder="venance10"></label>
+    <label class="field"><span>Repo</span><input id="ghRepo" value="${escapeHtml(cfg.repo || DEFAULT_REPO)}" placeholder="monparcours"></label>
+    <label class="field"><span>Branch</span><input id="ghBranch" value="${escapeHtml(cfg.branch || DEFAULT_BRANCH)}" placeholder="main"></label>
     <label class="field"><span>Token</span><input id="ghToken" type="password"></label>
-  </div><div class="toolbar" style="margin-top:14px"><button class="btn" data-gh-config>${icon("save")} Enregistrer</button><button class="btn primary" data-gh-save>Sauvegarder data.json</button></div></div>`;
+  </div><div class="toolbar" style="margin-top:14px"><button class="btn" data-gh-config>${icon("save")} Enregistrer la configuration</button><button class="btn primary" data-gh-save>Sauvegarder maintenant sur GitHub</button><span class="badge ${configured ? "" : "danger"}">${configured ? "GitHub configuré" : "Token à ajouter"}</span></div></div>`;
 }
 
 export function renderEditModal(collection, item = {}) {

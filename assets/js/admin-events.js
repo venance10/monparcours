@@ -1,6 +1,6 @@
 import { ADMIN_LOCAL_HASH_KEY, ADMIN_PASS_HASH, ADMIN_SESSION_KEY } from "./config.js";
 import { D, addActivity, loadData, setData } from "./data.js";
-import { saveDataToGitHub, setGitHubConfig } from "./github.js";
+import { getGitHubConfig, saveDataToGitHub, setGitHubConfig } from "./github.js";
 import { getFormSchema, renderAdmin, renderEditModal } from "./admin-render.js";
 import { $, $$, downloadJson, readFileAsDataUrl, slugify, toast, uid } from "./utils.js";
 
@@ -68,6 +68,7 @@ function bindShell() {
     const text = await file.text();
     setData(JSON.parse(text));
     addActivity("Import data.json", "import");
+    await syncIfConfigured("Import sauvegardé en ligne.");
     render();
   });
   $("#logoutBtn").addEventListener("click", () => { sessionStorage.removeItem(ADMIN_SESSION_KEY); location.reload(); });
@@ -134,6 +135,7 @@ function deleteItem(id) {
   D[currentTab] = D[currentTab].filter(item => item.id !== id);
   addActivity(`Suppression ${currentTab}: ${id}`, "delete");
   setData(D);
+  syncIfConfigured("Suppression sauvegardée en ligne.");
   render();
 }
 
@@ -141,6 +143,7 @@ function saveJsonBlock(key) {
   D[key] = JSON.parse($("#jsonEditor").value);
   addActivity(`Mise a jour ${key}`, "edit");
   setData(D);
+  syncIfConfigured("Modification sauvegardée en ligne.");
   render();
 }
 
@@ -155,6 +158,7 @@ function saveInfoBlock() {
   addActivity("Mise a jour des infos principales", "edit");
   setData(D);
   toast("Infos principales enregistrées.");
+  syncIfConfigured("Infos sauvegardées en ligne.");
   render();
 }
 
@@ -168,6 +172,7 @@ async function saveItemBlock(collection, id) {
   addActivity(`Enregistrement ${collection}: ${value.id}`, "edit");
   setData(D);
   $("#modalRoot").innerHTML = "";
+  syncIfConfigured("Contenu sauvegardé en ligne.");
   render();
 }
 
@@ -209,16 +214,31 @@ function applyDefaults(collection, value) {
 
 function saveGithubConfig() {
   setGitHubConfig({ owner: $("#ghOwner").value, repo: $("#ghRepo").value, branch: $("#ghBranch").value, token: $("#ghToken").value });
-  toast("Configuration GitHub enregistree.");
+  toast("Configuration GitHub enregistrée. Les prochains enregistrements seront publiés automatiquement.");
 }
 
-async function saveGithub() {
+async function saveGithub(showSuccess = true) {
   try {
     await saveDataToGitHub(cleanData(D));
     addActivity("Sauvegarde GitHub data.json", "github");
-    toast("Sauvegarde GitHub terminee.");
+    if (showSuccess) toast("Sauvegarde GitHub terminée. Les changements seront visibles partout après le déploiement GitHub Pages.");
   } catch (error) {
     toast(error.message);
+  }
+}
+
+async function syncIfConfigured(message) {
+  const cfg = getGitHubConfig();
+  if (!cfg.token) {
+    toast("Enregistré localement. Ajoutez un token GitHub pour publier automatiquement partout.");
+    return;
+  }
+  try {
+    await saveDataToGitHub(cleanData(D));
+    addActivity("Synchronisation GitHub automatique", "github");
+    toast(message);
+  } catch (error) {
+    toast(`Sauvegarde locale OK, GitHub a échoué : ${error.message}`);
   }
 }
 
