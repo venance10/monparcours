@@ -110,6 +110,7 @@ const formSchemas = {
 export function renderAdmin(tab = "dashboard") {
   if (tab === "dashboard") return renderDashboard();
   if (tab === "infos") return renderInfos();
+  if (tab === "cv") return renderCv();
   if (tab === "github") return renderGithub();
   return renderCollection(tab);
 }
@@ -135,6 +136,21 @@ function renderJsonEditor(name, value) {
 function renderInfos() {
   return `<div class="admin-top"><div><h2>Infos principales</h2><p class="muted">Modifiez l'identité, le hero, le contact et la bio du portfolio.</p></div><button class="btn primary" data-save-info>${icon("save")} Enregistrer</button></div>
   <form id="infoForm" class="card" style="padding:18px"><div class="form-grid">${formSchemas.infos.map(field => renderField(field, D.infos)).join("")}</div></form>`;
+}
+
+function renderCv() {
+  const isEmbedded = String(D.infos.cv || "").startsWith("data:application/pdf");
+  return `<div class="admin-top"><div><h2>CV</h2><p class="muted">Remplacez le PDF du CV affiché sur le portfolio.</p></div><button class="btn primary" data-save-cv>${icon("save")} Enregistrer le CV</button></div>
+  <form id="cvForm" class="card" style="padding:18px">
+    <div class="form-grid">
+      ${renderField(["cv", "Nouveau CV PDF", "pdf"], D.infos)}
+    </div>
+    <div class="toolbar" style="margin-top:16px">
+      <a class="btn" href="${escapeHtml(D.infos.cv || "./cv.pdf")}" target="_blank" rel="noopener">${icon("download")} Voir le CV actuel</a>
+      <span class="badge">${isEmbedded ? "CV intégré dans data.json" : "CV lié à un fichier ou une URL"}</span>
+    </div>
+    <p class="muted" style="margin-top:14px">Conseil : gardez le PDF sous 3 MB. Après enregistrement, utilisez la sauvegarde GitHub automatique pour le rendre visible sur téléphone.</p>
+  </form>`;
 }
 
 function renderGithub() {

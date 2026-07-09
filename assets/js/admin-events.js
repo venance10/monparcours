@@ -87,6 +87,7 @@ function bindContent() {
     const del = event.target.closest("[data-delete]");
     const saveJson = event.target.closest("[data-save-json]");
     const saveInfo = event.target.closest("[data-save-info]");
+    const saveCv = event.target.closest("[data-save-cv]");
     const saveItem = event.target.closest("[data-save-item]");
     const close = event.target.closest("[data-modal-close]");
     const ghConfig = event.target.closest("[data-gh-config]");
@@ -95,6 +96,7 @@ function bindContent() {
     if (edit) return openItem(currentTab, D[currentTab].find(x => x.id === edit.dataset.edit));
     if (del) return deleteItem(del.dataset.delete);
     if (saveInfo) return saveInfoBlock();
+    if (saveCv) return saveCvBlock();
     if (saveJson) return saveJsonBlock(saveJson.dataset.saveJson);
     if (saveItem) return saveItemBlock(saveItem.dataset.saveItem, saveItem.dataset.itemId);
     if (close) $("#modalRoot").innerHTML = "";
@@ -159,6 +161,20 @@ function saveInfoBlock() {
   setData(D);
   toast("Infos principales enregistrées.");
   syncIfConfigured("Infos sauvegardées en ligne.");
+  render();
+}
+
+function saveCvBlock() {
+  const field = $("#field-cv");
+  if (!field || !field.value.trim()) {
+    toast("Choisissez un PDF ou renseignez un lien de CV.");
+    return;
+  }
+  D.infos.cv = field.value.trim();
+  addActivity("Mise a jour du CV", "edit");
+  setData(D);
+  toast("CV enregistré.");
+  syncIfConfigured("CV sauvegardé en ligne.");
   render();
 }
 

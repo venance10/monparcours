@@ -1,9 +1,8 @@
-const CACHE = "venanceportfolio-v9";
+const CACHE = "venanceportfolio-v11";
 const ASSETS = [
   "./",
   "./index.html",
   "./admin.html",
-  "./data.json",
   "./assets/css/variables.css",
   "./assets/css/base.css",
   "./assets/css/components.css",
@@ -28,6 +27,27 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
+  const url = new URL(event.request.url);
+  if (url.pathname.endsWith("/data.json")) {
+    event.respondWith(
+      fetch(event.request, { cache: "no-store" })
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match("./index.html"))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(hit => hit || fetch(event.request).catch(() => caches.match("./index.html")))
   );
