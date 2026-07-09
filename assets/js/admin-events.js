@@ -2,7 +2,7 @@ import { ADMIN_LOCAL_HASH_KEY, ADMIN_PASS_HASH, ADMIN_SESSION_KEY } from "./conf
 import { D, addActivity, loadData, setData } from "./data.js";
 import { saveDataToGitHub, setGitHubConfig } from "./github.js";
 import { getFormSchema, renderAdmin, renderEditModal } from "./admin-render.js";
-import { $, $$, downloadJson, slugify, toast, uid } from "./utils.js";
+import { $, $$, downloadJson, readFileAsDataUrl, slugify, toast, uid } from "./utils.js";
 
 let currentTab = "dashboard";
 
@@ -61,7 +61,7 @@ function showShell() {
 
 function bindShell() {
   $$(".admin-tab").forEach(btn => btn.addEventListener("click", () => { currentTab = btn.dataset.tab; render(); }));
-  $("#exportBtn").addEventListener("click", () => downloadJson("data.json", D));
+  $("#exportBtn").addEventListener("click", () => downloadJson("data.json", cleanData(D)));
   $("#importInput").addEventListener("change", async event => {
     const file = event.target.files[0];
     if (!file) return;
@@ -100,6 +100,7 @@ function bindContent() {
     if (ghConfig) return saveGithubConfig();
     if (ghSave) return saveGithub();
   };
+  $("#adminContent").onchange = handleFileInput;
 }
 
 function openItem(collection, item = {}) {
@@ -110,6 +111,23 @@ function openItem(collection, item = {}) {
     if (close) $("#modalRoot").innerHTML = "";
     if (save) saveItemBlock(save.dataset.saveItem, save.dataset.itemId);
   };
+  $("#modalRoot").onchange = handleFileInput;
+}
+
+async function handleFileInput(event) {
+  const input = event.target.closest("[data-file-target]");
+  if (!input || !input.files?.length) return;
+  const target = document.getElementById(input.dataset.fileTarget);
+  if (!target) return;
+  const file = input.files[0];
+  const maxSize = file.type === "application/pdf" ? 3 * 1024 * 1024 : 2 * 1024 * 1024;
+  if (file.size > maxSize) {
+    toast("Fichier trop lourd. Compressez-le avant import.");
+    input.value = "";
+    return;
+  }
+  target.value = await readFileAsDataUrl(file);
+  toast("Fichier intégré au formulaire.");
 }
 
 function deleteItem(id) {
@@ -196,12 +214,18 @@ function saveGithubConfig() {
 
 async function saveGithub() {
   try {
-    await saveDataToGitHub(D);
+    await saveDataToGitHub(cleanData(D));
     addActivity("Sauvegarde GitHub data.json", "github");
     toast("Sauvegarde GitHub terminee.");
   } catch (error) {
     toast(error.message);
   }
+}
+
+function cleanData(data) {
+  const copy = JSON.parse(JSON.stringify(data));
+  delete copy._localDraft;
+  return copy;
 }
 
 async function sha256(text) {

@@ -7,9 +7,10 @@ export async function loadData(options = {}) {
   const local = localStorage.getItem(STORAGE_KEY);
   const res = await fetch(DATA_URL, { cache: "no-cache" });
   const remoteData = normalizeData(await res.json());
-  if (preferLocal && local) {
+  if (local) {
     const localData = normalizeData(JSON.parse(local));
-    D = isNewer(localData, remoteData) ? localData : remoteData;
+    const hasLocalDraft = Boolean(localData._localDraft);
+    D = (preferLocal || hasLocalDraft) && isNewer(localData, remoteData) ? localData : remoteData;
   } else {
     D = remoteData;
   }
@@ -18,7 +19,7 @@ export async function loadData(options = {}) {
 }
 
 export function setData(next) {
-  D = normalizeData({ ...next, _updated: new Date().toISOString() });
+  D = normalizeData({ ...next, _updated: new Date().toISOString(), _localDraft: true });
   localStorage.setItem(STORAGE_KEY, JSON.stringify(D));
   return D;
 }
@@ -40,6 +41,7 @@ export function normalizeData(raw = {}) {
   const normalized = {
     _v: raw._v || 2,
     _updated: raw._updated || new Date().toISOString(),
+    _localDraft: Boolean(raw._localDraft),
     infos: {
       name: infos.name || infos.nom || legacySettings.site_name || "Venance Houndete",
       shortName: infos.shortName || infos.short_name || infos.name || infos.nom || "Venance Houndété",

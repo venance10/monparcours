@@ -1,4 +1,4 @@
-import { LANG_KEY, THEME_KEY } from "./config.js";
+import { LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
 import { loadData } from "./data.js";
 import { closeLightbox, openLightbox } from "./gallery.js";
 import { lang, setLang } from "./i18n.js";
@@ -45,6 +45,13 @@ function bindEvents() {
     if (poster) openLightbox(poster.dataset.lightbox);
     if (close) $("#modalRoot").innerHTML = "";
     if (lightboxClose || event.target.id === "lightbox") closeLightbox();
+  });
+  window.addEventListener("storage", async event => {
+    if (event.key === STORAGE_KEY) {
+      await loadData();
+      renderPublic();
+      bindDynamicEvents();
+    }
   });
   bindDynamicEvents();
 }

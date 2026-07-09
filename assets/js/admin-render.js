@@ -27,7 +27,7 @@ const formSchemas = {
     ["availability", "Disponibilité", "text"],
     ["speciality", "Spécialité", "text"],
     ["languages", "Langues", "text"],
-    ["cv", "Lien du CV", "text"],
+    ["cv", "CV PDF", "pdf"],
     ["github", "GitHub", "url"],
     ["linkedin", "LinkedIn", "url"],
     ["about", "À propos", "textarea"]
@@ -78,14 +78,14 @@ const formSchemas = {
     ["categorie", "Catégorie", "text"],
     ["tags", "Tags (séparés par des virgules)", "tags"],
     ["statut", "Statut", "select", ["publie", "brouillon"]],
-    ["image", "Image URL ou base64", "textarea"],
+    ["image", "Image", "image"],
     ["contenu", "Contenu HTML", "textarea"]
   ],
   gallery: [
     ["titre", "Titre", "text"],
     ["categorie", "Catégorie", "text"],
     ["tags", "Tags (séparés par des virgules)", "tags"],
-    ["image", "Image URL ou base64", "textarea"],
+    ["image", "Image", "image"],
     ["telechargeable", "Téléchargeable", "checkbox"]
   ],
   articles: [
@@ -162,6 +162,11 @@ export function getFormSchema(collection) {
 function renderField([name, label, type, options = []], item) {
   const value = item[name];
   const common = `name="${name}" id="field-${name}"`;
+  if (type === "image" || type === "pdf") {
+    const accept = type === "pdf" ? "application/pdf" : "image/*";
+    const help = type === "pdf" ? "Choisir un PDF depuis l'ordinateur" : "Choisir une image depuis l'ordinateur";
+    return `<label class="field full"><span>${escapeHtml(label)}</span><input type="file" accept="${accept}" data-file-target="field-${name}"><textarea ${common} placeholder="URL, ou fichier converti automatiquement en base64">${escapeHtml(value || "")}</textarea><small class="muted">${help}. Le fichier sera intégré en base64 dans les données.</small></label>`;
+  }
   if (type === "textarea" || type === "lines") {
     const text = Array.isArray(value) ? value.join("\n") : value || "";
     return `<label class="field full"><span>${escapeHtml(label)}</span><textarea ${common}>${escapeHtml(text)}</textarea></label>`;
