@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-10T14:53:03.429Z",
+  "_updated": "2026-07-10T14:59:46.155Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -628,8 +628,8 @@
       "id": "ct-whatsapp",
       "label": "WhatsApp",
       "labelEn": "WhatsApp",
-      "value": "+229 01 69 95 94 07",
-      "url": "https://wa.me/22901699559407",
+      "value": "+229 01 92 25 59 12",
+      "url": "https://wa.me/2290192255912",
       "icon": "phone"
     },
     {
@@ -650,6 +650,16 @@
     }
   ],
   "activity": [
+    {
+      "date": "2026-07-10T14:59:46.148Z",
+      "type": "edit",
+      "message": "Save contacts: ct-whatsapp"
+    },
+    {
+      "date": "2026-07-10T14:53:11.558Z",
+      "type": "github",
+      "message": "GitHub data.json save"
+    },
     {
       "date": "2026-07-10T14:53:03.429Z",
       "type": "github",
