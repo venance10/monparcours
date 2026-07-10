@@ -6,6 +6,7 @@ import { getFormSchema, renderAdmin, renderEditModal } from "./admin-render.js";
 import { $, $$, downloadJson, formatBytes, IMAGE_UPLOAD, isAllowedImageFile, readFileAsDataUrl, readImageAsOptimizedDataUrl, slugify, toast, uid } from "./utils.js";
 
 let currentTab = "dashboard";
+let dirty = false;
 
 export async function initAdmin() {
   document.documentElement.lang = tr("all") === "All" ? "en" : "fr";
@@ -76,12 +77,24 @@ function bindShell() {
     render();
   });
   $("#logoutBtn").addEventListener("click", () => { sessionStorage.removeItem(ADMIN_SESSION_KEY); location.reload(); });
+  document.addEventListener("keydown", event => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
+      event.preventDefault();
+      saveCurrentTab();
+    }
+  });
 }
 
 function render() {
   $$(".admin-tab").forEach(btn => btn.classList.toggle("active", btn.dataset.tab === currentTab));
+  const active = $(`.admin-tab[data-tab="${currentTab}"]`);
+  if ($("#adminTitle")) $("#adminTitle").textContent = active?.textContent || tr("dashboard");
+  if ($("#adminKicker")) $("#adminKicker").textContent = currentTab === "dashboard" ? tr("localManagement") : "Edition rapide";
   $("#adminContent").innerHTML = renderAdmin(currentTab);
+  dirty = false;
+  updateSaveState();
   bindContent();
+  enhanceForms();
 }
 
 function bindContent() {
@@ -96,9 +109,11 @@ function bindContent() {
     const close = event.target.closest("[data-modal-close]");
     const ghConfig = event.target.closest("[data-gh-config]");
     const ghSave = event.target.closest("[data-gh-save]");
+    const clearFile = event.target.closest("[data-clear-file]");
     if (add) return openItem(add.dataset.add);
     if (edit) return openItem(currentTab, D[currentTab].find(x => x.id === edit.dataset.edit));
     if (del) return deleteItem(del.dataset.delete);
+    if (clearFile) return clearFileField(clearFile.dataset.clearFile);
     if (saveInfo) return saveInfoBlock();
     if (saveCv) return saveCvBlock();
     if (saveJson) return saveJsonBlock(saveJson.dataset.saveJson);
@@ -108,6 +123,7 @@ function bindContent() {
     if (ghSave) return saveGithub();
   };
   $("#adminContent").onchange = handleFileInput;
+  $("#adminContent").oninput = markDirty;
 }
 
 function openItem(collection, item = {}) {
@@ -119,6 +135,8 @@ function openItem(collection, item = {}) {
     if (save) saveItemBlock(save.dataset.saveItem, save.dataset.itemId);
   };
   $("#modalRoot").onchange = handleFileInput;
+  $("#modalRoot").oninput = markDirty;
+  enhanceForms($("#modalRoot"));
 }
 
 async function handleFileInput(event) {
@@ -130,13 +148,21 @@ async function handleFileInput(event) {
   try {
     if (isImageInput(input)) {
       if (!isAllowedImageFile(file)) throw new Error("unsupported-image");
+      setProgress(target.id, 35);
       target.value = await readImageAsOptimizedDataUrl(file);
+      setProgress(target.id, 100);
+      updateFilePreview(target.id, target.value, file);
+      markDirty();
       toast(tr("imageEmbedded"));
       return;
     }
     const maxSize = 3 * 1024 * 1024;
     if (file.size > maxSize) throw new Error("file-too-large");
+    setProgress(target.id, 45);
     target.value = await readFileAsDataUrl(file);
+    setProgress(target.id, 100);
+    updateFilePreview(target.id, target.value, file);
+    markDirty();
     toast(tr("fileEmbedded"));
   } catch (error) {
     input.value = "";
@@ -158,6 +184,7 @@ function uploadErrorMessage(error) {
 }
 
 function deleteItem(id) {
+  if (!confirm("Supprimer cet element ?")) return;
   D[currentTab] = D[currentTab].filter(item => item.id !== id);
   addActivity(`Delete ${currentTab}: ${id}`, "delete");
   setData(D);
@@ -175,6 +202,7 @@ function saveJsonBlock(key) {
 
 function saveInfoBlock() {
   const form = $("#infoForm");
+  if (!validateForm(form)) return;
   const next = { ...D.infos };
   getFormSchema("infos").forEach(([name]) => {
     const field = form.elements[name];
@@ -185,11 +213,15 @@ function saveInfoBlock() {
   addActivity("Update main information", "edit");
   setData(D);
   toast(tr("infoSaved"));
+  dirty = false;
+  updateSaveState();
   syncIfConfigured(tr("infoOnlineSaved"));
   render();
 }
 
 function saveCvBlock() {
+  const form = $("#cvForm");
+  if (!validateForm(form)) return;
   const field = $("#field-cv");
   if (!field || !field.value.trim()) {
     toast(tr("chooseCv"));
@@ -199,11 +231,15 @@ function saveCvBlock() {
   addActivity("Update resume", "edit");
   setData(D);
   toast(tr("cvSaved"));
+  dirty = false;
+  updateSaveState();
   syncIfConfigured(tr("cvOnlineSaved"));
   render();
 }
 
 async function saveItemBlock(collection, id) {
+  const form = $("#itemForm");
+  if (form && !validateForm(form)) return;
   const value = readItemValue(collection);
   value.id = value.id || id || uid(collection);
   applyDefaults(collection, value);
@@ -213,6 +249,8 @@ async function saveItemBlock(collection, id) {
   addActivity(`Save ${collection}: ${value.id}`, "edit");
   setData(D);
   $("#modalRoot").innerHTML = "";
+  dirty = false;
+  updateSaveState();
   syncIfConfigured(tr("contentOnlineSaved"));
   render();
 }
@@ -272,16 +310,21 @@ function ensureEnglishFallbacks(collection, value) {
 
 function saveGithubConfig() {
   setGitHubConfig({ owner: $("#ghOwner").value, repo: $("#ghRepo").value, branch: $("#ghBranch").value, token: $("#ghToken").value });
+  dirty = false;
+  updateSaveState();
   toast(tr("githubConfigSaved"));
 }
 
 async function saveGithub(showSuccess = true) {
   try {
+    setLoader(true);
     await saveDataToGitHub(cleanData(D));
     addActivity("GitHub data.json save", "github");
     if (showSuccess) toast(tr("githubDone"));
   } catch (error) {
     toast(error.message);
+  } finally {
+    setLoader(false);
   }
 }
 
@@ -292,11 +335,14 @@ async function syncIfConfigured(message) {
     return;
   }
   try {
+    setLoader(true);
     await saveDataToGitHub(cleanData(D));
     addActivity("Automatic GitHub sync", "github");
     toast(message);
   } catch (error) {
     toast(`${tr("githubFailed")} : ${error.message}`);
+  } finally {
+    setLoader(false);
   }
 }
 
@@ -334,10 +380,10 @@ function translateShell() {
       edu: tr("educationTitle"),
       certs: tr("certificationsTitle"),
       knowledge: tr("knowledge"),
-      gallery: tr("gallery"),
-      articles: tr("watch"),
+      gallery: "Galerie",
+      articles: "Articles",
       contacts: tr("contact"),
-      github: tr("github")
+      settings: "Parametres"
     })[btn.dataset.tab] || btn.textContent;
   });
   set("#exportBtn", tr("exportJson"));
@@ -346,8 +392,82 @@ function translateShell() {
   set("#logoutBtn", tr("logout"));
   set(".admin-main .eyebrow", tr("localManagement"));
   set(".admin-main h1", tr("dashboard"));
-  const siteLink = document.querySelector(".admin-main .admin-top a.btn");
+  const siteLink = document.querySelector(".admin-header a.btn");
   if (siteLink) siteLink.textContent = tr("viewSite");
+}
+
+function saveCurrentTab() {
+  if (currentTab === "infos") return saveInfoBlock();
+  if (currentTab === "cv") return saveCvBlock();
+  if (currentTab === "settings") {
+    const configButton = $("[data-gh-config]");
+    if (configButton) return saveGithubConfig();
+  }
+  const modalSave = $("#modalRoot [data-save-item]");
+  if (modalSave) return saveItemBlock(modalSave.dataset.saveItem, modalSave.dataset.itemId);
+}
+
+function markDirty() {
+  dirty = true;
+  updateSaveState();
+}
+
+function updateSaveState() {
+  const state = $("#saveState");
+  if (!state) return;
+  state.textContent = dirty ? "Modifications non enregistrees" : "A jour";
+  state.classList.toggle("dirty", dirty);
+  state.classList.toggle("saved", !dirty);
+}
+
+function enhanceForms(root = document) {
+  $$("textarea", root).forEach(autoResize);
+  $$("textarea", root).forEach(area => area.addEventListener("input", () => autoResize(area)));
+  $$("[data-preview-for]", root).forEach(box => {
+    const target = document.getElementById(box.dataset.previewFor);
+    if (target?.value) updateFilePreview(target.id, target.value);
+  });
+}
+
+function autoResize(area) {
+  area.style.height = "auto";
+  area.style.height = `${Math.max(96, area.scrollHeight)}px`;
+}
+
+function setProgress(id, pct) {
+  const bar = document.querySelector(`[data-progress-for="${id}"] span`);
+  if (bar) bar.style.width = `${pct}%`;
+}
+
+function updateFilePreview(id, value, file = null) {
+  const preview = document.querySelector(`[data-preview-for="${id}"]`);
+  if (preview) preview.innerHTML = value ? `<img src="${value}" alt="">` : `<span class="muted">Aucune image</span>`;
+  const meta = document.querySelector(`[data-file-meta-for="${id}"]`);
+  if (meta) {
+    const name = file?.name || (value?.startsWith("data:") ? "PDF integre" : value || "Aucun fichier");
+    const size = file?.size ? ` - ${formatBytes(file.size)}` : "";
+    meta.textContent = `${name}${size} - ${new Date().toLocaleString("fr-FR")}`;
+  }
+}
+
+function clearFileField(id) {
+  const target = document.getElementById(id);
+  if (target) target.value = "";
+  updateFilePreview(id, "");
+  setProgress(id, 0);
+  markDirty();
+}
+
+function validateForm(form) {
+  if (!form) return true;
+  if (form.checkValidity()) return true;
+  form.reportValidity();
+  toast("Verifiez les champs obligatoires.");
+  return false;
+}
+
+function setLoader(open) {
+  $("#adminLoader")?.classList.toggle("open", Boolean(open));
 }
 
 async function sha256(text) {
