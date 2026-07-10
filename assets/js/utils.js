@@ -6,6 +6,16 @@ export const slugify = (value = "") => value.normalize("NFD").replace(/[\u0300-\
 export const formatDate = value => new Intl.DateTimeFormat(document.documentElement.lang === "en" ? "en-US" : "fr-FR", { dateStyle: "medium" }).format(new Date(value));
 export const toArray = value => Array.isArray(value) ? value : [];
 
+export const IMAGE_UPLOAD = {
+  maxOriginalBytes: 12 * 1024 * 1024,
+  maxEmbeddedBytes: 2600 * 1024,
+  maxWidth: 1600,
+  maxHeight: 1600,
+  quality: 0.82,
+  allowedTypes: ["image/jpeg", "image/png", "image/webp", "image/svg+xml"],
+  allowedExtensions: [".jpg", ".jpeg", ".png", ".webp", ".svg"]
+};
+
 export function icon(name) {
   const icons = {
     menu: "M4 7h16M4 12h16M4 17h16",
@@ -63,5 +73,77 @@ export function readFileAsDataUrl(file) {
     reader.onload = () => resolve(reader.result);
     reader.onerror = reject;
     reader.readAsDataURL(file);
+  });
+}
+
+export function isAllowedImageFile(file) {
+  const name = String(file?.name || "").toLowerCase();
+  const hasAllowedType = IMAGE_UPLOAD.allowedTypes.includes(file?.type);
+  const hasAllowedExtension = IMAGE_UPLOAD.allowedExtensions.some(ext => name.endsWith(ext));
+  return Boolean(file && (hasAllowedType || hasAllowedExtension));
+}
+
+export function formatBytes(bytes) {
+  if (!Number.isFinite(bytes)) return "";
+  if (bytes < 1024 * 1024) return `${Math.ceil(bytes / 1024)} Ko`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} Mo`;
+}
+
+export async function readImageAsOptimizedDataUrl(file) {
+  if (!isAllowedImageFile(file)) {
+    throw new Error("unsupported-image");
+  }
+  if (file.size > IMAGE_UPLOAD.maxOriginalBytes) {
+    throw new Error("original-image-too-large");
+  }
+  if (isSvgFile(file)) {
+    if (file.size > IMAGE_UPLOAD.maxEmbeddedBytes) throw new Error("embedded-image-too-large");
+    return readFileAsDataUrl(file);
+  }
+  const original = await readFileAsDataUrl(file);
+  if (file.size <= IMAGE_UPLOAD.maxEmbeddedBytes) return original;
+  const optimized = await compressRasterImage(original);
+  if (dataUrlBytes(optimized) > IMAGE_UPLOAD.maxEmbeddedBytes) {
+    throw new Error("embedded-image-too-large");
+  }
+  return optimized;
+}
+
+function isSvgFile(file) {
+  return file.type === "image/svg+xml" || String(file.name || "").toLowerCase().endsWith(".svg");
+}
+
+function dataUrlBytes(dataUrl) {
+  const comma = dataUrl.indexOf(",");
+  const payload = comma >= 0 ? dataUrl.slice(comma + 1) : dataUrl;
+  return Math.ceil(payload.length * 3 / 4);
+}
+
+function compressRasterImage(dataUrl) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => {
+      const ratio = Math.min(1, IMAGE_UPLOAD.maxWidth / image.width, IMAGE_UPLOAD.maxHeight / image.height);
+      const width = Math.max(1, Math.round(image.width * ratio));
+      const height = Math.max(1, Math.round(image.height * ratio));
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        reject(new Error("canvas-unavailable"));
+        return;
+      }
+      ctx.drawImage(image, 0, 0, width, height);
+      canvas.toBlob(blob => {
+        if (!blob) {
+          reject(new Error("compression-failed"));
+          return;
+        }
+        readFileAsDataUrl(blob).then(resolve, reject);
+      }, "image/webp", IMAGE_UPLOAD.quality);
+    };
+    image.onerror = () => reject(new Error("image-load-failed"));
+    image.src = dataUrl;
   });
 }

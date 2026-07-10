@@ -3,7 +3,7 @@ import { D, addActivity, loadData, setData } from "./data.js";
 import { getGitHubConfig, saveDataToGitHub, setGitHubConfig } from "./github.js";
 import { tr } from "./i18n.js";
 import { getFormSchema, renderAdmin, renderEditModal } from "./admin-render.js";
-import { $, $$, downloadJson, readFileAsDataUrl, slugify, toast, uid } from "./utils.js";
+import { $, $$, downloadJson, formatBytes, IMAGE_UPLOAD, isAllowedImageFile, readFileAsDataUrl, readImageAsOptimizedDataUrl, slugify, toast, uid } from "./utils.js";
 
 let currentTab = "dashboard";
 
@@ -127,14 +127,34 @@ async function handleFileInput(event) {
   const target = document.getElementById(input.dataset.fileTarget);
   if (!target) return;
   const file = input.files[0];
-  const maxSize = file.type === "application/pdf" ? 3 * 1024 * 1024 : 2 * 1024 * 1024;
-  if (file.size > maxSize) {
-    toast(tr("fileTooLarge"));
+  try {
+    if (isImageInput(input)) {
+      if (!isAllowedImageFile(file)) throw new Error("unsupported-image");
+      target.value = await readImageAsOptimizedDataUrl(file);
+      toast(tr("imageEmbedded"));
+      return;
+    }
+    const maxSize = 3 * 1024 * 1024;
+    if (file.size > maxSize) throw new Error("file-too-large");
+    target.value = await readFileAsDataUrl(file);
+    toast(tr("fileEmbedded"));
+  } catch (error) {
     input.value = "";
-    return;
+    target.value = "";
+    toast(uploadErrorMessage(error));
   }
-  target.value = await readFileAsDataUrl(file);
-  toast(tr("fileEmbedded"));
+}
+
+function isImageInput(input) {
+  return String(input.getAttribute("accept") || "").includes("image");
+}
+
+function uploadErrorMessage(error) {
+  if (error.message === "unsupported-image") return tr("unsupportedImage");
+  if (error.message === "original-image-too-large") return `${tr("imageOriginalTooLarge")} ${formatBytes(IMAGE_UPLOAD.maxOriginalBytes)}.`;
+  if (error.message === "embedded-image-too-large") return `${tr("imageStillTooLarge")} ${formatBytes(IMAGE_UPLOAD.maxEmbeddedBytes)}.`;
+  if (error.message === "file-too-large") return tr("fileTooLarge");
+  return tr("uploadFailed");
 }
 
 function deleteItem(id) {

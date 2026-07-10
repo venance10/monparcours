@@ -219,7 +219,7 @@ function renderField([name, label, type, options = []], item) {
   const value = item[name];
   const common = `name="${name}" id="field-${name}"`;
   if (type === "image" || type === "pdf") {
-    const accept = type === "pdf" ? "application/pdf" : "image/*";
+    const accept = type === "pdf" ? "application/pdf" : "image/jpeg,image/png,image/webp,image/svg+xml,.jpg,.jpeg,.png,.webp,.svg";
     const help = type === "pdf" ? "Choisir un PDF depuis l'ordinateur" : "Choisir une image depuis l'ordinateur";
     return `<label class="field full"><span>${escapeHtml(adminLabel(label))}</span><input type="file" accept="${accept}" data-file-target="field-${name}"><textarea ${common} placeholder="${escapeHtml(adminLabel("URL, ou fichier converti automatiquement en base64"))}">${escapeHtml(value || "")}</textarea><small class="muted">${escapeHtml(adminLabel(help))}. ${escapeHtml(adminLabel("Le fichier sera integre en base64 dans les donnees."))}</small></label>`;
   }
