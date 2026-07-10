@@ -1,4 +1,4 @@
-import { LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
+import { BUILD_VERSION, LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
 import { loadData } from "./data.js";
 import { closeLightbox, openLightbox } from "./gallery.js";
 import { lang, setLang, tr } from "./i18n.js";
@@ -13,7 +13,7 @@ async function init() {
   renderPublic();
   bindEvents();
   initAnimations();
-  if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(() => {});
+  registerServiceWorker();
 }
 
 function hydrateIcons() {
@@ -82,6 +82,41 @@ function bindDynamicEvents() {
       cards.forEach(card => card.hidden = value !== tr("all") && value !== "Tout" && value !== "All" && card.dataset.category !== value);
     });
   });
+}
+
+async function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+
+  let refreshing = false;
+  const hadController = Boolean(navigator.serviceWorker.controller);
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (refreshing || !hadController) return;
+    refreshing = true;
+    window.location.reload();
+  });
+
+  try {
+    const registration = await navigator.serviceWorker.register(`./sw.js?v=${BUILD_VERSION}`);
+    await registration.update();
+
+    if (registration.waiting) {
+      activateWaitingWorker(registration.waiting);
+    }
+
+    registration.addEventListener("updatefound", () => {
+      const worker = registration.installing;
+      if (!worker) return;
+      worker.addEventListener("statechange", () => {
+        if (worker.state === "installed") activateWaitingWorker(worker);
+      });
+    });
+  } catch (error) {
+    console.warn("Service Worker update failed", error);
+  }
+}
+
+function activateWaitingWorker(worker) {
+  worker.postMessage({ type: "SKIP_WAITING", version: BUILD_VERSION });
 }
 
 init().catch(error => {
