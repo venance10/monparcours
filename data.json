@@ -1,651 +1,674 @@
 {
-    "_v":  2,
-    "_updated":  "2026-07-10T07:53:47.1746903Z",
-    "infos":  {
-                  "name":  "Venance Arnolde Yéminvènon Houndété",
-                  "shortName":  "Venance Houndété",
-                  "role":  "Cybersécurité · GRC · Pentest Web",
-                  "roleEn":  "Cybersecurity · GRC · Web Pentesting",
-                  "tagline":  "J\u0027aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d\u0027intrusion web black-box, rédaction de politiques de sécurité, avec des livrables concrets et professionnels.",
-                  "taglineEn":  "I help organizations secure their information systems through GRC audits, black-box web penetration testing and security policy documentation.",
-                  "location":  "Abomey-Calavi, Benin - Travail a distance possible",
-                  "email":  "vhoundete@gmail.com",
-                  "phone":  "+229 01 69 95 94 07",
-                  "avatar":  "./assets/images/profile.svg",
-                  "cv":  "./cv.pdf",
-                  "github":  "https://github.com/venance10",
-                  "linkedin":  "https://linkedin.com/in/venancehoundete",
-                  "availability":  "Disponible pour missions Audit GRC - Pentest Web - Gouvernance SI - Conformite ISO 27001",
-                  "speciality":  "Gouvernance SI - Audit et Pentest Web - Conformite ISO 27001",
-                  "languages":  "Francais courant - Anglais intermediaire B1",
-                  "about":  "Je suis Venance Arnolde Yeminvenon Houndete, etudiant en Licence 3 Securite Informatique a l\u0027IFRI, Universite d\u0027Abomey-Calavi au Benin, aspirant RSSI.\n\nJ\u0027ai une experience pratique en audit GRC et en tests d\u0027intrusion web black-box reels. J\u0027ai conduit des audits pour l\u0027Universite d\u0027Abomey-Calavi, notamment autour de la PSSI-UAC v2.0 pour un SI de 60 000 utilisateurs, et pour GRAFNET Consulting, ou j\u0027ai identifie des vulnerabilites critiques sur des plateformes e-commerce en production.\n\nJe suis disponible pour des missions professionnelles en cybersecurite offensive et defensive, gestion des risques, gouvernance SI et conformite.",
-                  "aboutEn":  "I am Venance Arnolde Yeminvenon Houndete, a third-year Cybersecurity student at IFRI, University of Abomey-Calavi in Benin, and an aspiring CISO.\n\nI have practical experience in GRC audits and real black-box web penetration testing. I worked on audits for the University of Abomey-Calavi and GRAFNET Consulting, where I identified critical vulnerabilities on production e-commerce platforms.\n\nI am available for professional missions in offensive and defensive cybersecurity, risk management, IS governance and compliance.",
-                  "stats":  [
-                                {
-                                    "label":  "Vulnérabilités identifiées lors d\u0027audits web réels",
-                                    "labelEn":  "Vulnerabilities identified during real web audits",
-                                    "value":  "18+"
-                                },
-                                {
-                                    "label":  "Points de contrôle vérifiés sur l\u0027audit SI de l\u0027UAC",
-                                    "labelEn":  "Control points checked during the UAC IS audit",
-                                    "value":  "33"
-                                },
-                                {
-                                    "label":  "Règles de sécurité rédigées pour la PSSI-UAC v2.0",
-                                    "labelEn":  "Security rules written for PSSI-UAC v2.0",
-                                    "value":  "50+"
-                                },
-                                {
-                                    "label":  "Normes maîtrisées : ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE",
-                                    "labelEn":  "Frameworks: ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE",
-                                    "value":  "5"
-                                }
-                            ],
-                  "availabilityEn":  "Available for GRC audit - Web pentesting - IS governance - ISO 27001 compliance missions",
-                  "specialityEn":  "IS governance - Security audit and web pentesting - ISO 27001 compliance",
-                  "locationEn":  "Abomey-Calavi, Benin - Remote work available",
-                  "languagesEn":  "Fluent French - Intermediate English B1"
-              },
-    "services":  [
-                     {
-                         "id":  "srv-pentest",
-                         "title":  "Pentest Web Black-box",
-                         "titleEn":  "Black-box Web Penetration Testing",
-                         "description":  "Test d\u0027intrusion boîte noire sur applications web : reconnaissance, énumération, OWASP Top 10, API Security Top 10 et rapport de remédiation priorisé.",
-                         "icon":  "shield",
-                         "descriptionEn":  "Black-box penetration testing for web applications: reconnaissance, enumeration, OWASP Top 10, API Security Top 10 and prioritized remediation report."
-                     },
-                     {
-                         "id":  "srv-grc",
-                         "title":  "Audit de Sécurité \u0026 GRC",
-                         "titleEn":  "Security Audit \u0026 GRC",
-                         "description":  "Analyse des écarts sur procédures et politiques de sécurité : ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Bénin.",
-                         "icon":  "search",
-                         "descriptionEn":  "Gap analysis on security procedures and policies: ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019 and Benin PSSIE."
-                     },
-                     {
-                         "id":  "srv-pssi",
-                         "title":  "Politique de Sécurité (PSSI)",
-                         "titleEn":  "Security Policy (ISSP)",
-                         "description":  "Rédaction de documents de gouvernance SI : règles de sécurité, matrice RACI, KPI, registre des traitements et conformité réglementaire.",
-                         "icon":  "file",
-                         "descriptionEn":  "Drafting IS governance documents: security rules, RACI matrix, KPIs, processing register and regulatory compliance."
-                     },
-                     {
-                         "id":  "srv-iso",
-                         "title":  "Conformité ISO 27001 \u0026 RGPD",
-                         "titleEn":  "ISO 27001 \u0026 GDPR Compliance",
-                         "description":  "Comparaison aux exigences ISO 27001:2022, analyse RGPD / Code du Numérique du Bénin et feuille de route de conformité.",
-                         "icon":  "check",
-                         "descriptionEn":  "Comparison with ISO 27001:2022 requirements, GDPR / Benin Digital Code analysis and compliance roadmap."
-                     },
-                     {
-                         "id":  "srv-risk",
-                         "title":  "Cartographie \u0026 Analyse de risques",
-                         "titleEn":  "Risk Mapping \u0026 Analysis",
-                         "description":  "Cartographie d\u0027infrastructure, actifs, données sensibles, points vulnérables, analyse de risques et matrice de criticité.",
-                         "icon":  "map",
-                         "descriptionEn":  "Infrastructure mapping, assets, sensitive data, vulnerable points, risk analysis and criticality matrix."
-                     },
-                     {
-                         "id":  "srv-training",
-                         "title":  "Formation des équipes",
-                         "titleEn":  "Team Training",
-                         "description":  "Sessions pratiques pour comprendre les risques cyber, les bonnes pratiques et les procédures de réponse aux incidents.",
-                         "icon":  "book",
-                         "descriptionEn":  "Practical sessions to understand cyber risks, best practices and incident response procedures."
-                     }
-                 ],
-    "projects":  [
-                     {
-                         "id":  "prj-grc-27",
-                         "title":  "Audit GRC Documentaire — 27 Procédures SI",
-                         "titleEn":  "GRC Documentary Audit — 27 IS Procedures",
-                         "organization":  "GRAFNET Consulting",
-                         "date":  "Depuis juin 2026",
-                         "badge":  "GRC · Mission",
-                         "badgeStyle":  "grc",
-                         "category":  "GRC",
-                         "description":  "Analyse de conformité documentaire couvrant plusieurs référentiels majeurs.",
-                         "bullets":  [
-                                         "Analyse de conformité de 27 procédures croisant ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 et COBIT 2019.",
-                                         "Identification des écarts, lacunes documentaires et risques de non-conformité avec recommandations correctives.",
-                                         "Vérification des rôles, matrice RACI, contrôles internes, KPI et mécanismes de traçabilité.",
-                                         "Production de registres d\u0027écarts et rapports de conformité pour certification ISO 27001 / ISO 20000.",
-                                         "Intervention de récupération d\u0027urgence sur VPS Ubuntu 24.04 avec Odoo 18, Nginx, PostgreSQL, MariaDB et Docker."
-                                     ],
-                         "tags":  [
-                                      "ISO 27001:2022",
-                                      "ISO 20000-1",
-                                      "ITIL 4",
-                                      "COBIT 2019",
-                                      "PSSIE",
-                                      "RACI"
-                                  ],
-                         "link":  "#",
-                         "repo":  "#",
-                         "categoryEn":  "GRC",
-                         "descriptionEn":  "Documentary compliance analysis covering several major standards.",
-                         "bulletsEn":  [
-                                           "Compliance analysis of 27 procedures covering ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 and COBIT 2019.",
-                                           "Identification of gaps, documentary weaknesses and non-compliance risks with corrective recommendations.",
-                                           "Verification of roles, RACI matrix, internal controls, KPIs and traceability mechanisms.",
-                                           "Production of gap registers and compliance reports for ISO 27001 / ISO 20000 certification.",
-                                           "Emergency recovery intervention on Ubuntu 24.04 VPS with Odoo 18, Nginx, PostgreSQL, MariaDB and Docker."
-                                       ],
-                         "organizationEn":  "GRAFNET Consulting",
-                         "dateEn":  "Since June 2026",
-                         "badgeEn":  "GRC · Mission"
-                     },
-                     {
-                         "id":  "prj-asofind",
-                         "title":  "Pentest Web Black-box — asofind.com",
-                         "titleEn":  "Black-box Web Pentest — asofind.com",
-                         "organization":  "GRAFNET Consulting — Mission cliente",
-                         "date":  "23 juin 2026",
-                         "badge":  "Pentest Web",
-                         "badgeStyle":  "pentest",
-                         "category":  "Pentest",
-                         "description":  "Test d\u0027intrusion boîte noire sur une plateforme e-commerce en production.",
-                         "bullets":  [
-                                         "Test d\u0027intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB.",
-                                         "CRITIQUE : exposition de données personnelles de 9 comptes via API publique non protégée.",
-                                         "5 failles supplémentaires : absence de CSP, fuite Sentry DSN et hash Git, absence de rate limiting.",
-                                         "Total : 6 vulnérabilités dont 1 critique, avec rapport de remédiation priorisé livré."
-                                     ],
-                         "tags":  [
-                                      "OWASP Top 10",
-                                      "API Security",
-                                      "RGPD",
-                                      "nmap",
-                                      "nikto",
-                                      "sqlmap",
-                                      "whatweb",
-                                      "curl"
-                                  ],
-                         "link":  "#",
-                         "repo":  "#",
-                         "categoryEn":  "Pentest",
-                         "descriptionEn":  "Black-box penetration test on a production e-commerce platform.",
-                         "bulletsEn":  [
-                                           "Black-box penetration test: Next.js / Node.js / MongoDB e-commerce platform.",
-                                           "CRITICAL: exposure of personal data from 9 accounts through an unprotected public API.",
-                                           "5 additional issues: missing CSP, Sentry DSN and Git hash leak, no rate limiting.",
-                                           "Total: 6 vulnerabilities including 1 critical, with prioritized remediation report delivered."
-                                       ],
-                         "organizationEn":  "GRAFNET Consulting - Client mission",
-                         "dateEn":  "June 23, 2026",
-                         "badgeEn":  "Web Pentest"
-                     },
-                     {
-                         "id":  "prj-giftyzi",
-                         "title":  "Pentest Web Black-box — giftyzi.com",
-                         "titleEn":  "Black-box Web Pentest — giftyzi.com",
-                         "organization":  "GRAFNET Consulting — Mission cliente",
-                         "date":  "17–20 juin 2026",
-                         "badge":  "Pentest Web",
-                         "badgeStyle":  "pentest",
-                         "category":  "Pentest",
-                         "description":  "Audit de sécurité sur infrastructure Django / Next.js / PostgreSQL / Redis.",
-                         "bullets":  [
-                                         "CRITIQUE : mode DEBUG actif en production avec exposition de l\u0027infrastructure interne.",
-                                         "CRITIQUE : collecte massive de données personnelles sans politique de confidentialité.",
-                                         "CRITIQUE : sous-domaines exposés et mauvaise configuration TLS.",
-                                         "Total : 12 vulnérabilités dont 3 critiques, avec recommandations headers et durcissement TLS."
-                                     ],
-                         "tags":  [
-                                      "OWASP Top 10",
-                                      "DEBUG",
-                                      "RGPD",
-                                      "Nmap",
-                                      "OWASP ZAP",
-                                      "curl",
-                                      "DevTools"
-                                  ],
-                         "link":  "#",
-                         "repo":  "#",
-                         "categoryEn":  "Pentest",
-                         "descriptionEn":  "Security audit on a Django / Next.js / PostgreSQL / Redis infrastructure.",
-                         "bulletsEn":  [
-                                           "CRITICAL: DEBUG mode enabled in production with internal infrastructure exposure.",
-                                           "CRITICAL: massive personal data collection without privacy policy.",
-                                           "CRITICAL: exposed subdomains and TLS misconfiguration.",
-                                           "Total: 12 vulnerabilities including 3 critical, with security headers and TLS hardening recommendations."
-                                       ],
-                         "organizationEn":  "GRAFNET Consulting - Client mission",
-                         "dateEn":  "June 17-20, 2026",
-                         "badgeEn":  "Web Pentest"
-                     },
-                     {
-                         "id":  "prj-uac-audit",
-                         "title":  "Audit SI — Université d\u0027Abomey-Calavi",
-                         "titleEn":  "IS Security Audit — UAC",
-                         "organization":  "SPTIC — Université d\u0027Abomey-Calavi",
-                         "date":  "2025–2026",
-                         "badge":  "Audit réel",
-                         "badgeStyle":  "grc",
-                         "category":  "Audit",
-                         "description":  "Audit complet autour de la gouvernance et de la conformité du système d\u0027information.",
-                         "bullets":  [
-                                         "Audit complet : 33 points de contrôle alignés PSSIE, ISO 27001:2022 et Code du Numérique.",
-                                         "27 questions de diagnostic sur 7 domaines via Google Forms / Apps Script.",
-                                         "12 points critiques dont non-conformité Code du Numérique sur données de santé et financières.",
-                                         "Analyse et documentation d\u0027un incident réel de type ransomware avec rapport et recommandations."
-                                     ],
-                         "tags":  [
-                                      "ISO 27001",
-                                      "PSSIE",
-                                      "Code du Numérique",
-                                      "Audit",
-                                      "Gap Analysis"
-                                  ],
-                         "link":  "#",
-                         "repo":  "#",
-                         "categoryEn":  "Audit",
-                         "descriptionEn":  "Complete audit around information system governance and compliance.",
-                         "bulletsEn":  [
-                                           "Complete audit: 33 control points aligned with PSSIE, ISO 27001:2022 and the Digital Code.",
-                                           "27 diagnostic questions across 7 domains via Google Forms / Apps Script.",
-                                           "12 critical points including Digital Code non-compliance on health and financial data.",
-                                           "Analysis and documentation of a real ransomware incident with report and recommendations."
-                                       ],
-                         "organizationEn":  "SPTIC - University of Abomey-Calavi",
-                         "dateEn":  "2025-2026",
-                         "badgeEn":  "Real audit"
-                     },
-                     {
-                         "id":  "prj-pssi",
-                         "title":  "PSSI-UAC v2.0 — Première politique de sécurité officielle",
-                         "titleEn":  "ISSP-UAC v2.0 — First Official Security Policy",
-                         "organization":  "SPTIC — Université d\u0027Abomey-Calavi",
-                         "date":  "2025–2026",
-                         "badge":  "Historique",
-                         "badgeStyle":  "grc",
-                         "category":  "Gouvernance",
-                         "description":  "Document officiel de gouvernance SI pour un système d\u0027information universitaire.",
-                         "bullets":  [
-                                         "Premier document de gouvernance SI de l\u0027UAC.",
-                                         "13 sections, 50+ règles de sécurité codées, validé par le Chef du SPTIC.",
-                                         "Feuille de route en 4 phases sur 18–24 mois pour un SI de 60 000 utilisateurs.",
-                                         "Conforme PSSIE Bénin, ISO 27001:2022 et Code du Numérique."
-                                     ],
-                         "tags":  [
-                                      "PSSI",
-                                      "ISO 27001",
-                                      "Gouvernance",
-                                      "PSSIE Bénin",
-                                      "60 000 utilisateurs"
-                                  ],
-                         "link":  "#",
-                         "repo":  "#",
-                         "categoryEn":  "Governance",
-                         "descriptionEn":  "Official IS governance document for a university information system.",
-                         "bulletsEn":  [
-                                           "First official IS governance document for UAC.",
-                                           "13 sections, 50+ coded security rules, validated by the Head of SPTIC.",
-                                           "4-phase roadmap over 18-24 months for a 60,000-user information system.",
-                                           "Compliant with Benin PSSIE, ISO 27001:2022 and the Digital Code."
-                                       ],
-                         "organizationEn":  "SPTIC - University of Abomey-Calavi",
-                         "dateEn":  "2025-2026",
-                         "badgeEn":  "Historical"
-                     },
-                     {
-                         "id":  "prj-ai4bmi",
-                         "title":  "Plateforme IA Sécurisée — Hackathon AI4BMI",
-                         "titleEn":  "Secure AI Platform — AI4BMI Hackathon",
-                         "organization":  "IFRI / UAC",
-                         "date":  "Fév. 2026",
-                         "badge":  "Hackathon",
-                         "badgeStyle":  "hack",
-                         "category":  "Hackathon",
-                         "description":  "Plateforme IA avec chiffrement et contrôles de sécurité applicative.",
-                         "bullets":  [
-                                         "Chiffrement AES-256-GCM, MFA, anti-brute force et JWT.",
-                                         "Documentation technique complète et rapport de sécurité remis au jury.",
-                                         "Conforme aux recommandations NIST sur les mots de passe."
-                                     ],
-                         "tags":  [
-                                      "Python",
-                                      "Flask",
-                                      "AES-256-GCM",
-                                      "MFA",
-                                      "JWT",
-                                      "NIST"
-                                  ],
-                         "link":  "#",
-                         "repo":  "#",
-                         "categoryEn":  "Hackathon",
-                         "descriptionEn":  "AI platform with encryption and application security controls.",
-                         "bulletsEn":  [
-                                           "AES-256-GCM encryption, MFA, anti-brute force and JWT.",
-                                           "Complete technical documentation and security report submitted to the jury.",
-                                           "Compliant with NIST password recommendations."
-                                       ],
-                         "organizationEn":  "IFRI / UAC",
-                         "dateEn":  "Feb. 2026",
-                         "badgeEn":  "Hackathon"
-                     }
-                 ],
-    "skills":  [
-                   {
-                       "id":  "sk-pentest",
-                       "name":  "Pentest Web Black-box",
-                       "level":  78,
-                       "category":  "Sécurité Offensive",
-                       "nameEn":  "Pentest Web Black-box",
-                       "categoryEn":  "Offensive Security"
-                   },
-                   {
-                       "id":  "sk-owasp",
-                       "name":  "OWASP Top 10 / API Security",
-                       "level":  82,
-                       "category":  "Sécurité Offensive",
-                       "nameEn":  "OWASP Top 10 / API Security",
-                       "categoryEn":  "Offensive Security"
-                   },
-                   {
-                       "id":  "sk-recon",
-                       "name":  "Reconnaissance \u0026 Énumération",
-                       "level":  75,
-                       "category":  "Sécurité Offensive",
-                       "nameEn":  "Reconnaissance \u0026 Enumeration",
-                       "categoryEn":  "Offensive Security"
-                   },
-                   {
-                       "id":  "sk-burp",
-                       "name":  "Burp Suite",
-                       "level":  72,
-                       "category":  "Sécurité Offensive",
-                       "nameEn":  "Burp Suite",
-                       "categoryEn":  "Offensive Security"
-                   },
-                   {
-                       "id":  "sk-zap",
-                       "name":  "OWASP ZAP / Nikto",
-                       "level":  75,
-                       "category":  "Sécurité Offensive",
-                       "nameEn":  "OWASP ZAP / Nikto",
-                       "categoryEn":  "Offensive Security"
-                   },
-                   {
-                       "id":  "sk-nmap",
-                       "name":  "SQLMap / WhatWeb / Nmap",
-                       "level":  78,
-                       "category":  "Sécurité Offensive",
-                       "nameEn":  "SQLMap / WhatWeb / Nmap",
-                       "categoryEn":  "Offensive Security"
-                   },
-                   {
-                       "id":  "sk-iso",
-                       "name":  "ISO 27001:2022",
-                       "level":  85,
-                       "category":  "Gouvernance \u0026 Conformité",
-                       "nameEn":  "ISO 27001:2022",
-                       "categoryEn":  "Governance \u0026 Compliance"
-                   },
-                   {
-                       "id":  "sk-iso2",
-                       "name":  "ISO 20000-1 / ISO 27035",
-                       "level":  80,
-                       "category":  "Gouvernance \u0026 Conformité",
-                       "nameEn":  "ISO 20000-1 / ISO 27035",
-                       "categoryEn":  "Governance \u0026 Compliance"
-                   },
-                   {
-                       "id":  "sk-itil",
-                       "name":  "ITIL 4 / COBIT 2019",
-                       "level":  78,
-                       "category":  "Gouvernance \u0026 Conformité",
-                       "nameEn":  "ITIL 4 / COBIT 2019",
-                       "categoryEn":  "Governance \u0026 Compliance"
-                   },
-                   {
-                       "id":  "sk-pssie",
-                       "name":  "PSSIE Bénin / Code Numérique",
-                       "level":  88,
-                       "category":  "Gouvernance \u0026 Conformité",
-                       "nameEn":  "Benin PSSIE / Digital Code",
-                       "categoryEn":  "Governance \u0026 Compliance"
-                   },
-                   {
-                       "id":  "sk-raci",
-                       "name":  "Rédaction PSSI \u0026 RACI",
-                       "level":  85,
-                       "category":  "Gouvernance \u0026 Conformité",
-                       "nameEn":  "ISSP Writing \u0026 RACI",
-                       "categoryEn":  "Governance \u0026 Compliance"
-                   },
-                   {
-                       "id":  "sk-gap",
-                       "name":  "Gap Analysis / Audit",
-                       "level":  82,
-                       "category":  "Gouvernance \u0026 Conformité",
-                       "nameEn":  "Gap Analysis / Audit",
-                       "categoryEn":  "Governance \u0026 Compliance"
-                   },
-                   {
-                       "id":  "sk-wireshark",
-                       "name":  "Analyse réseau (Wireshark)",
-                       "level":  80,
-                       "category":  "Cybersécurité Défensive",
-                       "nameEn":  "Network Analysis (Wireshark)",
-                       "categoryEn":  "Defensive Cybersecurity"
-                   },
-                   {
-                       "id":  "sk-crypto",
-                       "name":  "Chiffrement AES-256-GCM/JWT",
-                       "level":  78,
-                       "category":  "Cybersécurité Défensive",
-                       "nameEn":  "AES-256-GCM/JWT Encryption",
-                       "categoryEn":  "Defensive Cybersecurity"
-                   },
-                   {
-                       "id":  "sk-kali",
-                       "name":  "Kali Linux",
-                       "level":  78,
-                       "category":  "Cybersécurité Défensive",
-                       "nameEn":  "Kali Linux",
-                       "categoryEn":  "Defensive Cybersecurity"
-                   },
-                   {
-                       "id":  "sk-siem",
-                       "name":  "Analyse incidents / SIEM",
-                       "level":  65,
-                       "category":  "Cybersécurité Défensive",
-                       "nameEn":  "Incident Analysis / SIEM",
-                       "categoryEn":  "Defensive Cybersecurity"
-                   },
-                   {
-                       "id":  "sk-python",
-                       "name":  "Python / Flask",
-                       "level":  75,
-                       "category":  "Développement",
-                       "nameEn":  "Python / Flask",
-                       "categoryEn":  "Development"
-                   },
-                   {
-                       "id":  "sk-web",
-                       "name":  "HTML/CSS/JavaScript",
-                       "level":  72,
-                       "category":  "Développement",
-                       "nameEn":  "HTML/CSS/JavaScript",
-                       "categoryEn":  "Development"
-                   },
-                   {
-                       "id":  "sk-git",
-                       "name":  "Git / GitHub",
-                       "level":  72,
-                       "category":  "Développement",
-                       "nameEn":  "Git / GitHub",
-                       "categoryEn":  "Development"
-                   },
-                   {
-                       "id":  "sk-linux",
-                       "name":  "Bash / Linux",
-                       "level":  62,
-                       "category":  "Développement",
-                       "nameEn":  "Bash / Linux",
-                       "categoryEn":  "Development"
-                   }
-               ],
-    "tools":  [
-                  "Burp Suite",
-                  "OWASP ZAP",
-                  "Nmap",
-                  "Nikto",
-                  "SQLMap",
-                  "WhatWeb",
-                  "Kali Linux",
-                  "Aircrack-ng",
-                  "Wireshark",
-                  "ArcSight",
-                  "QRadar",
-                  "Netdata",
-                  "Python",
-                  "Flask",
-                  "Git",
-                  "JWT",
-                  "AES-256",
-                  "bcrypt",
-                  "curl",
-                  "OSINT Framework"
-              ],
-    "toolsOffensive":  [
-                           "Burp Suite",
-                           "OWASP ZAP",
-                           "Nmap",
-                           "Nikto",
-                           "SQLMap",
-                           "WhatWeb",
-                           "Kali Linux",
-                           "Aircrack-ng"
-                       ],
-    "experience":  [
-                       {
-                           "id":  "exp-grafnet",
-                           "role":  "Mission GRC / Audit SSI",
-                           "company":  "GRAFNET Consulting",
-                           "period":  "Depuis juin 2026",
-                           "description":  "Audit documentaire, analyse de conformité ISO, tests web black-box et recommandations de remédiation.",
-                           "roleEn":  "GRC / IS Security Audit Mission",
-                           "companyEn":  "GRAFNET Consulting",
-                           "periodEn":  "Since June 2026",
-                           "descriptionEn":  "Documentary audit, ISO compliance analysis, black-box web security testing and remediation recommendations."
-                       },
-                       {
-                           "id":  "exp-uac",
-                           "role":  "Audit SI et PSSI-UAC v2.0",
-                           "company":  "SPTIC — Université d\u0027Abomey-Calavi",
-                           "period":  "2025–2026",
-                           "description":  "Audit de gouvernance SI, documentation d\u0027incident, rédaction de politique de sécurité et feuille de route.",
-                           "roleEn":  "IS Audit and PSSI-UAC v2.0",
-                           "companyEn":  "SPTIC — University of Abomey-Calavi",
-                           "periodEn":  "2025–2026",
-                           "descriptionEn":  "IS governance audit, incident documentation, security policy writing and roadmap."
-                       }
-                   ],
-    "edu":  [
-                {
-                    "id":  "edu-ifri",
-                    "degree":  "Licence 3 — Sécurité Informatique (en cours)",
-                    "school":  "IFRI — Université d\u0027Abomey-Calavi, Bénin",
-                    "period":  "2023 – présent",
-                    "description":  "Cybersécurité offensive et défensive, gouvernance SI, réseaux, développement et conformité.",
-                    "degreeEn":  "Third-year Bachelor — Cybersecurity (ongoing)",
-                    "schoolEn":  "IFRI — University of Abomey-Calavi, Benin",
-                    "periodEn":  "2023 – present",
-                    "descriptionEn":  "Offensive and defensive cybersecurity, IS governance, networks, development and compliance."
-                },
-                {
-                    "id":  "edu-bac",
-                    "degree":  "Baccalauréat Série D — Mention Bien",
-                    "school":  "Bénin",
-                    "period":  "2023",
-                    "description":  "Parcours scientifique.",
-                    "degreeEn":  "Scientific Baccalaureate Series D — Good distinction",
-                    "schoolEn":  "Benin",
-                    "periodEn":  "2023",
-                    "descriptionEn":  "Scientific background."
-                }
-            ],
-    "certs":  [
-                  {
-                      "id":  "cert-cisco",
-                      "title":  "Introduction to Cyber Security",
-                      "issuer":  "Cisco Networking Academy",
-                      "date":  "2025",
-                      "description":  "Fondamentaux de cybersécurité, risques, menaces et bonnes pratiques.",
-                      "logo":  "",
-                      "pdf":  "",
-                      "link":  "https://www.netacad.com/",
-                      "titleEn":  "Introduction to Cyber Security",
-                      "issuerEn":  "Cisco Networking Academy",
-                      "dateEn":  "2025",
-                      "descriptionEn":  "Cybersecurity fundamentals, risks, threats and best practices."
-                  },
-                  {
-                      "id":  "cert-grafnet",
-                      "title":  "Mission GRC / Audit SSI",
-                      "issuer":  "GRAFNET Consulting",
-                      "date":  "2026",
-                      "description":  "Audit GRC, analyse de conformité et tests de sécurité web.",
-                      "logo":  "",
-                      "pdf":  "",
-                      "link":  "#",
-                      "titleEn":  "GRC / IS Security Audit Mission",
-                      "issuerEn":  "GRAFNET Consulting",
-                      "dateEn":  "2026",
-                      "descriptionEn":  "GRC audit, compliance analysis and web security testing."
-                  }
-              ],
-    "knowledge":  {
-
-                  },
-    "gallery":  {
-
-                },
-    "articles":  {
-
-                 },
-    "contacts":  [
-                     {
-                         "id":  "ct-email",
-                         "label":  "Email",
-                         "value":  "vhoundete@gmail.com",
-                         "url":  "mailto:vhoundete@gmail.com",
-                         "icon":  "mail",
-                         "labelEn":  "Email"
-                     },
-                     {
-                         "id":  "ct-whatsapp",
-                         "label":  "WhatsApp",
-                         "value":  "+229 01 69 95 94 07",
-                         "url":  "https://wa.me/22901699559407",
-                         "icon":  "phone",
-                         "labelEn":  "WhatsApp"
-                     },
-                     {
-                         "id":  "ct-linkedin",
-                         "label":  "LinkedIn",
-                         "value":  "linkedin.com/in/venancehoundete",
-                         "url":  "https://linkedin.com/in/venancehoundete",
-                         "icon":  "linkedin",
-                         "labelEn":  "LinkedIn"
-                     },
-                     {
-                         "id":  "ct-github",
-                         "label":  "GitHub",
-                         "value":  "github.com/venance10",
-                         "url":  "https://github.com/venance10",
-                         "icon":  "github",
-                         "labelEn":  "GitHub"
-                     }
-                 ],
-    "activity":  {
-                     "date":  "2026-07-09T13:20:00.000Z",
-                     "type":  "content",
-                     "message":  "Contenu réaligné depuis index source cyber/GRC."
-                 }
+  "_v": 2,
+  "_updated": "2026-07-10T13:09:16.695Z",
+  "infos": {
+    "name": "Venance Arnolde Yéminvènon Houndété",
+    "shortName": "Venance Houndété",
+    "role": "Cybersécurité · GRC · Pentest Web",
+    "roleEn": "Cybersecurity · GRC · Web Pentesting",
+    "tagline": "J'aide les organisations à sécuriser leurs systèmes informatiques : audit GRC documentaire, tests d'intrusion web black-box, rédaction de politiques de sécurité, avec des livrables concrets et professionnels.",
+    "taglineEn": "I help organizations secure their information systems through GRC audits, black-box web penetration testing and security policy documentation.",
+    "location": "Abomey-Calavi, Benin - Travail a distance possible",
+    "locationEn": "Abomey-Calavi, Benin - Remote work available",
+    "email": "vhoundete@gmail.com",
+    "phone": "+229 01 69 95 94 07",
+    "avatar": "data:image/webp;base64,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",
+    "cv": "./cv.pdf",
+    "github": "https://github.com/venance10",
+    "linkedin": "https://www.linkedin.com/in/venance-arnolde-yéminvènon-houndete-747464371?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    "availability": "Disponible pour missions Audit GRC - Pentest Web - Gouvernance SI - Conformite ISO 27001",
+    "availabilityEn": "Available for GRC audit - Web pentesting - IS governance - ISO 27001 compliance missions",
+    "speciality": "Gouvernance SI - Audit et Pentest Web - Conformite ISO 27001",
+    "specialityEn": "IS governance - Security audit and web pentesting - ISO 27001 compliance",
+    "languages": "Francais courant - Anglais intermediaire B1",
+    "languagesEn": "Fluent French - Intermediate English B1",
+    "stats": [
+      {
+        "label": "Vulnérabilités identifiées lors d'audits web réels",
+        "labelEn": "Vulnerabilities identified during real web audits",
+        "value": "18+"
+      },
+      {
+        "label": "Points de contrôle vérifiés sur l'audit SI de l'UAC",
+        "labelEn": "Control points checked during the UAC IS audit",
+        "value": "33"
+      },
+      {
+        "label": "Règles de sécurité rédigées pour la PSSI-UAC v2.0",
+        "labelEn": "Security rules written for PSSI-UAC v2.0",
+        "value": "50+"
+      },
+      {
+        "label": "Normes maîtrisées : ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE",
+        "labelEn": "Frameworks: ISO 27001, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE",
+        "value": "5"
+      }
+    ],
+    "about": "Je suis Venance Arnolde Yeminvenon Houndete, etudiant en Licence 3 Securite Informatique a l'IFRI, Universite d'Abomey-Calavi au Benin, aspirant RSSI.\n\nJ'ai une experience pratique en audit GRC et en tests d'intrusion web black-box reels. J'ai conduit des audits pour l'Universite d'Abomey-Calavi, notamment autour de la PSSI-UAC v2.0 pour un SI de 60 000 utilisateurs, et pour GRAFNET Consulting, ou j'ai identifie des vulnerabilites critiques sur des plateformes e-commerce en production.\n\nJe suis disponible pour des missions professionnelles en cybersecurite offensive et defensive, gestion des risques, gouvernance SI et conformite.",
+    "aboutEn": "I am Venance Arnolde Yeminvenon Houndete, a third-year Cybersecurity student at IFRI, University of Abomey-Calavi in Benin, and an aspiring CISO.\n\nI have practical experience in GRC audits and real black-box web penetration testing. I worked on audits for the University of Abomey-Calavi and GRAFNET Consulting, where I identified critical vulnerabilities on production e-commerce platforms.\n\nI am available for professional missions in offensive and defensive cybersecurity, risk management, IS governance and compliance."
+  },
+  "services": [
+    {
+      "id": "srv-pentest",
+      "title": "Pentest Web Black-box",
+      "titleEn": "Black-box Web Penetration Testing",
+      "description": "Test d'intrusion boîte noire sur applications web : reconnaissance, énumération, OWASP Top 10, API Security Top 10 et rapport de remédiation priorisé.",
+      "descriptionEn": "Black-box penetration testing for web applications: reconnaissance, enumeration, OWASP Top 10, API Security Top 10 and prioritized remediation report.",
+      "icon": "shield"
+    },
+    {
+      "id": "srv-grc",
+      "title": "Audit de Sécurité & GRC",
+      "titleEn": "Security Audit & GRC",
+      "description": "Analyse des écarts sur procédures et politiques de sécurité : ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019, PSSIE Bénin.",
+      "descriptionEn": "Gap analysis on security procedures and policies: ISO 27001:2022, ISO 20000-1, ITIL 4, COBIT 2019 and Benin PSSIE.",
+      "icon": "search"
+    },
+    {
+      "id": "srv-pssi",
+      "title": "Politique de Sécurité (PSSI)",
+      "titleEn": "Security Policy (ISSP)",
+      "description": "Rédaction de documents de gouvernance SI : règles de sécurité, matrice RACI, KPI, registre des traitements et conformité réglementaire.",
+      "descriptionEn": "Drafting IS governance documents: security rules, RACI matrix, KPIs, processing register and regulatory compliance.",
+      "icon": "file"
+    },
+    {
+      "id": "srv-iso",
+      "title": "Conformité ISO 27001 & RGPD",
+      "titleEn": "ISO 27001 & GDPR Compliance",
+      "description": "Comparaison aux exigences ISO 27001:2022, analyse RGPD / Code du Numérique du Bénin et feuille de route de conformité.",
+      "descriptionEn": "Comparison with ISO 27001:2022 requirements, GDPR / Benin Digital Code analysis and compliance roadmap.",
+      "icon": "check"
+    },
+    {
+      "id": "srv-risk",
+      "title": "Cartographie & Analyse de risques",
+      "titleEn": "Risk Mapping & Analysis",
+      "description": "Cartographie d'infrastructure, actifs, données sensibles, points vulnérables, analyse de risques et matrice de criticité.",
+      "descriptionEn": "Infrastructure mapping, assets, sensitive data, vulnerable points, risk analysis and criticality matrix.",
+      "icon": "map"
+    },
+    {
+      "id": "srv-training",
+      "title": "Formation des équipes",
+      "titleEn": "Team Training",
+      "description": "Sessions pratiques pour comprendre les risques cyber, les bonnes pratiques et les procédures de réponse aux incidents.",
+      "descriptionEn": "Practical sessions to understand cyber risks, best practices and incident response procedures.",
+      "icon": "book"
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj-grc-27",
+      "title": "Audit GRC Documentaire — 27 Procédures SI",
+      "titleEn": "GRC Documentary Audit — 27 IS Procedures",
+      "organization": "GRAFNET Consulting",
+      "organizationEn": "GRAFNET Consulting",
+      "date": "Depuis juin 2026",
+      "dateEn": "Since June 2026",
+      "badge": "GRC · Mission",
+      "badgeEn": "GRC · Mission",
+      "badgeStyle": "grc",
+      "description": "Analyse de conformité documentaire couvrant plusieurs référentiels majeurs.",
+      "descriptionEn": "Documentary compliance analysis covering several major standards.",
+      "bullets": [
+        "Analyse de conformité de 27 procédures croisant ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 et COBIT 2019.",
+        "Identification des écarts, lacunes documentaires et risques de non-conformité avec recommandations correctives.",
+        "Vérification des rôles, matrice RACI, contrôles internes, KPI et mécanismes de traçabilité.",
+        "Production de registres d'écarts et rapports de conformité pour certification ISO 27001 / ISO 20000.",
+        "Intervention de récupération d'urgence sur VPS Ubuntu 24.04 avec Odoo 18, Nginx, PostgreSQL, MariaDB et Docker."
+      ],
+      "bulletsEn": [
+        "Compliance analysis of 27 procedures covering ISO/IEC 27001:2022, ISO/IEC 20000-1:2018, ISO/IEC 27035, ITIL 4 and COBIT 2019.",
+        "Identification of gaps, documentary weaknesses and non-compliance risks with corrective recommendations.",
+        "Verification of roles, RACI matrix, internal controls, KPIs and traceability mechanisms.",
+        "Production of gap registers and compliance reports for ISO 27001 / ISO 20000 certification.",
+        "Emergency recovery intervention on Ubuntu 24.04 VPS with Odoo 18, Nginx, PostgreSQL, MariaDB and Docker."
+      ],
+      "category": "GRC",
+      "categoryEn": "GRC",
+      "tags": [
+        "ISO 27001:2022",
+        "ISO 20000-1",
+        "ITIL 4",
+        "COBIT 2019",
+        "PSSIE",
+        "RACI"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "prj-asofind",
+      "title": "Pentest Web Black-box — asofind.com",
+      "titleEn": "Black-box Web Pentest — asofind.com",
+      "organization": "GRAFNET Consulting — Mission cliente",
+      "organizationEn": "GRAFNET Consulting - Client mission",
+      "date": "23 juin 2026",
+      "dateEn": "June 23, 2026",
+      "badge": "Pentest Web",
+      "badgeEn": "Web Pentest",
+      "badgeStyle": "pentest",
+      "description": "Test d'intrusion boîte noire sur une plateforme e-commerce en production.",
+      "descriptionEn": "Black-box penetration test on a production e-commerce platform.",
+      "bullets": [
+        "Test d'intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB.",
+        "CRITIQUE : exposition de données personnelles de 9 comptes via API publique non protégée.",
+        "5 failles supplémentaires : absence de CSP, fuite Sentry DSN et hash Git, absence de rate limiting.",
+        "Total : 6 vulnérabilités dont 1 critique, avec rapport de remédiation priorisé livré."
+      ],
+      "bulletsEn": [
+        "Black-box penetration test: Next.js / Node.js / MongoDB e-commerce platform.",
+        "CRITICAL: exposure of personal data from 9 accounts through an unprotected public API.",
+        "5 additional issues: missing CSP, Sentry DSN and Git hash leak, no rate limiting.",
+        "Total: 6 vulnerabilities including 1 critical, with prioritized remediation report delivered."
+      ],
+      "category": "Pentest",
+      "categoryEn": "Pentest",
+      "tags": [
+        "OWASP Top 10",
+        "API Security",
+        "RGPD",
+        "nmap",
+        "nikto",
+        "sqlmap",
+        "whatweb",
+        "curl"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "prj-giftyzi",
+      "title": "Pentest Web Black-box — giftyzi.com",
+      "titleEn": "Black-box Web Pentest — giftyzi.com",
+      "organization": "GRAFNET Consulting — Mission cliente",
+      "organizationEn": "GRAFNET Consulting - Client mission",
+      "date": "17–20 juin 2026",
+      "dateEn": "June 17-20, 2026",
+      "badge": "Pentest Web",
+      "badgeEn": "Web Pentest",
+      "badgeStyle": "pentest",
+      "description": "Audit de sécurité sur infrastructure Django / Next.js / PostgreSQL / Redis.",
+      "descriptionEn": "Security audit on a Django / Next.js / PostgreSQL / Redis infrastructure.",
+      "bullets": [
+        "CRITIQUE : mode DEBUG actif en production avec exposition de l'infrastructure interne.",
+        "CRITIQUE : collecte massive de données personnelles sans politique de confidentialité.",
+        "CRITIQUE : sous-domaines exposés et mauvaise configuration TLS.",
+        "Total : 12 vulnérabilités dont 3 critiques, avec recommandations headers et durcissement TLS."
+      ],
+      "bulletsEn": [
+        "CRITICAL: DEBUG mode enabled in production with internal infrastructure exposure.",
+        "CRITICAL: massive personal data collection without privacy policy.",
+        "CRITICAL: exposed subdomains and TLS misconfiguration.",
+        "Total: 12 vulnerabilities including 3 critical, with security headers and TLS hardening recommendations."
+      ],
+      "category": "Pentest",
+      "categoryEn": "Pentest",
+      "tags": [
+        "OWASP Top 10",
+        "DEBUG",
+        "RGPD",
+        "Nmap",
+        "OWASP ZAP",
+        "curl",
+        "DevTools"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "prj-uac-audit",
+      "title": "Audit SI — Université d'Abomey-Calavi",
+      "titleEn": "IS Security Audit — UAC",
+      "organization": "SPTIC — Université d'Abomey-Calavi",
+      "organizationEn": "SPTIC - University of Abomey-Calavi",
+      "date": "2025–2026",
+      "dateEn": "2025-2026",
+      "badge": "Audit réel",
+      "badgeEn": "Real audit",
+      "badgeStyle": "grc",
+      "description": "Audit complet autour de la gouvernance et de la conformité du système d'information.",
+      "descriptionEn": "Complete audit around information system governance and compliance.",
+      "bullets": [
+        "Audit complet : 33 points de contrôle alignés PSSIE, ISO 27001:2022 et Code du Numérique.",
+        "27 questions de diagnostic sur 7 domaines via Google Forms / Apps Script.",
+        "12 points critiques dont non-conformité Code du Numérique sur données de santé et financières.",
+        "Analyse et documentation d'un incident réel de type ransomware avec rapport et recommandations."
+      ],
+      "bulletsEn": [
+        "Complete audit: 33 control points aligned with PSSIE, ISO 27001:2022 and the Digital Code.",
+        "27 diagnostic questions across 7 domains via Google Forms / Apps Script.",
+        "12 critical points including Digital Code non-compliance on health and financial data.",
+        "Analysis and documentation of a real ransomware incident with report and recommendations."
+      ],
+      "category": "Audit",
+      "categoryEn": "Audit",
+      "tags": [
+        "ISO 27001",
+        "PSSIE",
+        "Code du Numérique",
+        "Audit",
+        "Gap Analysis"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "prj-pssi",
+      "title": "PSSI-UAC v2.0 — Première politique de sécurité officielle",
+      "titleEn": "ISSP-UAC v2.0 — First Official Security Policy",
+      "organization": "SPTIC — Université d'Abomey-Calavi",
+      "organizationEn": "SPTIC - University of Abomey-Calavi",
+      "date": "2025–2026",
+      "dateEn": "2025-2026",
+      "badge": "Historique",
+      "badgeEn": "Historical",
+      "badgeStyle": "grc",
+      "description": "Document officiel de gouvernance SI pour un système d'information universitaire.",
+      "descriptionEn": "Official IS governance document for a university information system.",
+      "bullets": [
+        "Premier document de gouvernance SI de l'UAC.",
+        "13 sections, 50+ règles de sécurité codées, validé par le Chef du SPTIC.",
+        "Feuille de route en 4 phases sur 18–24 mois pour un SI de 60 000 utilisateurs.",
+        "Conforme PSSIE Bénin, ISO 27001:2022 et Code du Numérique."
+      ],
+      "bulletsEn": [
+        "First official IS governance document for UAC.",
+        "13 sections, 50+ coded security rules, validated by the Head of SPTIC.",
+        "4-phase roadmap over 18-24 months for a 60,000-user information system.",
+        "Compliant with Benin PSSIE, ISO 27001:2022 and the Digital Code."
+      ],
+      "category": "Gouvernance",
+      "categoryEn": "Governance",
+      "tags": [
+        "PSSI",
+        "ISO 27001",
+        "Gouvernance",
+        "PSSIE Bénin",
+        "60 000 utilisateurs"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "prj-ai4bmi",
+      "title": "Plateforme IA Sécurisée — Hackathon AI4BMI",
+      "titleEn": "Secure AI Platform — AI4BMI Hackathon",
+      "organization": "IFRI / UAC",
+      "organizationEn": "IFRI / UAC",
+      "date": "Fév. 2026",
+      "dateEn": "Feb. 2026",
+      "badge": "Hackathon",
+      "badgeEn": "Hackathon",
+      "badgeStyle": "hack",
+      "description": "Plateforme IA avec chiffrement et contrôles de sécurité applicative.",
+      "descriptionEn": "AI platform with encryption and application security controls.",
+      "bullets": [
+        "Chiffrement AES-256-GCM, MFA, anti-brute force et JWT.",
+        "Documentation technique complète et rapport de sécurité remis au jury.",
+        "Conforme aux recommandations NIST sur les mots de passe."
+      ],
+      "bulletsEn": [
+        "AES-256-GCM encryption, MFA, anti-brute force and JWT.",
+        "Complete technical documentation and security report submitted to the jury.",
+        "Compliant with NIST password recommendations."
+      ],
+      "category": "Hackathon",
+      "categoryEn": "Hackathon",
+      "tags": [
+        "Python",
+        "Flask",
+        "AES-256-GCM",
+        "MFA",
+        "JWT",
+        "NIST"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    }
+  ],
+  "skills": [
+    {
+      "id": "sk-pentest",
+      "name": "Pentest Web Black-box",
+      "nameEn": "Pentest Web Black-box",
+      "level": 78,
+      "category": "Sécurité Offensive",
+      "categoryEn": "Offensive Security"
+    },
+    {
+      "id": "sk-owasp",
+      "name": "OWASP Top 10 / API Security",
+      "nameEn": "OWASP Top 10 / API Security",
+      "level": 82,
+      "category": "Sécurité Offensive",
+      "categoryEn": "Offensive Security"
+    },
+    {
+      "id": "sk-recon",
+      "name": "Reconnaissance & Énumération",
+      "nameEn": "Reconnaissance & Enumeration",
+      "level": 75,
+      "category": "Sécurité Offensive",
+      "categoryEn": "Offensive Security"
+    },
+    {
+      "id": "sk-burp",
+      "name": "Burp Suite",
+      "nameEn": "Burp Suite",
+      "level": 72,
+      "category": "Sécurité Offensive",
+      "categoryEn": "Offensive Security"
+    },
+    {
+      "id": "sk-zap",
+      "name": "OWASP ZAP / Nikto",
+      "nameEn": "OWASP ZAP / Nikto",
+      "level": 75,
+      "category": "Sécurité Offensive",
+      "categoryEn": "Offensive Security"
+    },
+    {
+      "id": "sk-nmap",
+      "name": "SQLMap / WhatWeb / Nmap",
+      "nameEn": "SQLMap / WhatWeb / Nmap",
+      "level": 78,
+      "category": "Sécurité Offensive",
+      "categoryEn": "Offensive Security"
+    },
+    {
+      "id": "sk-iso",
+      "name": "ISO 27001:2022",
+      "nameEn": "ISO 27001:2022",
+      "level": 85,
+      "category": "Gouvernance & Conformité",
+      "categoryEn": "Governance & Compliance"
+    },
+    {
+      "id": "sk-iso2",
+      "name": "ISO 20000-1 / ISO 27035",
+      "nameEn": "ISO 20000-1 / ISO 27035",
+      "level": 80,
+      "category": "Gouvernance & Conformité",
+      "categoryEn": "Governance & Compliance"
+    },
+    {
+      "id": "sk-itil",
+      "name": "ITIL 4 / COBIT 2019",
+      "nameEn": "ITIL 4 / COBIT 2019",
+      "level": 78,
+      "category": "Gouvernance & Conformité",
+      "categoryEn": "Governance & Compliance"
+    },
+    {
+      "id": "sk-pssie",
+      "name": "PSSIE Bénin / Code Numérique",
+      "nameEn": "Benin PSSIE / Digital Code",
+      "level": 88,
+      "category": "Gouvernance & Conformité",
+      "categoryEn": "Governance & Compliance"
+    },
+    {
+      "id": "sk-raci",
+      "name": "Rédaction PSSI & RACI",
+      "nameEn": "ISSP Writing & RACI",
+      "level": 85,
+      "category": "Gouvernance & Conformité",
+      "categoryEn": "Governance & Compliance"
+    },
+    {
+      "id": "sk-gap",
+      "name": "Gap Analysis / Audit",
+      "nameEn": "Gap Analysis / Audit",
+      "level": 82,
+      "category": "Gouvernance & Conformité",
+      "categoryEn": "Governance & Compliance"
+    },
+    {
+      "id": "sk-wireshark",
+      "name": "Analyse réseau (Wireshark)",
+      "nameEn": "Network Analysis (Wireshark)",
+      "level": 80,
+      "category": "Cybersécurité Défensive",
+      "categoryEn": "Defensive Cybersecurity"
+    },
+    {
+      "id": "sk-crypto",
+      "name": "Chiffrement AES-256-GCM/JWT",
+      "nameEn": "AES-256-GCM/JWT Encryption",
+      "level": 78,
+      "category": "Cybersécurité Défensive",
+      "categoryEn": "Defensive Cybersecurity"
+    },
+    {
+      "id": "sk-kali",
+      "name": "Kali Linux",
+      "nameEn": "Kali Linux",
+      "level": 78,
+      "category": "Cybersécurité Défensive",
+      "categoryEn": "Defensive Cybersecurity"
+    },
+    {
+      "id": "sk-siem",
+      "name": "Analyse incidents / SIEM",
+      "nameEn": "Incident Analysis / SIEM",
+      "level": 65,
+      "category": "Cybersécurité Défensive",
+      "categoryEn": "Defensive Cybersecurity"
+    },
+    {
+      "id": "sk-python",
+      "name": "Python / Flask",
+      "nameEn": "Python / Flask",
+      "level": 75,
+      "category": "Développement",
+      "categoryEn": "Development"
+    },
+    {
+      "id": "sk-web",
+      "name": "HTML/CSS/JavaScript",
+      "nameEn": "HTML/CSS/JavaScript",
+      "level": 72,
+      "category": "Développement",
+      "categoryEn": "Development"
+    },
+    {
+      "id": "sk-git",
+      "name": "Git / GitHub",
+      "nameEn": "Git / GitHub",
+      "level": 72,
+      "category": "Développement",
+      "categoryEn": "Development"
+    },
+    {
+      "id": "sk-linux",
+      "name": "Bash / Linux",
+      "nameEn": "Bash / Linux",
+      "level": 62,
+      "category": "Développement",
+      "categoryEn": "Development"
+    }
+  ],
+  "tools": [
+    "Burp Suite",
+    "OWASP ZAP",
+    "Nmap",
+    "Nikto",
+    "SQLMap",
+    "WhatWeb",
+    "Kali Linux",
+    "Aircrack-ng",
+    "Wireshark",
+    "ArcSight",
+    "QRadar",
+    "Netdata",
+    "Python",
+    "Flask",
+    "Git",
+    "JWT",
+    "AES-256",
+    "bcrypt",
+    "curl",
+    "OSINT Framework"
+  ],
+  "toolsOffensive": [
+    "Burp Suite",
+    "OWASP ZAP",
+    "Nmap",
+    "Nikto",
+    "SQLMap",
+    "WhatWeb",
+    "Kali Linux",
+    "Aircrack-ng"
+  ],
+  "experience": [
+    {
+      "id": "exp-grafnet",
+      "role": "Mission GRC / Audit SSI",
+      "roleEn": "GRC / IS Security Audit Mission",
+      "company": "GRAFNET Consulting",
+      "companyEn": "GRAFNET Consulting",
+      "period": "Depuis juin 2026",
+      "periodEn": "Since June 2026",
+      "description": "Audit documentaire, analyse de conformité ISO, tests web black-box et recommandations de remédiation.",
+      "descriptionEn": "Documentary audit, ISO compliance analysis, black-box web security testing and remediation recommendations."
+    },
+    {
+      "id": "exp-uac",
+      "role": "Audit SI et PSSI-UAC v2.0",
+      "roleEn": "IS Audit and PSSI-UAC v2.0",
+      "company": "SPTIC — Université d'Abomey-Calavi",
+      "companyEn": "SPTIC — University of Abomey-Calavi",
+      "period": "2025–2026",
+      "periodEn": "2025–2026",
+      "description": "Audit de gouvernance SI, documentation d'incident, rédaction de politique de sécurité et feuille de route.",
+      "descriptionEn": "IS governance audit, incident documentation, security policy writing and roadmap."
+    }
+  ],
+  "edu": [
+    {
+      "id": "edu-ifri",
+      "degree": "Licence 3 — Sécurité Informatique (en cours)",
+      "degreeEn": "Third-year Bachelor — Cybersecurity (ongoing)",
+      "school": "IFRI — Université d'Abomey-Calavi, Bénin",
+      "schoolEn": "IFRI — University of Abomey-Calavi, Benin",
+      "period": "2023 – présent",
+      "periodEn": "2023 – present",
+      "description": "Cybersécurité offensive et défensive, gouvernance SI, réseaux, développement et conformité.",
+      "descriptionEn": "Offensive and defensive cybersecurity, IS governance, networks, development and compliance."
+    },
+    {
+      "id": "edu-bac",
+      "degree": "Baccalauréat Série D — Mention Bien",
+      "degreeEn": "Scientific Baccalaureate Series D — Good distinction",
+      "school": "Bénin",
+      "schoolEn": "Benin",
+      "period": "2023",
+      "periodEn": "2023",
+      "description": "Parcours scientifique.",
+      "descriptionEn": "Scientific background."
+    }
+  ],
+  "certs": [
+    {
+      "id": "cert-cisco",
+      "title": "Introduction to Cyber Security",
+      "titleEn": "Introduction to Cyber Security",
+      "issuer": "Cisco Networking Academy",
+      "issuerEn": "Cisco Networking Academy",
+      "date": "2025",
+      "dateEn": "2025",
+      "description": "Fondamentaux de cybersécurité, risques, menaces et bonnes pratiques.",
+      "descriptionEn": "Cybersecurity fundamentals, risks, threats and best practices.",
+      "logo": "",
+      "pdf": "",
+      "link": "https://www.netacad.com/"
+    },
+    {
+      "id": "cert-grafnet",
+      "title": "Mission GRC / Audit SSI",
+      "titleEn": "GRC / IS Security Audit Mission",
+      "issuer": "GRAFNET Consulting",
+      "issuerEn": "GRAFNET Consulting",
+      "date": "2026",
+      "dateEn": "2026",
+      "description": "Audit GRC, analyse de conformité et tests de sécurité web.",
+      "descriptionEn": "GRC audit, compliance analysis and web security testing.",
+      "logo": "",
+      "pdf": "",
+      "link": "#"
+    }
+  ],
+  "knowledge": [],
+  "gallery": [],
+  "articles": [],
+  "contacts": [
+    {
+      "id": "ct-email",
+      "label": "Email",
+      "labelEn": "Email",
+      "value": "vhoundete@gmail.com",
+      "url": "mailto:vhoundete@gmail.com",
+      "icon": "mail"
+    },
+    {
+      "id": "ct-whatsapp",
+      "label": "WhatsApp",
+      "labelEn": "WhatsApp",
+      "value": "+229 01 69 95 94 07",
+      "url": "https://wa.me/22901699559407",
+      "icon": "phone"
+    },
+    {
+      "id": "ct-linkedin",
+      "label": "LinkedIn",
+      "labelEn": "LinkedIn",
+      "value": "linkedin.com/in/venancehoundete",
+      "url": "https://linkedin.com/in/venancehoundete",
+      "icon": "linkedin"
+    },
+    {
+      "id": "ct-github",
+      "label": "GitHub",
+      "labelEn": "GitHub",
+      "value": "github.com/venance10",
+      "url": "https://github.com/venance10",
+      "icon": "github"
+    }
+  ],
+  "activity": [
+    {
+      "date": "2026-07-10T13:09:16.694Z",
+      "type": "edit",
+      "message": "Update main information"
+    },
+    {
+      "date": "2026-07-10T12:51:07.032Z",
+      "type": "github",
+      "message": "GitHub data.json save"
+    },
+    {
+      "date": "2026-07-10T12:35:33.952Z",
+      "type": "edit",
+      "message": "Update main information"
+    },
+    {
+      "date": "2026-07-09T13:20:00.000Z",
+      "type": "content",
+      "message": "Contenu réaligné depuis index source cyber/GRC."
+    }
+  ]
 }
