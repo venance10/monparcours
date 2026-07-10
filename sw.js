@@ -1,4 +1,4 @@
-﻿const BUILD_VERSION = "2026-07-10-sw-v20";
+﻿const BUILD_VERSION = "2026-07-10-sw-v21";
 const CACHE_PREFIX = "venanceportfolio";
 const CACHE = `${CACHE_PREFIX}-${BUILD_VERSION}`;
 const ASSETS = [
@@ -97,6 +97,7 @@ function notifyClients(message) {
   return self.clients.matchAll({ includeUncontrolled: true, type: "window" })
     .then(clients => clients.forEach(client => client.postMessage(message)));
 }
+
 
 
 
