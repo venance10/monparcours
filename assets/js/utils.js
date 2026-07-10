@@ -109,6 +109,19 @@ export async function readImageAsOptimizedDataUrl(file) {
   return optimized;
 }
 
+export async function readAvatarAsOptimizedDataUrl(file) {
+  if (!isAllowedImageFile(file)) throw new Error("unsupported-image");
+  if (file.size > IMAGE_UPLOAD.maxOriginalBytes) throw new Error("original-image-too-large");
+  if (isSvgFile(file)) {
+    if (file.size > IMAGE_UPLOAD.maxEmbeddedBytes) throw new Error("embedded-image-too-large");
+    return readFileAsDataUrl(file);
+  }
+  const original = await readFileAsDataUrl(file);
+  const optimized = await cropSquareImage(original, 720);
+  if (dataUrlBytes(optimized) > IMAGE_UPLOAD.maxEmbeddedBytes) throw new Error("embedded-image-too-large");
+  return optimized;
+}
+
 function isSvgFile(file) {
   return file.type === "image/svg+xml" || String(file.name || "").toLowerCase().endsWith(".svg");
 }
@@ -142,6 +155,35 @@ function compressRasterImage(dataUrl) {
         }
         readFileAsDataUrl(blob).then(resolve, reject);
       }, "image/webp", IMAGE_UPLOAD.quality);
+    };
+    image.onerror = () => reject(new Error("image-load-failed"));
+    image.src = dataUrl;
+  });
+}
+
+function cropSquareImage(dataUrl, size) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => {
+      const side = Math.min(image.width, image.height);
+      const sx = Math.max(0, Math.floor((image.width - side) / 2));
+      const sy = Math.max(0, Math.floor((image.height - side) / 2));
+      const canvas = document.createElement("canvas");
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        reject(new Error("canvas-unavailable"));
+        return;
+      }
+      ctx.drawImage(image, sx, sy, side, side, 0, 0, size, size);
+      canvas.toBlob(blob => {
+        if (!blob) {
+          reject(new Error("compression-failed"));
+          return;
+        }
+        readFileAsDataUrl(blob).then(resolve, reject);
+      }, "image/webp", 0.84);
     };
     image.onerror = () => reject(new Error("image-load-failed"));
     image.src = dataUrl;

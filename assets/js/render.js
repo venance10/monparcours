@@ -71,7 +71,10 @@ function renderHero() {
       <p>${local(D.infos, "tagline")}</p>
       <div class="toolbar"><a class="btn primary" href="#projects">${icon("arrow")} ${escapeHtml(tr("heroWork"))}</a><a class="btn" href="${D.infos.cv}">${icon("download")} ${escapeHtml(tr("cv"))}</a></div>
     </div>
-    <div class="hero-visual stat-row">${D.infos.stats.map(s => `<div class="stat card"><strong>${escapeHtml(s.value)}</strong><span>${escapeHtml(pick(s, "label"))}</span></div>`).join("")}</div>
+    <div class="hero-visual">
+      <button class="profile-portal" id="profilePortal" type="button" aria-label="${escapeHtml(D.infos.name)}"><img src="${escapeHtml(D.infos.avatar || "./assets/images/profile.svg")}" alt=""></button>
+      <div class="stat-row">${D.infos.stats.map(s => `<div class="stat card"><strong>${escapeHtml(s.value)}</strong><span>${escapeHtml(pick(s, "label"))}</span></div>`).join("")}</div>
+    </div>
   </div>`;
 }
 

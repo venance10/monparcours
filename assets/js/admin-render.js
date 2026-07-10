@@ -36,6 +36,7 @@ const formSchemas = {
     ["specialityEn", "Specialite EN", "text"],
     ["languages", "Langues", "text"],
     ["languagesEn", "Langues EN", "text"],
+    ["avatar", "Photo de profil", "avatar"],
     ["cv", "CV PDF", "pdf"],
     ["github", "GitHub", "url"],
     ["linkedin", "LinkedIn", "url"],
@@ -222,11 +223,11 @@ function renderField([name, label, type, options = []], item) {
   const value = item[name];
   const required = ["name", "title", "titre", "role", "degree", "label", "category", "categorie"].includes(name) ? " required" : "";
   const common = `name="${name}" id="field-${name}"${required}`;
-  if (type === "image" || type === "pdf") {
+  if (type === "image" || type === "avatar" || type === "pdf") {
     const accept = type === "pdf" ? "application/pdf" : "image/jpeg,image/png,image/webp,image/svg+xml,.jpg,.jpeg,.png,.webp,.svg";
     const help = type === "pdf" ? "Choisir un PDF depuis l'ordinateur" : "Choisir une image depuis l'ordinateur";
-    const preview = type === "image" && value ? `<img src="${escapeHtml(value)}" alt="">` : `<span class="muted">${escapeHtml(adminLabel(help))}</span>`;
-    return `<label class="field full ${type}-control"><span>${escapeHtml(adminLabel(label))}</span>${type === "image" ? `<div class="image-preview" data-preview-for="field-${name}">${preview}</div>` : `<p class="file-meta" data-file-meta-for="field-${name}">${escapeHtml(cvMeta(value))}</p>`}<input type="file" accept="${accept}" data-file-target="field-${name}"><div class="upload-progress" data-progress-for="field-${name}"><span></span></div><textarea ${common} placeholder="${escapeHtml(adminLabel("URL, ou fichier converti automatiquement en base64"))}">${escapeHtml(value || "")}</textarea><div class="toolbar"><button class="btn" type="button" data-clear-file="field-${name}">${escapeHtml(tr("delete"))}</button></div><small class="muted">${escapeHtml(adminLabel(help))}. ${escapeHtml(adminLabel("Le fichier sera integre en base64 dans les donnees."))}</small></label>`;
+    const preview = type !== "pdf" && value ? `<img src="${escapeHtml(value)}" alt="">` : `<span class="muted">${escapeHtml(adminLabel(help))}</span>`;
+    return `<label class="field full ${type}-control"><span>${escapeHtml(adminLabel(label))}</span>${type !== "pdf" ? `<div class="image-preview ${type === "avatar" ? "avatar-preview" : ""}" data-preview-for="field-${name}">${preview}</div>` : `<p class="file-meta" data-file-meta-for="field-${name}">${escapeHtml(cvMeta(value))}</p>`}<input type="file" accept="${accept}" data-file-target="field-${name}" data-file-kind="${type}"><div class="upload-progress" data-progress-for="field-${name}"><span></span></div><textarea ${common} placeholder="${escapeHtml(adminLabel("URL, ou fichier converti automatiquement en base64"))}">${escapeHtml(value || "")}</textarea><div class="toolbar"><button class="btn" type="button" data-clear-file="field-${name}">${escapeHtml(tr("delete"))}</button></div><small class="muted">${escapeHtml(adminLabel(help))}. ${escapeHtml(adminLabel("Le fichier sera integre en base64 dans les donnees."))}</small></label>`;
   }
   if (type === "textarea" || type === "lines") {
     const text = Array.isArray(value) ? value.join("\n") : value || "";

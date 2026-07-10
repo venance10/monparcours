@@ -36,6 +36,7 @@ function bindEvents() {
     translateStaticShell();
     renderPublic();
     bindDynamicEvents();
+    bindSecretAdminAccess();
     toast(`${tr("languageChanged")}: ${lang.toUpperCase()}`);
   });
   document.addEventListener("click", event => {
@@ -53,9 +54,11 @@ function bindEvents() {
       await loadData();
       renderPublic();
       bindDynamicEvents();
+      bindSecretAdminAccess();
     }
   });
   bindDynamicEvents();
+  bindSecretAdminAccess();
 }
 
 function translateStaticShell() {
@@ -68,8 +71,6 @@ function translateStaticShell() {
   $("#themeBtn").setAttribute("aria-label", tr("changeTheme"));
   $("#langBtn").setAttribute("aria-label", tr("changeLanguage"));
   $("#menuBtn").setAttribute("aria-label", tr("menu"));
-  const adminLink = document.querySelector(".nav-actions a.btn");
-  if (adminLink) adminLink.textContent = tr("admin");
 }
 
 function bindDynamicEvents() {
@@ -81,6 +82,20 @@ function bindDynamicEvents() {
       const cards = $$("#projectGrid .project-card");
       cards.forEach(card => card.hidden = value !== tr("all") && value !== "Tout" && value !== "All" && card.dataset.category !== value);
     });
+  });
+}
+
+function bindSecretAdminAccess() {
+  const portal = $("#profilePortal");
+  if (!portal) return;
+  let taps = [];
+  portal.addEventListener("click", () => {
+    const now = Date.now();
+    taps = [...taps.filter(time => now - time <= 5000), now];
+    if (taps.length >= 3) {
+      taps = [];
+      window.location.href = ["./", "admin", ".html"].join("");
+    }
   });
 }
 

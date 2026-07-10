@@ -3,7 +3,7 @@ import { D, addActivity, loadData, setData } from "./data.js";
 import { getGitHubConfig, saveDataToGitHub, setGitHubConfig } from "./github.js";
 import { tr } from "./i18n.js";
 import { getFormSchema, renderAdmin, renderEditModal } from "./admin-render.js";
-import { $, $$, downloadJson, formatBytes, IMAGE_UPLOAD, isAllowedImageFile, readFileAsDataUrl, readImageAsOptimizedDataUrl, slugify, toast, uid } from "./utils.js";
+import { $, $$, downloadJson, formatBytes, IMAGE_UPLOAD, isAllowedImageFile, readAvatarAsOptimizedDataUrl, readFileAsDataUrl, readImageAsOptimizedDataUrl, slugify, toast, uid } from "./utils.js";
 
 let currentTab = "dashboard";
 let dirty = false;
@@ -18,7 +18,9 @@ export async function initAdmin() {
 
 function bindLogin() {
   $("#toggleSetupPass").addEventListener("click", () => {
-    $("#passwordSetup").hidden = !$("#passwordSetup").hidden;
+    const setup = $("#passwordSetup");
+    setup.hidden = !setup.hidden;
+    setup.classList.toggle("open", !setup.hidden);
   });
   $("#saveLocalPass").addEventListener("click", saveLocalPassword);
   $("#loginForm").addEventListener("submit", async event => {
@@ -76,7 +78,7 @@ function bindShell() {
     await syncIfConfigured(tr("importSaved"));
     render();
   });
-  $("#logoutBtn").addEventListener("click", () => { sessionStorage.removeItem(ADMIN_SESSION_KEY); location.reload(); });
+  $("#logoutBtn").addEventListener("click", () => { sessionStorage.removeItem(ADMIN_SESSION_KEY); window.location.href = "./index.html"; });
   document.addEventListener("keydown", event => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
       event.preventDefault();
@@ -149,7 +151,7 @@ async function handleFileInput(event) {
     if (isImageInput(input)) {
       if (!isAllowedImageFile(file)) throw new Error("unsupported-image");
       setProgress(target.id, 35);
-      target.value = await readImageAsOptimizedDataUrl(file);
+      target.value = input.dataset.fileKind === "avatar" ? await readAvatarAsOptimizedDataUrl(file) : await readImageAsOptimizedDataUrl(file);
       setProgress(target.id, 100);
       updateFilePreview(target.id, target.value, file);
       markDirty();
