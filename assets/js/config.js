@@ -1,5 +1,5 @@
-﻿export const APP_VERSION = "2.0.0";
-export const BUILD_VERSION = "2026-07-10-sw-v21";
+export const APP_VERSION = "2.0.0";
+export const BUILD_VERSION = "2026-07-10-sw-v22";
 export const DATA_URL = "./data.json";
 export const STORAGE_KEY = "venanceportfolio:data";
 export const THEME_KEY = "venanceportfolio:theme";

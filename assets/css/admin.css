@@ -6,6 +6,8 @@
 }
 
 .login-screen { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 18px; }
+.login-screen[hidden],
+.admin-shell[hidden] { display: none !important; }
 .login-card { width: min(420px, 100%); padding: 22px; display: grid; gap: 14px; }
 .login-error { margin: -8px 0 0; color: #ff9b9b; font-weight: 800; font-size: .92rem; }
 .password-setup { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; }

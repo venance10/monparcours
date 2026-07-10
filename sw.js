@@ -1,4 +1,4 @@
-﻿const BUILD_VERSION = "2026-07-10-sw-v21";
+const BUILD_VERSION = "2026-07-10-sw-v22";
 const CACHE_PREFIX = "venanceportfolio";
 const CACHE = `${CACHE_PREFIX}-${BUILD_VERSION}`;
 const ASSETS = [
@@ -14,7 +14,7 @@ const ASSETS = [
   "./assets/css/sections.css",
   "./assets/css/gallery.css",
   "./assets/css/knowledge.css",
-  "./assets/css/admin.css",
+  "./assets/css/admin.css?v=22",
   "./assets/js/app.js",
   "./assets/js/admin.js",
   "./assets/js/config.js",

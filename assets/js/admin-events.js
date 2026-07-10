@@ -27,15 +27,25 @@ function bindLogin() {
     event.preventDefault();
     const error = $("#loginError");
     if (error) error.hidden = true;
-    const pass = $("#adminPass").value;
-    const hash = await sha256(pass);
-    const expectedHash = localStorage.getItem(ADMIN_LOCAL_HASH_KEY) || ADMIN_PASS_HASH;
-    if (hash === expectedHash) {
-      sessionStorage.setItem(ADMIN_SESSION_KEY, "ok");
-      showShell();
-    } else {
-      if (error) error.hidden = false;
-      toast(tr("wrongPassword"));
+    try {
+      const pass = $("#adminPass").value;
+      const hash = await sha256(pass);
+      const localHash = localStorage.getItem(ADMIN_LOCAL_HASH_KEY);
+      const validHashes = [ADMIN_PASS_HASH, localHash].filter(Boolean);
+      if (validHashes.includes(hash)) {
+        sessionStorage.setItem(ADMIN_SESSION_KEY, "ok");
+        showShell();
+      } else {
+        if (error) error.hidden = false;
+        toast(tr("wrongPassword"));
+      }
+    } catch (loginError) {
+      console.error(loginError);
+      if (error) {
+        error.textContent = "Connexion impossible. Recharge la page puis reessaie.";
+        error.hidden = false;
+      }
+      toast("Connexion impossible. Recharge la page puis reessaie.");
     }
   });
 }
@@ -61,6 +71,7 @@ async function saveLocalPassword() {
 function showShell() {
   $("#loginScreen").hidden = true;
   $("#adminShell").hidden = false;
+  window.scrollTo({ top: 0, left: 0 });
   translateShell();
   render();
   bindShell();
