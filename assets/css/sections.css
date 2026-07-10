@@ -12,7 +12,7 @@
 .project-org { color: var(--brand); font-weight: 800; font-size: .9rem; }
 .project-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
 .project-list li { position: relative; padding-left: 18px; color: var(--text); font-size: .92rem; line-height: 1.65; }
-.project-list li::before { content: "→"; position: absolute; left: 0; color: var(--brand); }
+.project-list li::before { content: ">"; position: absolute; left: 0; color: var(--brand); }
 .project-list li.critical { color: #ffc0c0; }
 .project-list li.critical::before { content: "!"; color: var(--brand-2); font-weight: 900; }
 .badge.pentest { color: #ff9b9b; border-color: color-mix(in srgb, var(--brand-2), transparent 52%); background: color-mix(in srgb, var(--brand-2), transparent 88%); }

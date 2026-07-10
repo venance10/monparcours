@@ -13,6 +13,26 @@ function sectionHead(kicker, title, text = "") {
   return `<div class="section-head"><div><span class="eyebrow">${escapeHtml(kicker)}</span><h2>${escapeHtml(title)}</h2></div>${text ? `<p class="muted">${escapeHtml(text)}</p>` : ""}</div>`;
 }
 
+function filterTools(scope, categories = []) {
+  const options = [tr("all"), ...categories.filter(Boolean)];
+  return `<div class="smart-filter" data-smart-filter="${scope}">
+    <label class="field search-field"><span>${escapeHtml(tr("search"))}</span><input type="search" data-filter-search="${scope}" placeholder="${escapeHtml(tr("searchPlaceholder"))}"></label>
+    <label class="field sort-field"><span>${escapeHtml(tr("sort"))}</span><select data-filter-sort="${scope}">
+      <option value="default">${escapeHtml(tr("sortDefault"))}</option>
+      <option value="az">${escapeHtml(tr("sortAz"))}</option>
+      <option value="za">${escapeHtml(tr("sortZa"))}</option>
+      <option value="newest">${escapeHtml(tr("sortNewest"))}</option>
+      <option value="oldest">${escapeHtml(tr("sortOldest"))}</option>
+    </select></label>
+    <div class="filters">${options.map((c, i) => `<button class="btn filter ${i ? "" : "active"}" data-filter-scope="${scope}" data-filter="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join("")}</div>
+    <span class="result-count" data-filter-count="${scope}"></span>
+  </div>`;
+}
+
+function searchable(value) {
+  return escapeHtml(String(value || "").toLowerCase());
+}
+
 function local(obj, key) {
   return escapeHtml(pick(obj, key));
 }
@@ -98,9 +118,9 @@ function renderServices() {
 }
 
 function renderProjects() {
-  const categories = [tr("all"), ...new Set(D.projects.map(p => pick(p, "category")))];
+  const categories = [...new Set(D.projects.map(p => pick(p, "category")))];
   $("#projects").innerHTML = `<div class="container">${sectionHead(tr("selection"), tr("projectsTitle"), tr("projectsSub"))}
-    <div class="filters" data-filter-target="projects">${categories.map((c, i) => `<button class="btn filter ${i ? "" : "active"}" data-filter="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join("")}</div>
+    ${filterTools("projects", categories)}
     <div class="grid project-grid" id="projectGrid">${projectCards(D.projects)}</div></div>`;
 }
 
@@ -109,7 +129,8 @@ export function projectCards(items) {
     const badgeClass = p.badgeStyle === "pentest" ? "pentest" : p.badgeStyle === "hack" ? "hack" : "";
     const category = pick(p, "category");
     const bullets = listValue(p, "bullets").map(b => `<li class="${/critique|critical/i.test(b) ? "critical" : ""}">${escapeHtml(b)}</li>`).join("");
-    return `<article class="card project-card" data-category="${escapeHtml(category)}">
+    const search = [pick(p, "title"), pick(p, "organization"), pick(p, "description"), category, p.tags?.join(" ")].join(" ");
+    return `<article class="card project-card" data-filter-item="projects" data-category="${escapeHtml(category)}" data-title="${local(p, "title")}" data-date="${escapeHtml(p.date || "")}" data-search="${searchable(search)}">
       <div class="project-meta"><span class="badge ${badgeClass}">${local(p, "badge") || escapeHtml(category)}</span><span class="badge">${local(p, "date")}</span></div>
       <h3>${local(p, "title")}</h3>
       <p class="project-org">${local(p, "organization")}</p>
@@ -121,9 +142,10 @@ export function projectCards(items) {
 }
 
 function renderSkills() {
-  const groups = [...new Set(D.skills.map(skill => pick(skill, "category")))];
+  const groups = [...new Set(D.skills.map(skill => pick(skill, "category")))]; 
   $("#skills").innerHTML = `<div class="container">${sectionHead(tr("stack"), tr("skillsTitle"))}
-    <div class="skill-groups">${groups.map(group => `<div class="card skill-group ${group.includes("Offensive") ? "offensive" : ""}">
+    ${filterTools("skills", groups)}
+    <div class="skill-groups">${groups.map(group => `<div class="card skill-group ${group.includes("Offensive") ? "offensive" : ""}" data-filter-item="skills" data-category="${escapeHtml(group)}" data-title="${escapeHtml(group)}" data-date="" data-search="${searchable([group, ...D.skills.filter(s => pick(s, "category") === group).map(s => pick(s, "name"))].join(" "))}">
       <div class="skill-group-title">${escapeHtml(group)}</div>
       <div class="skill-list">${D.skills.filter(s => pick(s, "category") === group).map(s => `<div class="skill-row"><div class="skill-meta"><span>${local(s, "name")}</span><span>${s.level}%</span></div><div class="bar"><span style="width:${s.level}%"></span></div></div>`).join("")}</div>
     </div>`).join("")}</div>
@@ -136,26 +158,46 @@ function renderTimeline(id, title, items, main, sub) {
 }
 
 function renderCerts() {
-  $("#certifications").innerHTML = `<div class="container">${sectionHead(tr("proof"), tr("certificationsTitle"))}<div class="grid cert-grid">${D.certs.map(c => `<article class="card cert-card"><span class="badge">${local(c, "date")}</span><h3>${local(c, "title")}</h3><p class="muted">${local(c, "issuer")}</p><p>${local(c, "description")}</p><a class="btn" href="${c.link}">${icon("arrow")} ${escapeHtml(tr("view"))}</a></article>`).join("")}</div></div>`;
+  const categories = [...new Set(D.certs.map(c => pick(c, "issuer")))];
+  $("#certifications").innerHTML = `<div class="container">${sectionHead(tr("proof"), tr("certificationsTitle"))}${filterTools("certifications", categories)}<div class="grid cert-grid">${D.certs.map(c => {
+    const search = [pick(c, "title"), pick(c, "issuer"), pick(c, "description"), pick(c, "date")].join(" ");
+    return `<article class="card cert-card" data-filter-item="certifications" data-category="${local(c, "issuer")}" data-title="${local(c, "title")}" data-date="${escapeHtml(c.date || "")}" data-search="${searchable(search)}"><span class="badge">${local(c, "date")}</span><h3>${local(c, "title")}</h3><p class="muted">${local(c, "issuer")}</p><p>${local(c, "description")}</p><a class="btn" href="${c.link}">${icon("arrow")} ${escapeHtml(tr("view"))}</a></article>`;
+  }).join("")}</div></div>`;
 }
 
 function renderKnowledge() {
   if (!D.knowledge.length) { $("#knowledge").hidden = true; return; }
   $("#knowledge").hidden = false;
   const articles = D.knowledge.filter(a => a.statut === "publie" || a.status === "publie");
-  $("#knowledge").innerHTML = `<div class="container">${sectionHead(tr("cms"), tr("knowledgeTitle"))}<div class="grid knowledge-grid">${articles.map(a => `<article class="card article-card"><img src="${a.image}" alt=""><div class="article-meta"><span class="badge">${local(a, "categorie") || local(a, "category")}</span>${chips(a.tags)}</div><h3>${local(a, "titre") || local(a, "title")}</h3><p class="muted">${local(a, "resume") || local(a, "summary")}</p><button class="btn" data-article="${a.id}">${icon("arrow")} ${escapeHtml(tr("read"))}</button></article>`).join("")}</div></div>`;
+  const categories = [...new Set(articles.map(a => pick(a, "categorie") || pick(a, "category")))];
+  $("#knowledge").innerHTML = `<div class="container">${sectionHead(tr("cms"), tr("knowledgeTitle"))}${filterTools("knowledge", categories)}<div class="grid knowledge-grid">${articles.map(a => {
+    const category = pick(a, "categorie") || pick(a, "category");
+    const title = pick(a, "titre") || pick(a, "title");
+    const search = [title, pick(a, "resume") || pick(a, "summary"), category, a.tags?.join(" ")].join(" ");
+    return `<article class="card article-card" data-filter-item="knowledge" data-category="${escapeHtml(category)}" data-title="${escapeHtml(title)}" data-date="${escapeHtml(a.date || "")}" data-search="${searchable(search)}"><img src="${a.image}" alt=""><div class="article-meta"><span class="badge">${local(a, "categorie") || local(a, "category")}</span>${chips(a.tags)}</div><h3>${local(a, "titre") || local(a, "title")}</h3><p class="muted">${local(a, "resume") || local(a, "summary")}</p><button class="btn" data-article="${a.id}">${icon("arrow")} ${escapeHtml(tr("read"))}</button></article>`;
+  }).join("")}</div></div>`;
 }
 
 function renderGalleryPreview() {
   if (!D.gallery.length) { $("#gallery").hidden = true; return; }
   $("#gallery").hidden = false;
-  $("#gallery").innerHTML = `<div class="container">${sectionHead(tr("creation"), tr("galleryTitle"))}<div class="gallery-grid">${D.gallery.map(g => `<button class="poster" data-lightbox="${g.id}"><img src="${g.image}" alt=""><span class="poster-body"><strong>${local(g, "titre") || local(g, "title")}</strong><span class="muted">${local(g, "categorie") || local(g, "category")}</span></span></button>`).join("")}</div></div>`;
+  const categories = [...new Set(D.gallery.map(g => pick(g, "categorie") || pick(g, "category")))];
+  $("#gallery").innerHTML = `<div class="container">${sectionHead(tr("creation"), tr("galleryTitle"))}${filterTools("gallery", categories)}<div class="gallery-grid">${D.gallery.map(g => {
+    const category = pick(g, "categorie") || pick(g, "category");
+    const title = pick(g, "titre") || pick(g, "title");
+    const search = [title, category, g.tags?.join(" ")].join(" ");
+    return `<button class="poster" data-lightbox="${g.id}" data-filter-item="gallery" data-category="${escapeHtml(category)}" data-title="${escapeHtml(title)}" data-date="${escapeHtml(g.date || "")}" data-search="${searchable(search)}"><img src="${g.image}" alt=""><span class="poster-body"><strong>${local(g, "titre") || local(g, "title")}</strong><span class="muted">${local(g, "categorie") || local(g, "category")}</span></span></button>`;
+  }).join("")}</div></div>`;
 }
 
 function renderWatch() {
   if (!D.articles.length) { $("#watch").hidden = true; return; }
   $("#watch").hidden = false;
-  $("#watch").innerHTML = `<div class="container">${sectionHead(tr("watch"), tr("watchTitle"))}<div class="grid watch-grid">${D.articles.map(a => `<article class="card article-card"><span class="badge">${local(a, "category")}</span><h3>${local(a, "title")}</h3><p class="muted">${local(a, "summary")}</p><div class="article-meta">${chips(a.tags)}</div><a class="btn" href="${a.url}">${escapeHtml(a.source)}</a></article>`).join("")}</div></div>`;
+  const categories = [...new Set(D.articles.map(a => pick(a, "category")))];
+  $("#watch").innerHTML = `<div class="container">${sectionHead(tr("watch"), tr("watchTitle"))}${filterTools("watch", categories)}<div class="grid watch-grid">${D.articles.map(a => {
+    const search = [pick(a, "title"), pick(a, "summary"), pick(a, "category"), a.tags?.join(" "), a.source].join(" ");
+    return `<article class="card article-card" data-filter-item="watch" data-category="${local(a, "category")}" data-title="${local(a, "title")}" data-date="${escapeHtml(a.date || "")}" data-search="${searchable(search)}"><span class="badge">${local(a, "category")}</span><h3>${local(a, "title")}</h3><p class="muted">${local(a, "summary")}</p><div class="article-meta">${chips(a.tags)}</div><a class="btn" href="${a.url}">${escapeHtml(a.source)}</a></article>`;
+  }).join("")}</div></div>`;
 }
 
 function renderContact() {

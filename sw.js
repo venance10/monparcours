@@ -1,4 +1,4 @@
-const BUILD_VERSION = "2026-07-10-sw-v22";
+const BUILD_VERSION = "2026-07-10-sw-v23";
 const CACHE_PREFIX = "venanceportfolio";
 const CACHE = `${CACHE_PREFIX}-${BUILD_VERSION}`;
 const ASSETS = [
@@ -7,14 +7,14 @@ const ASSETS = [
   "./admin.html",
   "./manifest.json",
   "./data.json",
-  "./assets/css/variables.css",
-  "./assets/css/base.css",
-  "./assets/css/components.css",
-  "./assets/css/layout.css",
-  "./assets/css/sections.css",
-  "./assets/css/gallery.css",
-  "./assets/css/knowledge.css",
-  "./assets/css/admin.css?v=22",
+  "./assets/css/variables.css?v=23",
+  "./assets/css/base.css?v=23",
+  "./assets/css/components.css?v=23",
+  "./assets/css/layout.css?v=23",
+  "./assets/css/sections.css?v=23",
+  "./assets/css/gallery.css?v=23",
+  "./assets/css/knowledge.css?v=23",
+  "./assets/css/admin.css?v=23",
   "./assets/js/app.js",
   "./assets/js/admin.js",
   "./assets/js/config.js",

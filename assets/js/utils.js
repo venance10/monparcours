@@ -7,13 +7,13 @@ export const formatDate = value => new Intl.DateTimeFormat(document.documentElem
 export const toArray = value => Array.isArray(value) ? value : [];
 
 export const IMAGE_UPLOAD = {
-  maxOriginalBytes: 12 * 1024 * 1024,
-  maxEmbeddedBytes: 2600 * 1024,
+  maxOriginalBytes: 30 * 1024 * 1024,
+  maxEmbeddedBytes: 4200 * 1024,
   maxWidth: 1600,
   maxHeight: 1600,
-  quality: 0.82,
-  allowedTypes: ["image/jpeg", "image/png", "image/webp", "image/svg+xml"],
-  allowedExtensions: [".jpg", ".jpeg", ".png", ".webp", ".svg"]
+  quality: 0.86,
+  allowedTypes: ["image/jpeg", "image/png", "image/webp", "image/svg+xml", "image/heic", "image/heif"],
+  allowedExtensions: [".jpg", ".jpeg", ".png", ".webp", ".svg", ".heic", ".heif"]
 };
 
 export function icon(name) {
@@ -101,8 +101,7 @@ export async function readImageAsOptimizedDataUrl(file) {
     return readFileAsDataUrl(file);
   }
   const original = await readFileAsDataUrl(file);
-  if (file.size <= IMAGE_UPLOAD.maxEmbeddedBytes) return original;
-  const optimized = await compressRasterImage(original);
+  const optimized = file.size <= 900 * 1024 ? original : await compressRasterImage(original, IMAGE_UPLOAD.maxEmbeddedBytes);
   if (dataUrlBytes(optimized) > IMAGE_UPLOAD.maxEmbeddedBytes) {
     throw new Error("embedded-image-too-large");
   }
@@ -117,7 +116,7 @@ export async function readAvatarAsOptimizedDataUrl(file) {
     return readFileAsDataUrl(file);
   }
   const original = await readFileAsDataUrl(file);
-  const optimized = await cropSquareImage(original, 720);
+  const optimized = await cropSquareImage(original, 720, IMAGE_UPLOAD.maxEmbeddedBytes);
   if (dataUrlBytes(optimized) > IMAGE_UPLOAD.maxEmbeddedBytes) throw new Error("embedded-image-too-large");
   return optimized;
 }
@@ -132,36 +131,22 @@ function dataUrlBytes(dataUrl) {
   return Math.ceil(payload.length * 3 / 4);
 }
 
-function compressRasterImage(dataUrl) {
+function compressRasterImage(dataUrl, targetBytes = IMAGE_UPLOAD.maxEmbeddedBytes) {
   return new Promise((resolve, reject) => {
     const image = new Image();
     image.onload = () => {
-      const ratio = Math.min(1, IMAGE_UPLOAD.maxWidth / image.width, IMAGE_UPLOAD.maxHeight / image.height);
-      const width = Math.max(1, Math.round(image.width * ratio));
-      const height = Math.max(1, Math.round(image.height * ratio));
-      const canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) {
-        reject(new Error("canvas-unavailable"));
-        return;
-      }
-      ctx.drawImage(image, 0, 0, width, height);
-      canvas.toBlob(blob => {
-        if (!blob) {
-          reject(new Error("compression-failed"));
-          return;
-        }
-        readFileAsDataUrl(blob).then(resolve, reject);
-      }, "image/webp", IMAGE_UPLOAD.quality);
+      compressCanvas(image, {
+        targetBytes,
+        widths: [1600, 1400, 1200, 1000, 820],
+        qualities: [IMAGE_UPLOAD.quality, 0.78, 0.7, 0.62, 0.54]
+      }).then(resolve, reject);
     };
     image.onerror = () => reject(new Error("image-load-failed"));
     image.src = dataUrl;
   });
 }
 
-function cropSquareImage(dataUrl, size) {
+function cropSquareImage(dataUrl, size, targetBytes) {
   return new Promise((resolve, reject) => {
     const image = new Image();
     image.onload = () => {
@@ -177,15 +162,56 @@ function cropSquareImage(dataUrl, size) {
         return;
       }
       ctx.drawImage(image, sx, sy, side, side, 0, 0, size, size);
-      canvas.toBlob(blob => {
+      canvas.toBlob(async blob => {
         if (!blob) {
           reject(new Error("compression-failed"));
           return;
         }
-        readFileAsDataUrl(blob).then(resolve, reject);
+        if (blob.size <= targetBytes) {
+          readFileAsDataUrl(blob).then(resolve, reject);
+          return;
+        }
+        compressCanvas(canvas, {
+          targetBytes,
+          widths: [720, 640, 560, 480],
+          qualities: [0.84, 0.76, 0.68, 0.6]
+        }).then(resolve, reject);
       }, "image/webp", 0.84);
     };
     image.onerror = () => reject(new Error("image-load-failed"));
     image.src = dataUrl;
+  });
+}
+
+async function compressCanvas(source, options) {
+  let best = "";
+  for (const maxSide of options.widths) {
+    const ratio = Math.min(1, maxSide / source.width, maxSide / source.height);
+    const width = Math.max(1, Math.round(source.width * ratio));
+    const height = Math.max(1, Math.round(source.height * ratio));
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("canvas-unavailable");
+    ctx.drawImage(source, 0, 0, width, height);
+    for (const quality of options.qualities) {
+      const dataUrl = await canvasToDataUrl(canvas, quality);
+      best = dataUrl;
+      if (dataUrlBytes(dataUrl) <= options.targetBytes) return dataUrl;
+    }
+  }
+  return best;
+}
+
+function canvasToDataUrl(canvas, quality) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => {
+      if (!blob) {
+        reject(new Error("compression-failed"));
+        return;
+      }
+      readFileAsDataUrl(blob).then(resolve, reject);
+    }, "image/webp", quality);
   });
 }

@@ -18,9 +18,15 @@
 .hero-copy { display: grid; gap: 24px; }
 .hero-title-line { font-size: 1.08rem; color: var(--muted); letter-spacing: .02em; }
 .hero-visual { min-height: 430px; display: grid; grid-template-rows: auto 1fr; gap: 14px; border: 0; background: transparent; overflow: visible; position: relative; }
-.profile-portal { width: min(210px, 52vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--line); padding: 0; background: var(--surface); overflow: hidden; justify-self: center; cursor: default; box-shadow: var(--shadow); }
+.profile-portal { width: min(210px, 52vw); aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--line); padding: 0; background: var(--surface); overflow: hidden; justify-self: center; cursor: default; box-shadow: var(--shadow); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
 .profile-portal img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.profile-portal.secret-tap { transform: scale(.985); box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand), transparent 76%), var(--shadow); }
+.profile-portal.secret-open { animation: portalOpen .42s ease both; }
+@keyframes portalOpen {
+  0% { transform: scale(1); }
+  55% { transform: scale(1.035); box-shadow: 0 0 0 8px color-mix(in srgb, var(--brand), transparent 82%), var(--shadow); }
+  100% { transform: scale(1); }
+}
 .stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .stat { padding: 22px; min-height: 156px; display: grid; align-content: center; }
 .stat:first-child { grid-column: 1 / -1; min-height: 170px; }
