@@ -1,4 +1,4 @@
-const BUILD_VERSION = "2026-07-10-sw-v14";
+const BUILD_VERSION = "2026-07-10-sw-v15";
 const CACHE_PREFIX = "venanceportfolio";
 const CACHE = `${CACHE_PREFIX}-${BUILD_VERSION}`;
 const ASSETS = [

@@ -14,9 +14,11 @@ async function registerServiceWorker() {
 
   let refreshing = false;
   const hadController = Boolean(navigator.serviceWorker.controller);
+  const reloadKey = `venanceportfolio:sw-reloaded:${BUILD_VERSION}`;
   navigator.serviceWorker.addEventListener("controllerchange", () => {
-    if (refreshing || !hadController) return;
+    if (refreshing || !hadController || sessionStorage.getItem(reloadKey) === "1") return;
     refreshing = true;
+    sessionStorage.setItem(reloadKey, "1");
     window.location.reload();
   });
 
