@@ -1,7 +1,7 @@
 import { LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
 import { loadData } from "./data.js";
 import { closeLightbox, openLightbox } from "./gallery.js";
-import { lang, setLang } from "./i18n.js";
+import { lang, setLang, tr } from "./i18n.js";
 import { renderPublic, openArticle, projectCards } from "./render.js";
 import { $, $$, icon, toast } from "./utils.js";
 import { initAnimations } from "./animations.js";
@@ -20,6 +20,7 @@ function hydrateIcons() {
   $("#themeBtn").innerHTML = icon("sun");
   $("#langBtn").innerHTML = icon("globe");
   $("#menuBtn").innerHTML = icon("menu");
+  translateStaticShell();
 }
 
 function bindEvents() {
@@ -32,9 +33,10 @@ function bindEvents() {
   $("#langBtn").addEventListener("click", () => {
     setLang(lang === "fr" ? "en" : "fr");
     localStorage.setItem(LANG_KEY, lang);
+    translateStaticShell();
     renderPublic();
     bindDynamicEvents();
-    toast(`Langue: ${lang.toUpperCase()}`);
+    toast(`${tr("languageChanged")}: ${lang.toUpperCase()}`);
   });
   document.addEventListener("click", event => {
     const article = event.target.closest("[data-article]");
@@ -56,6 +58,20 @@ function bindEvents() {
   bindDynamicEvents();
 }
 
+function translateStaticShell() {
+  const skip = document.querySelector(".skip-link");
+  const brand = document.querySelector(".brand");
+  const nav = $("#navLinks");
+  if (skip) skip.textContent = tr("skipContent");
+  if (brand) brand.setAttribute("aria-label", tr("home"));
+  if (nav) nav.setAttribute("aria-label", tr("mainNavigation"));
+  $("#themeBtn").setAttribute("aria-label", tr("changeTheme"));
+  $("#langBtn").setAttribute("aria-label", tr("changeLanguage"));
+  $("#menuBtn").setAttribute("aria-label", tr("menu"));
+  const adminLink = document.querySelector(".nav-actions a.btn");
+  if (adminLink) adminLink.textContent = tr("admin");
+}
+
 function bindDynamicEvents() {
   $$("[data-filter-target='projects'] .filter").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -63,12 +79,12 @@ function bindDynamicEvents() {
       btn.classList.add("active");
       const value = btn.dataset.filter;
       const cards = $$("#projectGrid .project-card");
-      cards.forEach(card => card.hidden = value !== "Tout" && value !== "All" && card.dataset.category !== value);
+      cards.forEach(card => card.hidden = value !== tr("all") && value !== "Tout" && value !== "All" && card.dataset.category !== value);
     });
   });
 }
 
 init().catch(error => {
   console.error(error);
-  document.body.innerHTML = `<main class="container section"><h1>Erreur de chargement</h1><p>${error.message}</p></main>`;
+  document.body.innerHTML = `<main class="container section"><h1>${tr("loadError")}</h1><p>${error.message}</p></main>`;
 });

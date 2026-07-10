@@ -1,13 +1,16 @@
 import { ADMIN_LOCAL_HASH_KEY, ADMIN_PASS_HASH, ADMIN_SESSION_KEY } from "./config.js";
 import { D, addActivity, loadData, setData } from "./data.js";
 import { getGitHubConfig, saveDataToGitHub, setGitHubConfig } from "./github.js";
+import { tr } from "./i18n.js";
 import { getFormSchema, renderAdmin, renderEditModal } from "./admin-render.js";
 import { $, $$, downloadJson, readFileAsDataUrl, slugify, toast, uid } from "./utils.js";
 
 let currentTab = "dashboard";
 
 export async function initAdmin() {
+  document.documentElement.lang = tr("all") === "All" ? "en" : "fr";
   await loadData({ preferLocal: true });
+  translateShell();
   if (sessionStorage.getItem(ADMIN_SESSION_KEY) === "ok") showShell();
   bindLogin();
 }
@@ -29,7 +32,7 @@ function bindLogin() {
       showShell();
     } else {
       if (error) error.hidden = false;
-      toast("Mot de passe incorrect.");
+      toast(tr("wrongPassword"));
     }
   });
 }
@@ -38,23 +41,24 @@ async function saveLocalPassword() {
   const pass = $("#newAdminPass").value;
   const confirm = $("#confirmAdminPass").value;
   if (pass.length < 8) {
-    toast("Choisissez au moins 8 caractères.");
+    toast(tr("choosePassword"));
     return;
   }
   if (pass !== confirm) {
-    toast("Les deux mots de passe ne correspondent pas.");
+    toast(tr("passwordMismatch"));
     return;
   }
   localStorage.setItem(ADMIN_LOCAL_HASH_KEY, await sha256(pass));
   $("#newAdminPass").value = "";
   $("#confirmAdminPass").value = "";
   $("#passwordSetup").hidden = true;
-  toast("Mot de passe local enregistré. Vous pouvez vous connecter.");
+  toast(tr("passwordSaved"));
 }
 
 function showShell() {
   $("#loginScreen").hidden = true;
   $("#adminShell").hidden = false;
+  translateShell();
   render();
   bindShell();
 }
@@ -68,7 +72,7 @@ function bindShell() {
     const text = await file.text();
     setData(JSON.parse(text));
     addActivity("Import data.json", "import");
-    await syncIfConfigured("Import sauvegardé en ligne.");
+    await syncIfConfigured(tr("importSaved"));
     render();
   });
   $("#logoutBtn").addEventListener("click", () => { sessionStorage.removeItem(ADMIN_SESSION_KEY); location.reload(); });
@@ -125,27 +129,27 @@ async function handleFileInput(event) {
   const file = input.files[0];
   const maxSize = file.type === "application/pdf" ? 3 * 1024 * 1024 : 2 * 1024 * 1024;
   if (file.size > maxSize) {
-    toast("Fichier trop lourd. Compressez-le avant import.");
+    toast(tr("fileTooLarge"));
     input.value = "";
     return;
   }
   target.value = await readFileAsDataUrl(file);
-  toast("Fichier intégré au formulaire.");
+  toast(tr("fileEmbedded"));
 }
 
 function deleteItem(id) {
   D[currentTab] = D[currentTab].filter(item => item.id !== id);
-  addActivity(`Suppression ${currentTab}: ${id}`, "delete");
+  addActivity(`Delete ${currentTab}: ${id}`, "delete");
   setData(D);
-  syncIfConfigured("Suppression sauvegardée en ligne.");
+  syncIfConfigured(tr("deleteSaved"));
   render();
 }
 
 function saveJsonBlock(key) {
   D[key] = JSON.parse($("#jsonEditor").value);
-  addActivity(`Mise a jour ${key}`, "edit");
+  addActivity(`Update ${key}`, "edit");
   setData(D);
-  syncIfConfigured("Modification sauvegardée en ligne.");
+  syncIfConfigured(tr("changeSaved"));
   render();
 }
 
@@ -156,39 +160,40 @@ function saveInfoBlock() {
     const field = form.elements[name];
     if (field) next[name] = field.value.trim();
   });
+  ensureEnglishFallbacks("infos", next);
   D.infos = next;
-  addActivity("Mise a jour des infos principales", "edit");
+  addActivity("Update main information", "edit");
   setData(D);
-  toast("Infos principales enregistrées.");
-  syncIfConfigured("Infos sauvegardées en ligne.");
+  toast(tr("infoSaved"));
+  syncIfConfigured(tr("infoOnlineSaved"));
   render();
 }
 
 function saveCvBlock() {
   const field = $("#field-cv");
   if (!field || !field.value.trim()) {
-    toast("Choisissez un PDF ou renseignez un lien de CV.");
+    toast(tr("chooseCv"));
     return;
   }
   D.infos.cv = field.value.trim();
-  addActivity("Mise a jour du CV", "edit");
+  addActivity("Update resume", "edit");
   setData(D);
-  toast("CV enregistré.");
-  syncIfConfigured("CV sauvegardé en ligne.");
+  toast(tr("cvSaved"));
+  syncIfConfigured(tr("cvOnlineSaved"));
   render();
 }
 
 async function saveItemBlock(collection, id) {
   const value = readItemValue(collection);
-  if (value.image && value.image.startsWith("file:")) toast("Utilisez le champ upload dans une prochaine version pour embarquer l'image.");
   value.id = value.id || id || uid(collection);
   applyDefaults(collection, value);
+  ensureEnglishFallbacks(collection, value);
   const index = D[collection].findIndex(item => item.id === (id || value.id));
   if (index >= 0) D[collection][index] = value; else D[collection].push(value);
-  addActivity(`Enregistrement ${collection}: ${value.id}`, "edit");
+  addActivity(`Save ${collection}: ${value.id}`, "edit");
   setData(D);
   $("#modalRoot").innerHTML = "";
-  syncIfConfigured("Contenu sauvegardé en ligne.");
+  syncIfConfigured(tr("contentOnlineSaved"));
   render();
 }
 
@@ -211,9 +216,6 @@ function readItemValue(collection) {
 
 function applyDefaults(collection, value) {
   if (collection === "knowledge") {
-    value.titreEn = value.titreEn || value.titre;
-    value.resumeEn = value.resumeEn || value.resume;
-    value.contenuEn = value.contenuEn || value.contenu;
     value.auteur = value.auteur || D.infos.name;
     value.date = value.date || new Date().toISOString().slice(0, 10);
     value.slug = value.slug || slugify(value.titre || value.id);
@@ -221,23 +223,43 @@ function applyDefaults(collection, value) {
   if (collection === "gallery") value.date = value.date || new Date().toISOString().slice(0, 10);
   if (collection === "articles") value.date = value.date || new Date().toISOString().slice(0, 10);
   if (collection === "projects") {
-    value.titleEn = value.titleEn || value.title;
-    value.bulletsEn = value.bulletsEn || value.bullets || [];
     value.link = value.link || "#";
     value.repo = value.repo || "#";
   }
 }
 
+function ensureEnglishFallbacks(collection, value) {
+  const fieldsByCollection = {
+    infos: ["role", "tagline", "location", "availability", "speciality", "languages", "about"],
+    services: ["title", "description"],
+    projects: ["title", "organization", "date", "badge", "category", "description", "bullets"],
+    skills: ["name", "category"],
+    experience: ["role", "company", "period", "description"],
+    edu: ["degree", "school", "period", "description"],
+    certs: ["title", "issuer", "date", "description"],
+    knowledge: ["titre", "resume", "categorie", "contenu"],
+    gallery: ["titre", "categorie"],
+    articles: ["title", "summary", "category"],
+    contacts: ["label"]
+  };
+  (fieldsByCollection[collection] || []).forEach(key => {
+    const enKey = `${key}En`;
+    if ((value[enKey] === undefined || value[enKey] === "" || (Array.isArray(value[enKey]) && !value[enKey].length)) && value[key] !== undefined) {
+      value[enKey] = Array.isArray(value[key]) ? [...value[key]] : value[key];
+    }
+  });
+}
+
 function saveGithubConfig() {
   setGitHubConfig({ owner: $("#ghOwner").value, repo: $("#ghRepo").value, branch: $("#ghBranch").value, token: $("#ghToken").value });
-  toast("Configuration GitHub enregistrée. Les prochains enregistrements seront publiés automatiquement.");
+  toast(tr("githubConfigSaved"));
 }
 
 async function saveGithub(showSuccess = true) {
   try {
     await saveDataToGitHub(cleanData(D));
-    addActivity("Sauvegarde GitHub data.json", "github");
-    if (showSuccess) toast("Sauvegarde GitHub terminée. Les changements seront visibles partout après le déploiement GitHub Pages.");
+    addActivity("GitHub data.json save", "github");
+    if (showSuccess) toast(tr("githubDone"));
   } catch (error) {
     toast(error.message);
   }
@@ -246,15 +268,15 @@ async function saveGithub(showSuccess = true) {
 async function syncIfConfigured(message) {
   const cfg = getGitHubConfig();
   if (!cfg.token) {
-    toast("Enregistré localement. Ajoutez un token GitHub pour publier automatiquement partout.");
+    toast(tr("localOnly"));
     return;
   }
   try {
     await saveDataToGitHub(cleanData(D));
-    addActivity("Synchronisation GitHub automatique", "github");
+    addActivity("Automatic GitHub sync", "github");
     toast(message);
   } catch (error) {
-    toast(`Sauvegarde locale OK, GitHub a échoué : ${error.message}`);
+    toast(`${tr("githubFailed")} : ${error.message}`);
   }
 }
 
@@ -262,6 +284,50 @@ function cleanData(data) {
   const copy = JSON.parse(JSON.stringify(data));
   delete copy._localDraft;
   return copy;
+}
+
+function translateShell() {
+  const set = (selector, text) => {
+    const el = $(selector);
+    if (el) el.textContent = text;
+  };
+  set("#loginForm h1", tr("loginTitle"));
+  set("#loginForm label span", tr("password"));
+  set("#loginForm button[type='submit']", tr("login"));
+  set("#loginError", tr("wrongPassword"));
+  set("#toggleSetupPass", tr("setupPassword"));
+  set("#passwordSetup label:nth-of-type(1) span", tr("newPassword"));
+  set("#passwordSetup label:nth-of-type(2) span", tr("confirmPassword"));
+  set("#saveLocalPass", tr("savePassword"));
+  set("#passwordSetup .muted", tr("passwordHelp"));
+  const loginMuted = $("#loginForm > p.muted:last-child");
+  if (loginMuted) loginMuted.textContent = tr("privateAccess");
+  $$(".admin-tab").forEach(btn => {
+    btn.textContent = ({
+      dashboard: tr("dashboard"),
+      infos: tr("infos"),
+      cv: tr("cvTab"),
+      services: tr("services"),
+      projects: tr("projects"),
+      skills: tr("skills"),
+      experience: tr("experienceTitle"),
+      edu: tr("educationTitle"),
+      certs: tr("certificationsTitle"),
+      knowledge: tr("knowledge"),
+      gallery: tr("gallery"),
+      articles: tr("watch"),
+      contacts: tr("contact"),
+      github: tr("github")
+    })[btn.dataset.tab] || btn.textContent;
+  });
+  set("#exportBtn", tr("exportJson"));
+  const importLabel = $("#importInput")?.closest("label.btn");
+  if (importLabel) importLabel.childNodes[0].textContent = tr("importJson");
+  set("#logoutBtn", tr("logout"));
+  set(".admin-main .eyebrow", tr("localManagement"));
+  set(".admin-main h1", tr("dashboard"));
+  const siteLink = document.querySelector(".admin-main .admin-top a.btn");
+  if (siteLink) siteLink.textContent = tr("viewSite");
 }
 
 async function sha256(text) {

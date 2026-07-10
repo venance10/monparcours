@@ -50,6 +50,7 @@ export function normalizeData(raw = {}) {
       tagline: infos.tagline || infos.hero || hero.desc || "Portfolio professionnel.",
       taglineEn: infos.taglineEn || infos.tagline || infos.hero || hero.desc || "Professional portfolio.",
       location: infos.location || infos.ville || "",
+      locationEn: infos.locationEn || infos.location || infos.ville || "",
       email: infos.email || "",
       phone: infos.phone || infos.tel || "",
       avatar: infos.avatar || infos.photo || "./assets/images/profile.svg",
@@ -57,8 +58,11 @@ export function normalizeData(raw = {}) {
       github: infos.github || "",
       linkedin: infos.linkedin || "",
       availability: infos.availability || infos.avail || "",
+      availabilityEn: infos.availabilityEn || infos.availability || infos.avail || "",
       speciality: infos.speciality || infos.spec || "",
+      specialityEn: infos.specialityEn || infos.speciality || infos.spec || "",
       languages: infos.languages || infos.langs || "",
+      languagesEn: infos.languagesEn || infos.languages || infos.langs || "",
       stats: normalizeStats(Array.isArray(infos.stats) ? infos.stats : Array.isArray(hero.stats) ? hero.stats : []),
       about: infos.about || (Array.isArray(about.paragraphs) ? about.paragraphs.join(" ") : ""),
       aboutEn: infos.aboutEn || infos.about || (Array.isArray(about.paragraphs) ? about.paragraphs.join(" ") : "")
@@ -68,6 +72,7 @@ export function normalizeData(raw = {}) {
       title: item.title || item.nom || item.name || "Service",
       titleEn: item.titleEn || item.title || item.nome || item.name || item.nom || "Service",
       description: item.description || item.desc || item.desce || "",
+      descriptionEn: item.descriptionEn || item.desce || item.description || item.desc || "",
       icon: item.icon || item.ico || "layout"
     })),
     projects: mapItems(raw.projects, item => ({
@@ -75,13 +80,18 @@ export function normalizeData(raw = {}) {
       title: item.title || item.tit || item.name || "Projet",
       titleEn: item.titleEn || item.tite || item.title || item.tit || item.name || "Project",
       organization: item.organization || item.org || "",
+      organizationEn: item.organizationEn || item.organization || item.org || "",
       date: item.date || "",
+      dateEn: item.dateEn || item.date || "",
       badge: item.badge || item.category || item.cat || "",
+      badgeEn: item.badgeEn || item.badge || item.category || item.cat || "",
       badgeStyle: item.badgeStyle || "",
       description: item.description || item.desc || (Array.isArray(item.bul) ? item.bul.join(" ") : ""),
+      descriptionEn: item.descriptionEn || item.description || item.desc || "",
       bullets: item.bullets || item.bul || [],
       bulletsEn: item.bulletsEn || item.bule || item.bullets || item.bul || [],
       category: item.category || item.cat || "Web",
+      categoryEn: item.categoryEn || item.category || item.cat || "Web",
       tags: item.tags || [],
       image: item.image || "./assets/images/project-portfolio.svg",
       link: item.link || item.url || "#",
@@ -91,31 +101,45 @@ export function normalizeData(raw = {}) {
     skills: mapItems(raw.skills, item => ({
       id: item.id,
       name: item.name || item.n || "Competence",
+      nameEn: item.nameEn || item.name || item.n || "Skill",
       level: Number(item.level || item.pct || item.l || 70),
-      category: item.category || item.group || item.c || "General"
+      category: item.category || item.group || item.c || "General",
+      categoryEn: item.categoryEn || item.category || item.group || item.c || "General"
     })),
     tools: raw.tools || [],
     toolsOffensive: raw.toolsOffensive || [],
     experience: mapItems(raw.experience, item => ({
       id: item.id,
       role: item.role || item.poste || "Experience",
+      roleEn: item.roleEn || item.role || item.poste || "Experience",
       company: item.company || item.lieu || item.location || "",
+      companyEn: item.companyEn || item.company || item.lieu || item.location || "",
       period: item.period || item.periode || "",
-      description: item.description || item.desc || ""
+      periodEn: item.periodEn || item.period || item.periode || "",
+      description: item.description || item.desc || "",
+      descriptionEn: item.descriptionEn || item.description || item.desc || ""
     })),
     edu: mapItems(raw.edu || raw.education, item => ({
       id: item.id,
       degree: item.degree || item.diplome || item.title || "Formation",
+      degreeEn: item.degreeEn || item.degree || item.diplome || item.title || "Education",
       school: item.school || item.ecole || item.location || "",
+      schoolEn: item.schoolEn || item.school || item.ecole || item.location || "",
       period: item.period || item.periode || "",
-      description: item.description || item.desc || ""
+      periodEn: item.periodEn || item.period || item.periode || "",
+      description: item.description || item.desc || "",
+      descriptionEn: item.descriptionEn || item.description || item.desc || ""
     })),
     certs: mapItems(raw.certs || raw.certifications, item => ({
       id: item.id,
       title: item.title || item.nom || "Certification",
+      titleEn: item.titleEn || item.title || item.nom || "Certification",
       issuer: item.issuer || item.organisme || "",
+      issuerEn: item.issuerEn || item.issuer || item.organisme || "",
       date: item.date || "",
+      dateEn: item.dateEn || item.date || "",
       description: item.description || item.desc || "",
+      descriptionEn: item.descriptionEn || item.description || item.desc || "",
       logo: item.logo || "",
       pdf: item.pdf || "",
       link: item.link || item.url || "#"
@@ -130,6 +154,7 @@ export function normalizeData(raw = {}) {
       contenuEn: item.contenuEn || item.contentEn || item.contenu || item.content || "",
       image: item.image || "./assets/images/article-architecture.svg",
       categorie: item.categorie || item.category || "General",
+      categorieEn: item.categorieEn || item.categoryEn || item.categorie || item.category || "General",
       tags: item.tags || [],
       auteur: item.auteur || item.author || "Venance Houndete",
       date: item.date || new Date().toISOString().slice(0, 10),
@@ -139,7 +164,9 @@ export function normalizeData(raw = {}) {
     gallery: mapItems(raw.gallery, item => ({
       id: item.id,
       titre: item.titre || item.title || "Affiche",
+      titreEn: item.titreEn || item.titleEn || item.titre || item.title || "Poster",
       categorie: item.categorie || item.category || "General",
+      categorieEn: item.categorieEn || item.categoryEn || item.categorie || item.category || "General",
       tags: item.tags || [],
       image: item.image || "./assets/images/poster-cyber.svg",
       date: item.date || new Date().toISOString().slice(0, 10),
@@ -148,8 +175,11 @@ export function normalizeData(raw = {}) {
     articles: mapItems(raw.articles || raw.watch, item => ({
       id: item.id,
       title: item.title || item.titre || "Article",
+      titleEn: item.titleEn || item.titreEn || item.title || item.titre || "Article",
       summary: item.summary || item.resume || "",
+      summaryEn: item.summaryEn || item.resumeEn || item.summary || item.resume || "",
       category: item.category || item.categorie || "Veille",
+      categoryEn: item.categoryEn || item.categorieEn || item.category || item.categorie || "Watch",
       source: item.source || "",
       url: item.url || item.link || "#",
       tags: item.tags || [],
@@ -159,11 +189,12 @@ export function normalizeData(raw = {}) {
     contacts: mapItems(raw.contacts || raw.contact, item => ({
       id: item.id,
       label: item.label || item.lbl || "Contact",
+      labelEn: item.labelEn || item.label || item.lbl || "Contact",
       value: item.value || item.val || item.label || item.lbl || "",
       url: item.url || item.lnk || item.link || "#",
       icon: item.icon || item.ico || "mail"
     })),
-    activity: raw.activity || []
+    activity: Array.isArray(raw.activity) ? raw.activity : raw.activity ? [raw.activity] : []
   };
   return normalized;
 }

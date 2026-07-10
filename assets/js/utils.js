@@ -3,7 +3,7 @@ export const $$ = (selector, root = document) => [...root.querySelectorAll(selec
 export const uid = (prefix = "id") => `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 export const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
 export const slugify = (value = "") => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-export const formatDate = value => new Intl.DateTimeFormat("fr-FR", { dateStyle: "medium" }).format(new Date(value));
+export const formatDate = value => new Intl.DateTimeFormat(document.documentElement.lang === "en" ? "en-US" : "fr-FR", { dateStyle: "medium" }).format(new Date(value));
 export const toArray = value => Array.isArray(value) ? value : [];
 
 export function icon(name) {
