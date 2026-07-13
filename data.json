@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:53:24.576Z",
+  "_updated": "2026-07-13T11:56:50.264Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -580,6 +580,14 @@
       "level": 78,
       "category": "Gouvernance, Risques & Conformité",
       "categoryEn": "Governance, Risk & Compliance"
+    },
+    {
+      "id": "skills-mrj61md5-jqamk8",
+      "name": "Scan de vulnérabilités",
+      "nameEn": "Vulnerability Scanning",
+      "level": 92,
+      "category": "Sécurité offensive",
+      "categoryEn": "Pentest"
     }
   ],
   "tools": [
@@ -741,6 +749,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:56:50.249Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj61md5-jqamk8"
+    },
+    {
+      "date": "2026-07-13T11:53:46.642Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:53:24.561Z",
       "type": "edit",
       "message": "Save skills: skills-mrj5xu1d-20sc59"
@@ -877,16 +895,6 @@
     },
     {
       "date": "2026-07-13T11:31:56.676Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj4yq1h-9eakxo"
-    },
-    {
-      "date": "2026-07-13T11:26:27.518Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T11:26:20.213Z",
       "type": "edit",
       "message": "Save skills: skills-mrj4yq1h-9eakxo"
     }
