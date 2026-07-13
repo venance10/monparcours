@@ -1,5 +1,7 @@
 .admin-body {
-  background: #07111f;
+  background:
+    linear-gradient(180deg, #07111f, #09182a 52%, #07111f),
+    linear-gradient(90deg, rgba(211,179,87,.04) 1px, transparent 1px);
   color: #f7efe1;
   min-height: 100vh;
   overflow: hidden;
@@ -8,7 +10,7 @@
 .login-screen { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 18px; }
 .login-screen[hidden],
 .admin-shell[hidden] { display: none !important; }
-.login-card { width: min(420px, 100%); padding: 22px; display: grid; gap: 14px; }
+.login-card { width: min(430px, 100%); padding: 24px; display: grid; gap: 15px; background: linear-gradient(145deg, rgba(18,34,56,.96), rgba(10,25,45,.92)); border-color: rgba(255,255,255,.12); }
 .login-error { margin: -8px 0 0; color: #ff9b9b; font-weight: 800; font-size: .92rem; }
 .password-setup { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; }
 .password-setup[hidden] { display: none !important; }
@@ -26,13 +28,14 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  background: #f4f0e8;
+  background: linear-gradient(180deg, #f7f3ea, #e8e2d6);
   color: #152033;
   padding: 18px;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 16px;
   border-right: 1px solid rgba(10, 22, 40, .12);
+  box-shadow: 16px 0 44px rgba(0,0,0,.12);
 }
 
 .sidebar .brand { color: #152033; }
@@ -48,7 +51,7 @@
 
 .admin-tab {
   border: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   background: transparent;
   color: #364255;
   text-align: left;
@@ -60,7 +63,7 @@
 
 .admin-tab.active,
 .admin-tab:hover {
-  background: #d9d5ce;
+  background: linear-gradient(135deg, #d9d5ce, #ece7dc);
   color: #081422;
 }
 
@@ -90,6 +93,7 @@
   align-items: center;
   border-bottom: 1px solid rgba(255,255,255,.08);
   background: rgba(8, 20, 34, .94);
+  backdrop-filter: blur(14px);
 }
 
 .admin-title h1 {
@@ -175,7 +179,9 @@
   gap: 12px;
   align-items: center;
   padding: 14px;
+  transition: transform .18s ease, border-color .18s ease;
 }
+.admin-row:hover { transform: translateY(-1px); border-color: rgba(211,179,87,.32); }
 
 .admin-row-actions { display: flex; gap: 8px; }
 

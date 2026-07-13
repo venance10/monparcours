@@ -1,16 +1,18 @@
 .about-grid { display: grid; grid-template-columns: .75fr 1fr; gap: 24px; align-items: start; }
 .about-photo { padding: 0; background: transparent; border-radius: var(--radius); border: 0; display: grid; gap: 12px; }
-.info-item { padding: 16px 18px; }
+.info-item { padding: 18px 20px; }
 .info-item span { display: block; color: var(--brand); font-size: .72rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4px; }
 .service-grid, .project-grid, .knowledge-grid, .watch-grid, .contact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.service-card, .project-card, .article-card, .contact-card { padding: 20px; display: grid; gap: 14px; }
+.service-card, .project-card, .article-card, .contact-card { padding: 22px; display: grid; gap: 15px; }
+.service-card svg, .contact-card svg { color: var(--brand); }
 .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.project-card { padding: 28px; align-content: start; }
+.project-card { padding: 30px; align-content: start; position: relative; overflow: hidden; }
+.project-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, var(--brand), transparent); opacity: .72; }
 .project-card img, .article-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: calc(var(--radius) - 2px); background: var(--surface-2); border: 1px solid var(--line); }
 .project-card img { display: none; }
 .project-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .project-org { color: var(--brand); font-weight: 800; font-size: .9rem; }
-.project-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.project-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
 .project-list li { position: relative; padding-left: 18px; color: var(--text); font-size: .92rem; line-height: 1.65; }
 .project-list li::before { content: ">"; position: absolute; left: 0; color: var(--brand); }
 .project-list li.critical { color: #ffc0c0; }
@@ -19,22 +21,23 @@
 .badge.hack { color: #8fb3ff; border-color: rgba(143, 179, 255, .35); background: rgba(143, 179, 255, .1); }
 .skill-list { display: grid; gap: 14px; }
 .skill-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.skill-group { padding: 20px; }
+.skill-group { padding: 22px; }
 .skill-group-title { color: var(--brand); font-size: .78rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
 .skill-row { display: grid; gap: 8px; }
 .skill-meta { display: flex; justify-content: space-between; gap: 12px; font-weight: 800; }
-.bar { height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar { height: 10px; border-radius: 999px; background: color-mix(in srgb, var(--line), #000 18%); overflow: hidden; }
 .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--brand), var(--accent)); }
 .skill-group.offensive .bar span { background: linear-gradient(90deg, var(--brand-2), #ff9b9b); }
-.timeline { display: grid; gap: 14px; border-left: 2px solid var(--line); padding-left: 20px; }
+.timeline { display: grid; gap: 16px; border-left: 2px solid color-mix(in srgb, var(--brand), transparent 70%); padding-left: 22px; }
 .timeline-item { position: relative; padding: 18px; }
 .timeline-item::before { content: ""; position: absolute; left: -28px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 3px solid var(--bg); }
 .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.cert-card { padding: 18px; display: grid; gap: 10px; }
-.contact-form { padding: 20px; }
+.cert-card { padding: 22px; display: grid; gap: 11px; }
+.contact-form { padding: 24px; margin-top: 18px; }
 @media (max-width: 980px) {
   .about-grid, .service-grid, .project-grid, .knowledge-grid, .watch-grid, .contact-grid, .cert-grid, .skill-groups { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 680px) {
   .about-grid, .service-grid, .project-grid, .knowledge-grid, .watch-grid, .contact-grid, .cert-grid, .skill-groups { grid-template-columns: 1fr; }
+  .project-card, .service-card, .article-card, .contact-card, .cert-card { padding: 20px; }
 }

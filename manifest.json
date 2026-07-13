@@ -1,9 +1,9 @@
 {
   "name": "Venance Houndete Portfolio",
   "short_name": "VH Portfolio",
-  "id": "./?v=2026-07-13-sw-v24",
-  "start_url": "./index.html?v=2026-07-13-sw-v24",
-  "version": "2026-07-13-sw-v24",
+  "id": "./?v=2026-07-13-sw-v25",
+  "start_url": "./index.html?v=2026-07-13-sw-v25",
+  "version": "2026-07-13-sw-v25",
   "display": "standalone",
   "background_color": "#0a1628",
   "theme_color": "#c9a84c",

@@ -1,17 +1,18 @@
 .btn {
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--line), var(--brand) 12%);
   border-radius: var(--radius);
-  min-height: 42px;
-  padding: 10px 16px;
+  min-height: 44px;
+  padding: 11px 17px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--surface);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface), white 4%), var(--surface));
   color: var(--text);
   font-weight: 800;
+  box-shadow: 0 1px 0 rgba(255,255,255,.04);
 }
-.btn.primary { background: var(--brand); color: var(--bg); border-color: var(--brand); }
+.btn.primary { background: linear-gradient(135deg, var(--brand), var(--accent)); color: #09111f; border-color: color-mix(in srgb, var(--brand), white 18%); box-shadow: 0 14px 34px color-mix(in srgb, var(--brand), transparent 78%); }
 .btn.warn { background: var(--brand-2); color: #fff; border-color: var(--brand-2); }
 .icon-btn {
   width: 42px;
@@ -24,14 +25,14 @@
   place-items: center;
 }
 .card {
-  background: color-mix(in srgb, var(--surface), transparent 5%);
-  border: 1px solid var(--line);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--surface), white 3%), color-mix(in srgb, var(--surface-2), transparent 28%));
+  border: 1px solid color-mix(in srgb, var(--line), white 8%);
   border-radius: calc(var(--radius) + 4px);
   box-shadow: 0 1px 0 rgba(255,255,255,.03), var(--shadow-soft, 0 18px 42px rgba(0,0,0,.18));
   transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
 .card:hover {
-  border-color: color-mix(in srgb, var(--brand), transparent 55%);
+  border-color: color-mix(in srgb, var(--brand), transparent 48%);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
@@ -47,11 +48,11 @@
   min-height: 28px;
   border-radius: 999px;
   padding: 4px 10px;
-  border: 1px solid var(--line);
-  color: var(--muted);
+  border: 1px solid color-mix(in srgb, var(--line), var(--brand) 14%);
+  color: color-mix(in srgb, var(--text), var(--muted) 34%);
   font-size: .84rem;
   font-weight: 750;
-  background: color-mix(in srgb, var(--surface), var(--brand) 9%);
+  background: color-mix(in srgb, var(--surface), var(--brand) 12%);
 }
 .chip.danger, .badge.danger {
   color: #ff9b9b;
@@ -60,13 +61,17 @@
 }
 .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; }
-.filter.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.filter.active { background: var(--ink); color: var(--bg); border-color: var(--ink); box-shadow: 0 12px 26px rgba(0,0,0,.18); }
 .smart-filter {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) minmax(170px, 220px);
   gap: 12px;
   align-items: end;
-  margin: 0 0 18px;
+  margin: 0 0 22px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in srgb, var(--surface), transparent 18%);
 }
 .smart-filter .filters,
 .smart-filter .result-count { grid-column: 1 / -1; }
@@ -90,9 +95,9 @@
   width: 100%;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface), #000 5%);
   color: var(--text);
-  padding: 10px 12px;
+  padding: 12px 13px;
 }
 .field input[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
