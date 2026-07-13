@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T12:36:39.367Z",
+  "_updated": "2026-07-13T12:38:25.629Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -652,6 +652,14 @@
       "level": 85,
       "category": "Mise en forme de documents académiques et juridiques",
       "categoryEn": "Formatting academic and legal documents"
+    },
+    {
+      "id": "skills-mrj7j04r-yjf4bx",
+      "name": "Gestion de projet audiovisuel, budgétisation, rédaction de propositions, OBS Studio",
+      "nameEn": "Audiovisual project management, budgeting, writing proposals, OBS Studio",
+      "level": 85,
+      "category": "Proposition de service presse",
+      "categoryEn": "Press service proposal"
     }
   ],
   "tools": [
@@ -979,6 +987,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T12:38:25.571Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj7j04r-yjf4bx"
+    },
+    {
+      "date": "2026-07-13T12:37:09.482Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T12:36:39.315Z",
       "type": "edit",
       "message": "Save skills: skills-mrj7fi8k-77n0iq"
@@ -1117,16 +1135,6 @@
       "date": "2026-07-13T12:03:32.152Z",
       "type": "edit",
       "message": "Save skills: skills-mrj6amrc-o8wob9"
-    },
-    {
-      "date": "2026-07-13T12:00:28.440Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj63809-rjl8y3"
-    },
-    {
-      "date": "2026-07-13T12:00:00.457Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
     }
   ]
 }
