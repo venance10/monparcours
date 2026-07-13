@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:20:44.806Z",
+  "_updated": "2026-07-13T11:26:20.229Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -500,6 +500,14 @@
       "level": 62,
       "category": "Développement",
       "categoryEn": "Development"
+    },
+    {
+      "id": "skills-mrj4yq1h-9eakxo",
+      "name": "wireshark",
+      "nameEn": "wireshark",
+      "level": 85,
+      "category": "Outils",
+      "categoryEn": "Outils"
     }
   ],
   "tools": [
@@ -596,20 +604,6 @@
       "logo": "",
       "pdf": "",
       "link": "https://www.netacad.com/fr/profile?tab=badges"
-    },
-    {
-      "id": "cert-grafnet",
-      "title": "Mission GRC / Audit SSI",
-      "titleEn": "GRC / IS Security Audit Mission",
-      "issuer": "GRAFNET Consulting",
-      "issuerEn": "GRAFNET Consulting",
-      "date": "2026",
-      "dateEn": "2026",
-      "description": "Audit GRC, analyse de conformité et tests de sécurité web.",
-      "descriptionEn": "GRC audit, compliance analysis and web security testing.",
-      "logo": "",
-      "pdf": "",
-      "link": "#"
     }
   ],
   "knowledge": [],
@@ -674,6 +668,21 @@
     }
   ],
   "activity": [
+    {
+      "date": "2026-07-13T11:26:20.213Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj4yq1h-9eakxo"
+    },
+    {
+      "date": "2026-07-13T11:21:00.558Z",
+      "type": "delete",
+      "message": "Delete certs: cert-grafnet"
+    },
+    {
+      "date": "2026-07-13T11:20:52.989Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
     {
       "date": "2026-07-13T11:20:44.790Z",
       "type": "edit",
