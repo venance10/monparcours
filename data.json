@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:34:53.108Z",
+  "_updated": "2026-07-13T13:40:13.039Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -1000,6 +1000,20 @@
       "logo": "",
       "pdf": "",
       "link": "https://www.netacad.com/fr/profile?tab=badges"
+    },
+    {
+      "id": "certs-mrj9nqyb-fn0xlo",
+      "title": "Fortinet NSE 1",
+      "titleEn": "Fortinet NSE 1",
+      "issuer": "Fortinet NSE 1",
+      "issuerEn": "Fortinet NSE 1",
+      "date": "6 juillet 2026",
+      "dateEn": "6 juillet 2026",
+      "description": "",
+      "descriptionEn": "",
+      "logo": "",
+      "pdf": "",
+      "link": "https://training.fortinet.com/local/cert/my/exams.php"
     }
   ],
   "knowledge": [],
@@ -1231,6 +1245,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:40:12.987Z",
+      "type": "edit",
+      "message": "Save certs: certs-mrj9nqyb-fn0xlo"
+    },
+    {
+      "date": "2026-07-13T13:35:30.199Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:34:53.052Z",
       "type": "edit",
       "message": "Save contacts: ct-github"
@@ -1367,16 +1391,6 @@
     },
     {
       "date": "2026-07-13T12:39:05.090Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:38:25.571Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj7j04r-yjf4bx"
-    },
-    {
-      "date": "2026-07-13T12:37:09.482Z",
       "type": "github",
       "message": "Automatic GitHub sync"
     }
