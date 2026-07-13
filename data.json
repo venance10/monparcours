@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:40:56.089Z",
+  "_updated": "2026-07-13T11:45:00.392Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -390,14 +390,6 @@
       "categoryEn": "Offensive Security"
     },
     {
-      "id": "sk-iso",
-      "name": "ISO 27001:2022",
-      "nameEn": "ISO 27001:2022",
-      "level": 85,
-      "category": "Gouvernance & Conformité",
-      "categoryEn": "Governance & Compliance"
-    },
-    {
       "id": "sk-iso2",
       "name": "ISO 27001:2022, ISO 20000-1, ISO 27035",
       "nameEn": "ISO 27001:2022, ISO 20000-1, ISO 27035",
@@ -556,6 +548,14 @@
       "level": 78,
       "category": "Outils",
       "categoryEn": "Tools"
+    },
+    {
+      "id": "skills-mrj5li6z-961vtt",
+      "name": "Analyse de risques",
+      "nameEn": "Risk analysis",
+      "level": 78,
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     }
   ],
   "tools": [
@@ -717,6 +717,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:45:00.379Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5li6z-961vtt"
+    },
+    {
+      "date": "2026-07-13T11:41:41.627Z",
+      "type": "delete",
+      "message": "Delete skills: sk-iso"
+    },
+    {
+      "date": "2026-07-13T11:41:04.452Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:40:56.075Z",
       "type": "edit",
       "message": "Save skills: sk-iso2"
@@ -850,21 +865,6 @@
       "date": "2026-07-10T14:59:37.624Z",
       "type": "edit",
       "message": "Save gallery: gallery-mrf26s5s-mxdrgl"
-    },
-    {
-      "date": "2026-07-10T14:59:46.148Z",
-      "type": "edit",
-      "message": "Save contacts: ct-whatsapp"
-    },
-    {
-      "date": "2026-07-10T14:53:11.558Z",
-      "type": "github",
-      "message": "GitHub data.json save"
-    },
-    {
-      "date": "2026-07-10T14:53:03.429Z",
-      "type": "github",
-      "message": "GitHub data.json save"
     }
   ]
 }
