@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T12:05:08.150Z",
+  "_updated": "2026-07-13T12:07:46.236Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -620,6 +620,14 @@
       "level": 80,
       "category": "Sécurité défensive",
       "categoryEn": "Defensive security"
+    },
+    {
+      "id": "skills-mrj6ftmn-80vm6v",
+      "name": "TCP/IP, DNS, DHCP, VPN, scan et analyse réseau.",
+      "nameEn": "Networks & systems TCP/IP, DNS, DHCP, VPN, network scanning and analysis.",
+      "level": 80,
+      "category": "Réseaux & systèmes",
+      "categoryEn": "Networks & systems"
     }
   ],
   "tools": [
@@ -781,6 +789,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T12:07:46.223Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj6ftmn-80vm6v"
+    },
+    {
+      "date": "2026-07-13T12:05:15.380Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T12:05:08.136Z",
       "type": "edit",
       "message": "Save skills: skills-mrj6czcg-z5xomf"
@@ -919,16 +937,6 @@
       "date": "2026-07-13T11:40:56.075Z",
       "type": "edit",
       "message": "Save skills: sk-iso2"
-    },
-    {
-      "date": "2026-07-13T11:37:14.059Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj5daw3-f61oh3"
-    },
-    {
-      "date": "2026-07-13T11:36:47.142Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
     }
   ]
 }
