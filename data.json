@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:35:05.201Z",
+  "_updated": "2026-07-13T11:36:43.709Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -532,6 +532,22 @@
       "level": 80,
       "category": "Outils",
       "categoryEn": "Tools"
+    },
+    {
+      "id": "skills-mrj5bkrv-liporw",
+      "name": "WhatWeb",
+      "nameEn": "WhatWeb",
+      "level": 78,
+      "category": "Outils",
+      "categoryEn": "Tools"
+    },
+    {
+      "id": "skills-mrj5cgb7-a1gny5",
+      "name": "OWASP ZAP",
+      "nameEn": "OWASP ZAP",
+      "level": 70,
+      "category": "Outils",
+      "categoryEn": "Tools"
     }
   ],
   "tools": [
@@ -693,6 +709,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:36:43.692Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5cgb7-a1gny5"
+    },
+    {
+      "date": "2026-07-13T11:35:59.436Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5bkrv-liporw"
+    },
+    {
+      "date": "2026-07-13T11:35:11.496Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:35:05.188Z",
       "type": "edit",
       "message": "Save skills: skills-mrj5abxg-qp9jlk"
@@ -826,21 +857,6 @@
       "date": "2026-07-10T14:51:55.062Z",
       "type": "github",
       "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-10T14:51:49.316Z",
-      "type": "edit",
-      "message": "Update resume"
-    },
-    {
-      "date": "2026-07-10T14:50:09.587Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-10T14:50:06.006Z",
-      "type": "edit",
-      "message": "Update main information"
     }
   ]
 }
