@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:34:03.092Z",
+  "_updated": "2026-07-13T11:35:05.201Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -524,6 +524,14 @@
       "level": 72,
       "category": "Outils",
       "categoryEn": "Tools"
+    },
+    {
+      "id": "skills-mrj5abxg-qp9jlk",
+      "name": "SQLMap",
+      "nameEn": "SQLMap",
+      "level": 80,
+      "category": "Outils",
+      "categoryEn": "Tools"
     }
   ],
   "tools": [
@@ -685,6 +693,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:35:05.188Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5abxg-qp9jlk"
+    },
+    {
+      "date": "2026-07-13T11:34:10.388Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:34:03.076Z",
       "type": "edit",
       "message": "Save skills: skills-mrj58zpw-rx331a"
@@ -823,16 +841,6 @@
       "date": "2026-07-10T14:50:06.006Z",
       "type": "edit",
       "message": "Update main information"
-    },
-    {
-      "date": "2026-07-10T13:09:16.694Z",
-      "type": "edit",
-      "message": "Update main information"
-    },
-    {
-      "date": "2026-07-10T12:51:07.032Z",
-      "type": "github",
-      "message": "GitHub data.json save"
     }
   ]
 }
