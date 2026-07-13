@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:40:13.039Z",
+  "_updated": "2026-07-13T13:58:53.115Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -178,15 +178,11 @@
       "description": "Test d'intrusion boîte noire sur une plateforme e-commerce en production.",
       "descriptionEn": "Black-box penetration test on a production e-commerce platform.",
       "bullets": [
-        "Test d'intrusion boîte noire : plateforme e-commerce Next.js / Node.js / MongoDB.",
-        "CRITIQUE : exposition de données personnelles de 9 comptes via API publique non protégée.",
-        "5 failles supplémentaires : absence de CSP, fuite Sentry DSN et hash Git, absence de rate limiting.",
+        "Test d'intrusion boîte noire : plateforme e-commerce",
         "Total : 6 vulnérabilités dont 1 critique, avec rapport de remédiation priorisé livré."
       ],
       "bulletsEn": [
-        "Black-box penetration test: Next.js / Node.js / MongoDB e-commerce platform.",
-        "CRITICAL: exposure of personal data from 9 accounts through an unprotected public API.",
-        "5 additional issues: missing CSP, Sentry DSN and Git hash leak, no rate limiting.",
+        "Black-box penetration test: e-commerce platform.",
         "Total: 6 vulnerabilities including 1 critical, with prioritized remediation report delivered."
       ],
       "category": "Pentest",
@@ -1245,6 +1241,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:58:53.057Z",
+      "type": "edit",
+      "message": "Save projects: prj-asofind"
+    },
+    {
+      "date": "2026-07-13T13:40:50.254Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:40:12.987Z",
       "type": "edit",
       "message": "Save certs: certs-mrj9nqyb-fn0xlo"
@@ -1383,16 +1389,6 @@
       "date": "2026-07-13T12:48:41.746Z",
       "type": "edit",
       "message": "Save projects: projects-mrj7pm0b-b5qlwf"
-    },
-    {
-      "date": "2026-07-13T12:40:00.571Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj7lfq3-r5nqbk"
-    },
-    {
-      "date": "2026-07-13T12:39:05.090Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
     }
   ]
 }
