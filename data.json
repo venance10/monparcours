@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:45:00.392Z",
+  "_updated": "2026-07-13T11:46:52.050Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -394,16 +394,16 @@
       "name": "ISO 27001:2022, ISO 20000-1, ISO 27035",
       "nameEn": "ISO 27001:2022, ISO 20000-1, ISO 27035",
       "level": 80,
-      "category": "Gouvernance & Conformité",
-      "categoryEn": "Governance & Compliance"
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     },
     {
       "id": "sk-itil",
       "name": "ITIL 4 / COBIT 2019",
       "nameEn": "ITIL 4 / COBIT 2019",
       "level": 78,
-      "category": "Gouvernance & Conformité",
-      "categoryEn": "Governance & Compliance"
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     },
     {
       "id": "sk-pssie",
@@ -717,6 +717,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:46:52.034Z",
+      "type": "edit",
+      "message": "Save skills: sk-itil"
+    },
+    {
+      "date": "2026-07-13T11:45:36.074Z",
+      "type": "edit",
+      "message": "Save skills: sk-iso2"
+    },
+    {
+      "date": "2026-07-13T11:45:14.937Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:45:00.379Z",
       "type": "edit",
       "message": "Save skills: skills-mrj5li6z-961vtt"
@@ -850,21 +865,6 @@
       "date": "2026-07-12T02:48:25.640Z",
       "type": "github",
       "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-12T02:48:16.337Z",
-      "type": "edit",
-      "message": "Update resume"
-    },
-    {
-      "date": "2026-07-10T14:59:45.672Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-10T14:59:37.624Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrf26s5s-mxdrgl"
     }
   ]
 }
