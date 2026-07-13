@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:36:43.709Z",
+  "_updated": "2026-07-13T11:40:56.089Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -399,8 +399,8 @@
     },
     {
       "id": "sk-iso2",
-      "name": "ISO 20000-1 / ISO 27035",
-      "nameEn": "ISO 20000-1 / ISO 27035",
+      "name": "ISO 27001:2022, ISO 20000-1, ISO 27035",
+      "nameEn": "ISO 27001:2022, ISO 20000-1, ISO 27035",
       "level": 80,
       "category": "Gouvernance & Conformité",
       "categoryEn": "Governance & Compliance"
@@ -546,6 +546,14 @@
       "name": "OWASP ZAP",
       "nameEn": "OWASP ZAP",
       "level": 70,
+      "category": "Outils",
+      "categoryEn": "Tools"
+    },
+    {
+      "id": "skills-mrj5daw3-f61oh3",
+      "name": "Aircrack-ng",
+      "nameEn": "Aircrack-ng",
+      "level": 78,
       "category": "Outils",
       "categoryEn": "Tools"
     }
@@ -709,6 +717,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:40:56.075Z",
+      "type": "edit",
+      "message": "Save skills: sk-iso2"
+    },
+    {
+      "date": "2026-07-13T11:37:14.059Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5daw3-f61oh3"
+    },
+    {
+      "date": "2026-07-13T11:36:47.142Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:36:43.692Z",
       "type": "edit",
       "message": "Save skills: skills-mrj5cgb7-a1gny5"
@@ -842,21 +865,6 @@
       "date": "2026-07-10T14:53:03.429Z",
       "type": "github",
       "message": "GitHub data.json save"
-    },
-    {
-      "date": "2026-07-10T14:52:23.319Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-10T14:52:18.349Z",
-      "type": "edit",
-      "message": "Update resume"
-    },
-    {
-      "date": "2026-07-10T14:51:55.062Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
     }
   ]
 }
