@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T14:05:21.489Z",
+  "_updated": "2026-07-13T14:09:59.168Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -253,7 +253,7 @@
       "bullets": [
         "Audit complet : 33 points de contrôle alignés PSSIE, ISO 27001:2022 et Code du Numérique.",
         "27 questions de diagnostic sur 7 domaines via Google Forms / Apps Script.",
-        "12 points critiques dont non-conformité Code du Numérique sur données de santé et financières.",
+        "12 points critiques .",
         "Analyse et documentation d'un incident réel de type ransomware avec rapport et recommandations."
       ],
       "bulletsEn": [
@@ -1225,6 +1225,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T14:09:59.111Z",
+      "type": "edit",
+      "message": "Save projects: prj-uac-audit"
+    },
+    {
+      "date": "2026-07-13T14:06:04.433Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T14:05:21.417Z",
       "type": "edit",
       "message": "Save projects: projects-mrj94kgl-0vn81p"
@@ -1361,16 +1371,6 @@
     },
     {
       "date": "2026-07-13T12:56:20.787Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:56:15.545Z",
-      "type": "edit",
-      "message": "Save projects: projects-mrj83sbt-augxj2"
-    },
-    {
-      "date": "2026-07-13T12:52:59.279Z",
       "type": "github",
       "message": "Automatic GitHub sync"
     }
