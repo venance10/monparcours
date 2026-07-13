@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:29:34.439Z",
+  "_updated": "2026-07-13T13:31:07.172Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -103,6 +103,14 @@
       "description": "• Création de site vitrine/ portfolio \n• Maintenance / mise à jour de contenu",
       "descriptionEn": "Web Development\n• Showcase / portfolio website creation\n• Maintenance / content updates",
       "icon": "check"
+    },
+    {
+      "id": "services-mrj9fe18-qu9ib3",
+      "title": "Création graphique",
+      "titleEn": "Graphic design",
+      "description": "• Affiche événementielle / publicitaire\n• Identité visuelle (logo, charte simple) \n• Supports réseaux sociaux (bannières, visuels de profil)",
+      "descriptionEn": "• Event / advertising poster\n• Visual identity (logo, simple style guide)\n• Social media materials (banners, profile visuals)",
+      "icon": "map"
     }
   ],
   "projects": [
@@ -1215,6 +1223,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:31:07.108Z",
+      "type": "edit",
+      "message": "Save services: services-mrj9fe18-qu9ib3"
+    },
+    {
+      "date": "2026-07-13T13:30:14.176Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:29:34.381Z",
       "type": "edit",
       "message": "Save services: services-mrj9bpat-seu4ay"
@@ -1353,16 +1371,6 @@
       "date": "2026-07-13T12:30:21.572Z",
       "type": "edit",
       "message": "Save gallery: gallery-mrj77mgk-y51a9g"
-    },
-    {
-      "date": "2026-07-13T12:27:09.643Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:26:45.557Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj72k7h-unacyv"
     }
   ]
 }
