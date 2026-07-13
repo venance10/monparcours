@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:31:07.172Z",
+  "_updated": "2026-07-13T13:32:42.004Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -111,6 +111,14 @@
       "description": "• Affiche événementielle / publicitaire\n• Identité visuelle (logo, charte simple) \n• Supports réseaux sociaux (bannières, visuels de profil)",
       "descriptionEn": "• Event / advertising poster\n• Visual identity (logo, simple style guide)\n• Social media materials (banners, profile visuals)",
       "icon": "map"
+    },
+    {
+      "id": "services-mrj9h7u4-z9wlkl",
+      "title": "Documentation",
+      "titleEn": "Documentation",
+      "description": "Mise en forme de mémoires / rapports (TOC, styles, tableaux)",
+      "descriptionEn": "Formatting of theses / reports (TOC, styles, tables",
+      "icon": "book"
     }
   ],
   "projects": [
@@ -1223,6 +1231,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:32:41.948Z",
+      "type": "edit",
+      "message": "Save services: services-mrj9h7u4-z9wlkl"
+    },
+    {
+      "date": "2026-07-13T13:31:44.564Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:31:07.108Z",
       "type": "edit",
       "message": "Save services: services-mrj9fe18-qu9ib3"
@@ -1361,16 +1379,6 @@
       "date": "2026-07-13T12:33:44.865Z",
       "type": "github",
       "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:33:10.244Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj7bzmc-ezdeku"
-    },
-    {
-      "date": "2026-07-13T12:30:21.572Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj77mgk-y51a9g"
     }
   ]
 }
