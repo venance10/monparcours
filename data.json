@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:12:48.248Z",
+  "_updated": "2026-07-13T13:19:41.027Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -483,6 +483,35 @@
       ],
       "category": "Dev Web",
       "categoryEn": "Dev Web",
+      "tags": [],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "projects-mrj8ugye-u2n5eu",
+      "title": "Test d'intrusion black-box",
+      "titleEn": "Black-box penetration test",
+      "organization": "IFRI/UAC",
+      "organizationEn": "IFRI/UAC",
+      "date": "Mars 2026",
+      "dateEn": "March",
+      "badge": "Pentest",
+      "badgeEn": "Pentest",
+      "badgeStyle": "pentest",
+      "description": "Projet académique / mission d'audit, IFRI-UAC",
+      "descriptionEn": "Academic project / audit mission, IFRI-UAC",
+      "bullets": [
+        "• Pentest complet en boîte noire : 17 vulnérabilités identifiées, dont 3 critiques",
+        "• Rapport détaillé avec preuves de concept et recommandations de remédiation"
+      ],
+      "bulletsEn": [
+        "• Full black-box pentest: 17 vulnerabilities identified, including 3 critical ones",
+        "• Detailed report with proof-of-concept and remediation recommendations"
+      ],
+      "category": "Pentest",
+      "categoryEn": "Pentest",
       "tags": [],
       "image": "./assets/images/project-portfolio.svg",
       "link": "#",
@@ -1145,6 +1174,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:19:40.966Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj8ugye-u2n5eu"
+    },
+    {
+      "date": "2026-07-13T13:13:22.863Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:12:48.175Z",
       "type": "edit",
       "message": "Save projects: projects-mrj8kdag-0m0s89"
@@ -1283,16 +1322,6 @@
       "date": "2026-07-13T12:21:25.170Z",
       "type": "github",
       "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:21:03.710Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj6xxry-bqv0vo"
-    },
-    {
-      "date": "2026-07-13T12:20:21.966Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj6wif2-mhasyu"
     }
   ]
 }
