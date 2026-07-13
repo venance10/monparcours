@@ -24,10 +24,10 @@
   place-items: center;
 }
 .card {
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface), transparent 5%);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: 0 1px 0 rgba(255,255,255,.02);
+  border-radius: calc(var(--radius) + 4px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.03), var(--shadow-soft, 0 18px 42px rgba(0,0,0,.18));
   transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
 .card:hover {
@@ -94,8 +94,34 @@
   color: var(--text);
   padding: 10px 12px;
 }
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger), transparent 78%);
+}
+.field-error {
+  color: #ffb3b3;
+  font-weight: 800;
+  font-size: .84rem;
+}
+.form-status {
+  margin-top: 12px;
+  min-height: 24px;
+  font-weight: 850;
+}
+.form-status[data-state="success"] { color: var(--success); }
+.form-status[data-state="error"] { color: #ffb3b3; }
+.form-status[data-state="pending"] { color: var(--brand); }
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
 .field textarea { min-height: 110px; resize: vertical; }
 @media (max-width: 720px) {
   .form-grid,
   .smart-filter { grid-template-columns: 1fr; }
+  .btn, .icon-btn { min-height: 46px; }
+  .contact-form { padding: 18px; }
 }

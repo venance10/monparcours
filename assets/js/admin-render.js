@@ -179,11 +179,12 @@ function renderInfos() {
 function renderCv() {
   const isEmbedded = String(D.infos.cv || "").startsWith("data:application/pdf");
   const meta = cvMeta(D.infos.cv);
+  const cvHref = D.infos.cv || "./cv.pdf";
   return `<section class="admin-panel"><div class="admin-top"><div><h2>${escapeHtml(tr("cvTab"))}</h2><p class="muted">${escapeHtml(tr("cvHelp"))}</p></div></div>
   <form id="cvForm" class="card form-card">
     <div class="form-grid">${renderField(["cv", "Nouveau CV PDF", "pdf"], D.infos)}</div>
     <div class="toolbar" style="margin-top:16px">
-      <a class="btn" href="${escapeHtml(D.infos.cv || "./cv.pdf")}" target="_blank" rel="noopener">${icon("download")} ${escapeHtml(tr("currentCv"))}</a>
+      <a class="btn" href="${escapeHtml(cvHref)}" download target="_blank" rel="noopener">${icon("download")} ${escapeHtml(tr("currentCv"))}</a>
       <span class="badge">${escapeHtml(isEmbedded ? tr("embeddedCv") : tr("linkedCv"))}</span>
     </div>
     <p class="file-meta" id="cvMeta">${escapeHtml(meta)}</p>
@@ -226,8 +227,16 @@ function renderField([name, label, type, options = []], item) {
   if (type === "image" || type === "avatar" || type === "pdf") {
     const accept = type === "pdf" ? "application/pdf" : "image/jpeg,image/png,image/webp,image/svg+xml,.jpg,.jpeg,.png,.webp,.svg";
     const help = type === "pdf" ? "Choisir un PDF depuis l'ordinateur" : "Choisir une image depuis l'ordinateur";
-    const preview = type !== "pdf" && value ? `<img src="${escapeHtml(value)}" alt="">` : `<span class="muted">${escapeHtml(adminLabel(help))}</span>`;
-    return `<label class="field full ${type}-control"><span>${escapeHtml(adminLabel(label))}</span>${type !== "pdf" ? `<div class="image-preview ${type === "avatar" ? "avatar-preview" : ""}" data-preview-for="field-${name}">${preview}</div>` : `<p class="file-meta" data-file-meta-for="field-${name}">${escapeHtml(cvMeta(value))}</p>`}<input type="file" accept="${accept}" data-file-target="field-${name}" data-file-kind="${type}"><div class="upload-progress" data-progress-for="field-${name}"><span></span></div><textarea ${common} placeholder="${escapeHtml(adminLabel("URL, ou fichier converti automatiquement en base64"))}">${escapeHtml(value || "")}</textarea><div class="toolbar"><button class="btn" type="button" data-clear-file="field-${name}">${escapeHtml(tr("delete"))}</button></div><small class="muted">${escapeHtml(adminLabel(help))}. ${escapeHtml(adminLabel("Le fichier sera integre en base64 dans les donnees."))}</small></label>`;
+    const urlValue = value && !String(value).startsWith("data:") ? value : "";
+    return `<div class="field full ${type}-control media-control"><span>${escapeHtml(adminLabel(label))}</span>
+      ${mediaPreview(type, name, value)}
+      <input ${common} type="hidden" value="${escapeHtml(value || "")}">
+      <label class="btn media-replace">${escapeHtml(adminLabel("Remplacer"))}<input class="sr-only" type="file" accept="${accept}" data-file-target="field-${name}" data-file-kind="${type}"></label>
+      <label class="field media-url"><span>${escapeHtml(adminLabel("Lien externe"))}</span><input data-media-url="field-${name}" value="${escapeHtml(urlValue)}" placeholder="https://..."></label>
+      <div class="upload-progress" data-progress-for="field-${name}"><span></span></div>
+      <div class="toolbar"><button class="btn" type="button" data-clear-file="field-${name}">${escapeHtml(tr("delete"))}</button></div>
+      <small class="muted">${escapeHtml(adminLabel(help))}. ${escapeHtml(adminLabel("Le fichier est conserve dans data.json sans afficher le Base64."))}</small>
+    </div>`;
   }
   if (type === "textarea" || type === "lines") {
     const text = Array.isArray(value) ? value.join("\n") : value || "";
@@ -249,6 +258,18 @@ function cvMeta(value = "") {
   if (!value) return "Aucun fichier selectionne.";
   if (String(value).startsWith("data:application/pdf")) return "PDF integre dans data.json.";
   return `Lien actuel : ${value}`;
+}
+
+function mediaPreview(type, name, value = "") {
+  const id = `field-${name}`;
+  const hasValue = Boolean(value);
+  if (!hasValue) {
+    return `<div class="media-preview ${type === "avatar" ? "avatar-preview" : ""}" data-preview-for="${id}"><span class="media-icon">${type === "pdf" ? "PDF" : "IMG"}</span><p class="muted">${escapeHtml(adminLabel("Aucun fichier selectionne"))}</p></div><p class="file-meta" data-file-meta-for="${id}"></p>`;
+  }
+  if (type === "pdf" || String(value).startsWith("data:application/pdf") || /\.pdf($|\?)/i.test(String(value))) {
+    return `<div class="media-preview document-preview" data-preview-for="${id}"><span class="media-icon">PDF</span><p>${escapeHtml(adminLabel("Document pret"))}</p></div><p class="file-meta" data-file-meta-for="${id}">${escapeHtml(cvMeta(value))}</p>`;
+  }
+  return `<div class="media-preview image-preview ${type === "avatar" ? "avatar-preview" : ""}" data-preview-for="${id}"><img src="${escapeHtml(value)}" alt="" loading="lazy"></div><p class="file-meta" data-file-meta-for="${id}">${String(value).startsWith("data:") ? escapeHtml(adminLabel("Image integree dans data.json")) : escapeHtml(value)}</p>`;
 }
 
 function labelFor(name) {
@@ -345,6 +366,12 @@ function adminLabel(label) {
     "Choisir une image depuis l'ordinateur": "Choose an image from your computer",
     "URL, ou fichier converti automatiquement en base64": "URL, or file automatically converted to base64",
     "Le fichier sera integre en base64 dans les donnees.": "The file will be embedded as base64 in the data.",
+    "Le fichier est conserve dans data.json sans afficher le Base64.": "The file is kept in data.json without displaying Base64.",
+    "Remplacer": "Replace",
+    "Lien externe": "External link",
+    "Aucun fichier selectionne": "No file selected",
+    "Document pret": "Document ready",
+    "Image integree dans data.json": "Image embedded in data.json",
     "Oui": "Yes",
     "Non": "No",
     "Securite Offensive": "Offensive Security",

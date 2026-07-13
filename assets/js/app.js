@@ -1,5 +1,5 @@
-import { BUILD_VERSION, LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
-import { loadData } from "./data.js";
+import { BUILD_VERSION, CONTACT_MIN_SECONDS, EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
+import { D, loadData } from "./data.js";
 import { closeLightbox, openLightbox } from "./gallery.js";
 import { lang, setLang, tr } from "./i18n.js";
 import { renderPublic, openArticle } from "./render.js";
@@ -49,6 +49,10 @@ function bindEvents() {
     if (close) $("#modalRoot").innerHTML = "";
     if (lightboxClose || event.target.id === "lightbox") closeLightbox();
   });
+  document.addEventListener("submit", event => {
+    const form = event.target.closest("#contactForm");
+    if (form) handleContactSubmit(event, form);
+  });
   window.addEventListener("storage", async event => {
     if (event.key === STORAGE_KEY) {
       await loadData();
@@ -59,6 +63,103 @@ function bindEvents() {
   });
   bindDynamicEvents();
   bindSecretAdminAccess();
+}
+
+async function handleContactSubmit(event, form) {
+  event.preventDefault();
+  const status = $("#contactStatus");
+  const button = form.querySelector("button[type='submit']");
+  clearContactErrors(form);
+  if (!validateContactForm(form, status)) return;
+  if (form.elements.website?.value) return;
+  const startedAt = Number(form.dataset.startedAt || Date.now());
+  if ((Date.now() - startedAt) / 1000 < CONTACT_MIN_SECONDS) {
+    setContactStatus(status, tr("contactTooFast"), "error");
+    return;
+  }
+
+  button.disabled = true;
+  button.querySelector("span").textContent = tr("sending");
+  setContactStatus(status, tr("sending"), "pending");
+  try {
+    await sendContactMessage(Object.fromEntries(new FormData(form).entries()));
+    setContactStatus(status, tr("messageSent"), "success");
+    form.reset();
+    form.dataset.startedAt = Date.now();
+  } catch (error) {
+    console.warn("Contact send failed", error);
+    setContactStatus(status, tr("messageFailed"), "error");
+  } finally {
+    button.disabled = false;
+    button.querySelector("span").textContent = tr("send");
+  }
+}
+
+function validateContactForm(form, status) {
+  let valid = true;
+  [...form.elements].forEach(field => {
+    if (!["INPUT", "TEXTAREA"].includes(field.tagName) || field.name === "website") return;
+    if (field.required && !field.value.trim()) {
+      showFieldError(field, tr("requiredField"));
+      valid = false;
+    } else if (field.type === "email" && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+      showFieldError(field, tr("invalidEmail"));
+      valid = false;
+    } else if (field.minLength > 0 && field.value.trim().length < field.minLength) {
+      showFieldError(field, tr("requiredField"));
+      valid = false;
+    }
+  });
+  if (!valid) setContactStatus(status, tr("requiredField"), "error");
+  return valid;
+}
+
+function showFieldError(field, message) {
+  field.setAttribute("aria-invalid", "true");
+  const error = document.createElement("small");
+  error.className = "field-error";
+  error.textContent = message;
+  field.closest(".field")?.append(error);
+}
+
+function clearContactErrors(form) {
+  form.querySelectorAll("[aria-invalid='true']").forEach(field => field.removeAttribute("aria-invalid"));
+  form.querySelectorAll(".field-error").forEach(error => error.remove());
+}
+
+function setContactStatus(node, message, type) {
+  if (!node) return;
+  node.textContent = message;
+  node.dataset.state = type;
+}
+
+async function sendContactMessage(payload) {
+  if (EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
+    const emailjs = await loadEmailJs();
+    await emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      from_name: payload.name,
+      reply_to: payload.email,
+      subject: payload.subject,
+      message: payload.message
+    });
+    return;
+  }
+  const subject = encodeURIComponent(payload.subject || "Contact portfolio");
+  const body = encodeURIComponent(`${payload.message}\n\n${payload.name}\n${payload.email}`);
+  window.location.href = `mailto:${D?.infos?.email || ""}?subject=${subject}&body=${body}`;
+}
+
+function loadEmailJs() {
+  if (window.emailjs) return Promise.resolve(window.emailjs);
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+    script.async = true;
+    script.onload = () => resolve(window.emailjs);
+    script.onerror = reject;
+    document.head.append(script);
+  });
 }
 
 function translateStaticShell() {

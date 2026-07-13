@@ -136,7 +136,7 @@ function bindContent() {
     if (ghSave) return saveGithub();
   };
   $("#adminContent").onchange = handleFileInput;
-  $("#adminContent").oninput = markDirty;
+  $("#adminContent").oninput = handleAdminInput;
 }
 
 function openItem(collection, item = {}) {
@@ -148,7 +148,7 @@ function openItem(collection, item = {}) {
     if (save) saveItemBlock(save.dataset.saveItem, save.dataset.itemId);
   };
   $("#modalRoot").onchange = handleFileInput;
-  $("#modalRoot").oninput = markDirty;
+  $("#modalRoot").oninput = handleAdminInput;
   enhanceForms($("#modalRoot"));
 }
 
@@ -161,10 +161,12 @@ async function handleFileInput(event) {
   try {
     if (isImageInput(input)) {
       if (!isAllowedImageFile(file)) throw new Error("unsupported-image");
-      setProgress(target.id, 35);
+      setProgress(target.id, 18);
       target.value = input.dataset.fileKind === "avatar" ? await readAvatarAsOptimizedDataUrl(file) : await readImageAsOptimizedDataUrl(file);
+      setProgress(target.id, 86);
+      await updateFilePreview(target.id, target.value, file);
+      syncMediaUrl(target.id, "");
       setProgress(target.id, 100);
-      updateFilePreview(target.id, target.value, file);
       markDirty();
       toast(tr("imageEmbedded"));
       return;
@@ -173,8 +175,9 @@ async function handleFileInput(event) {
     if (file.size > maxSize) throw new Error("file-too-large");
     setProgress(target.id, 45);
     target.value = await readFileAsDataUrl(file);
+    await updateFilePreview(target.id, target.value, file);
+    syncMediaUrl(target.id, "");
     setProgress(target.id, 100);
-    updateFilePreview(target.id, target.value, file);
     markDirty();
     toast(tr("fileEmbedded"));
   } catch (error) {
@@ -182,6 +185,18 @@ async function handleFileInput(event) {
     target.value = "";
     toast(uploadErrorMessage(error));
   }
+}
+
+function handleAdminInput(event) {
+  const mediaUrl = event.target.closest("[data-media-url]");
+  if (mediaUrl) {
+    const target = document.getElementById(mediaUrl.dataset.mediaUrl);
+    if (target) {
+      target.value = mediaUrl.value.trim();
+      updateFilePreview(target.id, target.value);
+    }
+  }
+  markDirty();
 }
 
 function isImageInput(input) {
@@ -452,23 +467,56 @@ function setProgress(id, pct) {
   if (bar) bar.style.width = `${pct}%`;
 }
 
-function updateFilePreview(id, value, file = null) {
+async function updateFilePreview(id, value, file = null) {
   const preview = document.querySelector(`[data-preview-for="${id}"]`);
-  if (preview) preview.innerHTML = value ? `<img src="${value}" alt="">` : `<span class="muted">Aucune image</span>`;
+  if (preview) {
+    preview.classList.toggle("document-preview", isDocumentValue(value, file));
+    if (!value) {
+      preview.innerHTML = `<span class="media-icon">IMG</span><p class="muted">Aucun fichier</p>`;
+    } else if (isDocumentValue(value, file)) {
+      preview.innerHTML = `<span class="media-icon">PDF</span><p>Document pret</p>`;
+    } else {
+      preview.innerHTML = `<img src="${value}" alt="" loading="lazy">`;
+    }
+  }
   const meta = document.querySelector(`[data-file-meta-for="${id}"]`);
   if (meta) {
-    const name = file?.name || (value?.startsWith("data:") ? "PDF integre" : value || "Aucun fichier");
+    const details = value && !isDocumentValue(value, file) ? await imageDetails(value).catch(() => "") : "";
+    const name = file?.name || (value?.startsWith("data:") ? "Fichier integre" : value || "Aucun fichier");
     const size = file?.size ? ` - ${formatBytes(file.size)}` : "";
-    meta.textContent = `${name}${size} - ${new Date().toLocaleString("fr-FR")}`;
+    meta.textContent = `${name}${size}${details ? ` - ${details}` : ""} - ${new Date().toLocaleString("fr-FR")}`;
   }
 }
 
 function clearFileField(id) {
   const target = document.getElementById(id);
   if (target) target.value = "";
+  syncMediaUrl(id, "");
   updateFilePreview(id, "");
   setProgress(id, 0);
   markDirty();
+}
+
+function syncMediaUrl(id, value) {
+  const input = document.querySelector(`[data-media-url="${id}"]`);
+  if (input) input.value = value;
+}
+
+function isDocumentValue(value = "", file = null) {
+  return file?.type === "application/pdf" || String(value).startsWith("data:application/pdf") || /\.pdf($|\?)/i.test(String(value));
+}
+
+function imageDetails(src) {
+  return new Promise((resolve, reject) => {
+    if (!src || isDocumentValue(src)) {
+      resolve("");
+      return;
+    }
+    const img = new Image();
+    img.onload = () => resolve(`${img.naturalWidth} x ${img.naturalHeight}px`);
+    img.onerror = reject;
+    img.src = src;
+  });
 }
 
 function validateForm(form) {

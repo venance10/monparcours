@@ -33,6 +33,13 @@ function searchable(value) {
   return escapeHtml(String(value || "").toLowerCase());
 }
 
+function assetUrl(value, fallback = "#") {
+  const raw = String(value || fallback).trim();
+  if (!raw) return fallback;
+  if (/^(https?:|mailto:|tel:|data:|#)/i.test(raw)) return raw;
+  return raw.startsWith("./") || raw.startsWith("/") ? raw : `./${raw}`;
+}
+
 function local(obj, key) {
   return escapeHtml(pick(obj, key));
 }
@@ -83,13 +90,14 @@ function renderHero() {
   const name = escapeHtml(D.infos.shortName || D.infos.name);
   const parts = name.split(" ");
   const heroName = parts.length > 1 ? `${parts[0]}<br><span class="gold">${parts.slice(1).join(" ")}</span>` : name;
+  const cvUrl = assetUrl(D.infos.cv, "./cv.pdf");
   $("#hero").innerHTML = `<div class="container hero-grid">
     <div class="hero-copy">
       <span class="eyebrow">${escapeHtml(pick(D.infos, "availability") || tr("available"))}</span>
       <h1>${heroName}</h1>
       <p class="hero-title-line">${local(D.infos, "role")}</p>
       <p>${local(D.infos, "tagline")}</p>
-      <div class="toolbar"><a class="btn primary" href="#projects">${icon("arrow")} ${escapeHtml(tr("heroWork"))}</a><a class="btn" href="${D.infos.cv}">${icon("download")} ${escapeHtml(tr("cv"))}</a></div>
+      <div class="toolbar"><a class="btn primary" href="#projects">${icon("arrow")} ${escapeHtml(tr("heroWork"))}</a><a class="btn" href="${escapeHtml(cvUrl)}" download target="_blank" rel="noopener">${icon("download")} ${escapeHtml(tr("cv"))}</a></div>
     </div>
     <div class="hero-visual">
       <button class="profile-portal" id="profilePortal" type="button" aria-label="${escapeHtml(D.infos.name)}"><img src="${escapeHtml(D.infos.avatar || "./assets/images/profile.svg")}" alt=""></button>
@@ -174,7 +182,7 @@ function renderKnowledge() {
     const category = pick(a, "categorie") || pick(a, "category");
     const title = pick(a, "titre") || pick(a, "title");
     const search = [title, pick(a, "resume") || pick(a, "summary"), category, a.tags?.join(" ")].join(" ");
-    return `<article class="card article-card" data-filter-item="knowledge" data-category="${escapeHtml(category)}" data-title="${escapeHtml(title)}" data-date="${escapeHtml(a.date || "")}" data-search="${searchable(search)}"><img src="${a.image}" alt=""><div class="article-meta"><span class="badge">${local(a, "categorie") || local(a, "category")}</span>${chips(a.tags)}</div><h3>${local(a, "titre") || local(a, "title")}</h3><p class="muted">${local(a, "resume") || local(a, "summary")}</p><button class="btn" data-article="${a.id}">${icon("arrow")} ${escapeHtml(tr("read"))}</button></article>`;
+    return `<article class="card article-card" data-filter-item="knowledge" data-category="${escapeHtml(category)}" data-title="${escapeHtml(title)}" data-date="${escapeHtml(a.date || "")}" data-search="${searchable(search)}"><img src="${a.image}" alt="" loading="lazy" decoding="async"><div class="article-meta"><span class="badge">${local(a, "categorie") || local(a, "category")}</span>${chips(a.tags)}</div><h3>${local(a, "titre") || local(a, "title")}</h3><p class="muted">${local(a, "resume") || local(a, "summary")}</p><button class="btn" data-article="${a.id}">${icon("arrow")} ${escapeHtml(tr("read"))}</button></article>`;
   }).join("")}</div></div>`;
 }
 
@@ -186,7 +194,7 @@ function renderGalleryPreview() {
     const category = pick(g, "categorie") || pick(g, "category");
     const title = pick(g, "titre") || pick(g, "title");
     const search = [title, category, g.tags?.join(" ")].join(" ");
-    return `<button class="poster" data-lightbox="${g.id}" data-filter-item="gallery" data-category="${escapeHtml(category)}" data-title="${escapeHtml(title)}" data-date="${escapeHtml(g.date || "")}" data-search="${searchable(search)}"><img src="${g.image}" alt=""><span class="poster-body"><strong>${local(g, "titre") || local(g, "title")}</strong><span class="muted">${local(g, "categorie") || local(g, "category")}</span></span></button>`;
+    return `<button class="poster" data-lightbox="${g.id}" data-filter-item="gallery" data-category="${escapeHtml(category)}" data-title="${escapeHtml(title)}" data-date="${escapeHtml(g.date || "")}" data-search="${searchable(search)}"><img src="${g.image}" alt="" loading="lazy" decoding="async"><span class="poster-body"><strong>${local(g, "titre") || local(g, "title")}</strong><span class="muted">${local(g, "categorie") || local(g, "category")}</span></span></button>`;
   }).join("")}</div></div>`;
 }
 
@@ -201,7 +209,7 @@ function renderWatch() {
 }
 
 function renderContact() {
-  $("#contact").innerHTML = `<div class="container">${sectionHead(tr("conversation"), tr("contactTitle"))}<div class="grid contact-grid">${D.contacts.map(c => `<a class="card contact-card" href="${c.url}">${icon(c.icon)}<strong>${local(c, "label")}</strong><span class="muted">${escapeHtml(c.value)}</span></a>`).join("")}</div><form class="card contact-form" action="mailto:${D.infos.email}" method="post" enctype="text/plain"><div class="form-grid"><label class="field"><span>${escapeHtml(tr("name"))}</span><input name="name" required></label><label class="field"><span>${escapeHtml(tr("email"))}</span><input type="email" name="email" required></label><label class="field full"><span>${escapeHtml(tr("message"))}</span><textarea name="message" required></textarea></label></div><button class="btn primary" style="margin-top:14px" type="submit">${icon("mail")} ${escapeHtml(tr("send"))}</button></form></div>`;
+  $("#contact").innerHTML = `<div class="container">${sectionHead(tr("conversation"), tr("contactTitle"), tr("contactIntro"))}<div class="grid contact-grid">${D.contacts.map(c => `<a class="card contact-card" href="${c.url}">${icon(c.icon)}<strong>${local(c, "label")}</strong><span class="muted">${escapeHtml(c.value)}</span></a>`).join("")}</div><form class="card contact-form" id="contactForm" novalidate data-started-at="${Date.now()}"><div class="form-grid"><label class="field"><span>${escapeHtml(tr("name"))}</span><input name="name" autocomplete="name" required aria-describedby="contactStatus"></label><label class="field"><span>${escapeHtml(tr("email"))}</span><input type="email" name="email" autocomplete="email" required aria-describedby="contactStatus"></label><label class="field full"><span>${escapeHtml(tr("subject"))}</span><input name="subject" required aria-describedby="contactStatus"></label><label class="field full"><span>${escapeHtml(tr("message"))}</span><textarea name="message" required minlength="10" aria-describedby="contactStatus"></textarea></label><label class="hp-field" aria-hidden="true"><span>Website</span><input name="website" tabindex="-1" autocomplete="off"></label></div><p class="form-status" id="contactStatus" role="status" aria-live="polite"></p><button class="btn primary" style="margin-top:14px" type="submit">${icon("mail")} <span>${escapeHtml(tr("send"))}</span></button></form></div>`;
 }
 
 export function openArticle(id) {
