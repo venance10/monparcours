@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T12:38:25.629Z",
+  "_updated": "2026-07-13T12:48:41.808Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -338,6 +338,40 @@
       "link": "#",
       "repo": "#",
       "featured": false
+    },
+    {
+      "id": "projects-mrj7pm0b-b5qlwf",
+      "title": "Mise en forme de documents académiques et juridiques",
+      "titleEn": "Formatting of academic and legal documents",
+      "organization": "Particulier",
+      "organizationEn": "Individual",
+      "date": "Juin 2026",
+      "dateEn": "Juin 2026",
+      "badge": "Autres réalisations",
+      "badgeEn": "Autres réalisations",
+      "badgeStyle": "grc",
+      "description": "•\tMémoire de master (Gertruide) : génération automatique de la table des matières, correction des styles de titres, pagination\n•\tMémoire pharmaceutique (AWENOUDE Immaculée, ISEG) : mise en forme complète (styles, TOC automatique, tableaux stylés, pied de page coloré)\n•\tTranscription d'un mémoire en réplique (Cour Spéciale des Affaires Foncières, Cotonou)",
+      "descriptionEn": "• Master’s thesis (Gertruide): automatic generation of the table of contents, correction of heading styles, pagination\n• Pharmaceutical thesis (AWENOUDE Immaculée, ISEG): full formatting (styles, automatic TOC, styled tables, colored footer)\n• Transcription of a thesis into a brief (Special Court for Land Affairs, Cotonou)\n• Skills: advanced Word layout (python-docx / Node.js docx), structuring long documents, writing precision, adherence to academic standards",
+      "bullets": [
+        "• Mémoire de master (Gertruide) : génération automatique de la table des matières, correction des styles de titres, pagination",
+        "• Mémoire pharmaceutique (AWENOUDE Immaculée, ISEG) : mise en forme complète (styles, TOC automatique, tableaux stylés, pied de page coloré)",
+        "• Transcription d'un mémoire en réplique (Cour Spéciale des Affaires Foncières, Cotonou)",
+        "• Compétences : mise en page Word avancée (python-docx / Node.js docx), structuration de documents longs, rigueur rédactionnelle, respect des normes académiques"
+      ],
+      "bulletsEn": [
+        "Formatting of academic and legal documents",
+        "• Master’s thesis (Gertruide): automatic generation of the table of contents, correction of heading styles, pagination",
+        "• Pharmaceutical thesis (AWENOUDE Immaculée, ISEG): full formatting (styles, automatic TOC, styled tables, colored footer)",
+        "• Transcription of a thesis into a brief (Special Court for Land Affairs, Cotonou)",
+        "• Skills: advanced Word layout (python-docx / Node.js docx), structuring long documents, writing precision, adherence to academic standards"
+      ],
+      "category": "Autres réalisations",
+      "categoryEn": "Other achievements",
+      "tags": [],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
     }
   ],
   "skills": [
@@ -660,6 +694,14 @@
       "level": 85,
       "category": "Proposition de service presse",
       "categoryEn": "Press service proposal"
+    },
+    {
+      "id": "skills-mrj7lfq3-r5nqbk",
+      "name": "Gestion de projet événementiel, communication institutionnelle, planification budgétaire",
+      "nameEn": "Event project management, institutional communication, budget planning",
+      "level": 80,
+      "category": "Organisation documentaire",
+      "categoryEn": "Document organization"
     }
   ],
   "tools": [
@@ -987,6 +1029,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T12:48:41.746Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj7pm0b-b5qlwf"
+    },
+    {
+      "date": "2026-07-13T12:40:00.571Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj7lfq3-r5nqbk"
+    },
+    {
+      "date": "2026-07-13T12:39:05.090Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T12:38:25.571Z",
       "type": "edit",
       "message": "Save skills: skills-mrj7j04r-yjf4bx"
@@ -1120,21 +1177,6 @@
       "date": "2026-07-13T12:05:08.136Z",
       "type": "edit",
       "message": "Save skills: skills-mrj6czcg-z5xomf"
-    },
-    {
-      "date": "2026-07-13T12:04:28.520Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj6bu34-h3vnp0"
-    },
-    {
-      "date": "2026-07-13T12:03:38.178Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:03:32.152Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj6amrc-o8wob9"
     }
   ]
 }
