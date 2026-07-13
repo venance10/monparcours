@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T12:07:46.236Z",
+  "_updated": "2026-07-13T12:10:29.829Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -628,6 +628,22 @@
       "level": 80,
       "category": "Réseaux & systèmes",
       "categoryEn": "Networks & systems"
+    },
+    {
+      "id": "skills-mrj6ha5j-whhfat",
+      "name": "Administration Windows et Linux (Debian, Ubuntu, Kali Linux)",
+      "nameEn": "Windows and Linux administration (Debian, Ubuntu, Kali Linux)",
+      "level": 95,
+      "category": "Réseaux & systèmes",
+      "categoryEn": "Networks & systems"
+    },
+    {
+      "id": "skills-mrj6jxqf-a5i180",
+      "name": "JWT, bcrypt, AES-256, Node.js (bibliothèque docx pour l'automatisation documentaire)",
+      "nameEn": "JWT, bcrypt, AES-256, Node.js (docx library for document automation)",
+      "level": 72,
+      "category": "Développement",
+      "categoryEn": "Development"
     }
   ],
   "tools": [
@@ -789,6 +805,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T12:10:29.815Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj6jxqf-a5i180"
+    },
+    {
+      "date": "2026-07-13T12:08:34.919Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj6ha5j-whhfat"
+    },
+    {
+      "date": "2026-07-13T12:07:53.722Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T12:07:46.223Z",
       "type": "edit",
       "message": "Save skills: skills-mrj6ftmn-80vm6v"
@@ -922,21 +953,6 @@
       "date": "2026-07-13T11:45:00.379Z",
       "type": "edit",
       "message": "Save skills: skills-mrj5li6z-961vtt"
-    },
-    {
-      "date": "2026-07-13T11:41:41.627Z",
-      "type": "delete",
-      "message": "Delete skills: sk-iso"
-    },
-    {
-      "date": "2026-07-13T11:41:04.452Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T11:40:56.075Z",
-      "type": "edit",
-      "message": "Save skills: sk-iso2"
     }
   ]
 }
