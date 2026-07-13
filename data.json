@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:48:08.840Z",
+  "_updated": "2026-07-13T11:49:55.318Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -556,6 +556,14 @@
       "level": 78,
       "category": "Gouvernance, Risques & Conformité",
       "categoryEn": "Governance, Risk & Compliance"
+    },
+    {
+      "id": "skills-mrj5skm2-9vx8eu",
+      "name": "Rédaction PSSI",
+      "nameEn": "Writing ISMS policies",
+      "level": 65,
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     }
   ],
   "tools": [
@@ -717,6 +725,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:49:55.306Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5skm2-9vx8eu"
+    },
+    {
+      "date": "2026-07-13T11:48:26.425Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:48:08.826Z",
       "type": "edit",
       "message": "Save skills: sk-gap"
@@ -855,16 +873,6 @@
       "date": "2026-07-12T03:05:03.667Z",
       "type": "github",
       "message": "GitHub data.json save"
-    },
-    {
-      "date": "2026-07-12T03:03:41.591Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-12T03:03:28.984Z",
-      "type": "edit",
-      "message": "Update resume"
     }
   ]
 }
