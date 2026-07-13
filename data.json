@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:06:04.164Z",
+  "_updated": "2026-07-13T13:12:48.248Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -448,6 +448,41 @@
       ],
       "category": "Hackathon",
       "categoryEn": "Hackathon",
+      "tags": [],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "projects-mrj8kdag-0m0s89",
+      "title": "Portfolio",
+      "titleEn": "Portfolio",
+      "organization": "Particulier",
+      "organizationEn": "Individual",
+      "date": "Juin 2026",
+      "dateEn": "Juin 2026",
+      "badge": "Développement  Web",
+      "badgeEn": "Développement  web",
+      "badgeStyle": "grc",
+      "description": "Portfolio Cybersécurité Bilingue FR/EN : https://venance10.github.io/monparcours/",
+      "descriptionEn": "Bilingual Cybersecurity Portfolio FR/EN : https://venance10.github.io/monparcours/",
+      "bullets": [
+        "• Site bilingue présentant projets, compétences et services",
+        "• Panel d'administration bilingue FR/EN permettant une gestion complète du contenu sans édition de code",
+        "• Persistance des données via l'API GitHub, protection d'accès par hachage SHA-256",
+        "• Galerie d'affiches avec protections anti-copie et éditeur de texte enrichi intégré"
+      ],
+      "bulletsEn": [
+        "Bilingual Cybersecurity Portfolio FR/EN",
+        "venance10.github.io/portfini — 2026 (evolution of the initial venanceportfolio project)",
+        "• Bilingual site showcasing projects, skills, and services",
+        "• Bilingual FR/EN admin panel allowing full content management without code editing",
+        "• Data persistence via the GitHub API, access protection with SHA-256 hashing",
+        "• Poster gallery with anti-copy protections and built-in rich text editor"
+      ],
+      "category": "Dev Web",
+      "categoryEn": "Dev Web",
       "tags": [],
       "image": "./assets/images/project-portfolio.svg",
       "link": "#",
@@ -1110,6 +1145,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:12:48.175Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj8kdag-0m0s89"
+    },
+    {
+      "date": "2026-07-13T13:06:10.074Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:06:04.104Z",
       "type": "edit",
       "message": "Save projects: projects-mrj8fp88-xn2gi3"
@@ -1248,16 +1293,6 @@
       "date": "2026-07-13T12:20:21.966Z",
       "type": "edit",
       "message": "Save gallery: gallery-mrj6wif2-mhasyu"
-    },
-    {
-      "date": "2026-07-13T12:19:41.440Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:19:26.942Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj6uugm-rsfduw"
     }
   ]
 }
