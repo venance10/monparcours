@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:49:55.318Z",
+  "_updated": "2026-07-13T11:52:01.720Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -564,6 +564,14 @@
       "level": 65,
       "category": "Gouvernance, Risques & Conformité",
       "categoryEn": "Governance, Risk & Compliance"
+    },
+    {
+      "id": "skills-mrj5ucu2-65dlhl",
+      "name": "Feuille de route SMSI- RGPD-APDP- Registre des traitements",
+      "nameEn": "ISMS roadmap, GDPR-Data Protection Authority-Processing register",
+      "level": 81,
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     }
   ],
   "tools": [
@@ -725,6 +733,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:52:01.705Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj5ucu2-65dlhl"
+    },
+    {
+      "date": "2026-07-13T11:50:02.014Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:49:55.306Z",
       "type": "edit",
       "message": "Save skills: skills-mrj5skm2-9vx8eu"
@@ -863,16 +881,6 @@
       "date": "2026-07-13T11:20:52.989Z",
       "type": "github",
       "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T11:20:44.790Z",
-      "type": "edit",
-      "message": "Save certs: cert-cisco"
-    },
-    {
-      "date": "2026-07-12T03:05:03.667Z",
-      "type": "github",
-      "message": "GitHub data.json save"
     }
   ]
 }
