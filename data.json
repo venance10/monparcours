@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:19:41.027Z",
+  "_updated": "2026-07-13T13:25:55.525Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -512,6 +512,39 @@
       ],
       "category": "Pentest",
       "categoryEn": "Pentest",
+      "tags": [],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "projects-mrj94kgl-0vn81p",
+      "title": "Audit de sécurité web",
+      "titleEn": "Web Security Audit",
+      "organization": "GRAFNET Consulting — mission cliente",
+      "organizationEn": "GRAFNET Consulting — client project",
+      "date": "23 juin 2026",
+      "dateEn": "June 23, 2026",
+      "badge": "GRC-Mission",
+      "badgeEn": "GRC-Mission",
+      "badgeStyle": "grc",
+      "description": "Audit de sécurité web — asofind.com",
+      "descriptionEn": "Web Security Audit — asofind.com",
+      "bullets": [
+        "• Black-box penetration test (Next.js/Node.js/MongoDB): 6 vulnerabilities including 1 critical",
+        "• Exposure of personal data for 9 accounts via unprotected public API (GDPR/Digital Code violation)",
+        "• Other issues: missing CSP, Sentry DSN and Git hash leak, no rate limiting",
+        "• Full audit report with prioritized remediation plan"
+      ],
+      "bulletsEn": [
+        "• Black-box penetration test (Next.js/Node.js/MongoDB): 6 vulnerabilities including 1 critical",
+        "• Exposure of personal data for 9 accounts via unprotected public API (GDPR/Digital Code violation)",
+        "• Other issues: missing CSP, Sentry DSN and Git hash leaks, no rate limiting",
+        "• Full audit report with prioritized remediation plan"
+      ],
+      "category": "GRC",
+      "categoryEn": "GRC",
       "tags": [],
       "image": "./assets/images/project-portfolio.svg",
       "link": "#",
@@ -1174,6 +1207,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:25:55.461Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj94kgl-0vn81p"
+    },
+    {
+      "date": "2026-07-13T13:20:18.772Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T13:19:40.966Z",
       "type": "edit",
       "message": "Save projects: projects-mrj8ugye-u2n5eu"
@@ -1310,16 +1353,6 @@
     },
     {
       "date": "2026-07-13T12:22:43.623Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:22:38.877Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj6z1p9-ldk6ec"
-    },
-    {
-      "date": "2026-07-13T12:21:25.170Z",
       "type": "github",
       "message": "Automatic GitHub sync"
     }
