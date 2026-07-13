@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T13:32:42.004Z",
+  "_updated": "2026-07-13T13:34:53.108Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -1224,12 +1224,22 @@
       "id": "ct-github",
       "label": "GitHub",
       "labelEn": "GitHub",
-      "value": "github.com/venance10",
-      "url": "https://github.com/venance10",
+      "value": "Mon parcours",
+      "url": "https://venance10.github.io/monparcours/",
       "icon": "github"
     }
   ],
   "activity": [
+    {
+      "date": "2026-07-13T13:34:53.052Z",
+      "type": "edit",
+      "message": "Save contacts: ct-github"
+    },
+    {
+      "date": "2026-07-13T13:33:20.253Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
     {
       "date": "2026-07-13T13:32:41.948Z",
       "type": "edit",
@@ -1367,16 +1377,6 @@
     },
     {
       "date": "2026-07-13T12:37:09.482Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:36:39.315Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj7fi8k-77n0iq"
-    },
-    {
-      "date": "2026-07-13T12:33:44.865Z",
       "type": "github",
       "message": "Automatic GitHub sync"
     }
