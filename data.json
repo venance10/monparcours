@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:59:55.360Z",
+  "_updated": "2026-07-13T12:03:32.168Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -594,8 +594,16 @@
       "name": "Tests manuels (IDOR, injections, headers de sécurité)",
       "nameEn": "Manual tests (IDOR, injections, security headers)",
       "level": 75,
-      "category": "Sécurité offensive",
+      "category": "Sécurité Offensive",
       "categoryEn": "Pentest"
+    },
+    {
+      "id": "skills-mrj6amrc-o8wob9",
+      "name": "Pare-feu, IDS/IPS",
+      "nameEn": "Firewall, IDS/IPS",
+      "level": 85,
+      "category": "Sécurité défensive",
+      "categoryEn": "Defensive security"
     }
   ],
   "tools": [
@@ -757,6 +765,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T12:03:32.152Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj6amrc-o8wob9"
+    },
+    {
+      "date": "2026-07-13T12:00:28.440Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj63809-rjl8y3"
+    },
+    {
+      "date": "2026-07-13T12:00:00.457Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:59:55.344Z",
       "type": "edit",
       "message": "Save skills: skills-mrj61md5-jqamk8"
@@ -890,21 +913,6 @@
       "date": "2026-07-13T11:35:11.496Z",
       "type": "github",
       "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T11:35:05.188Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj5abxg-qp9jlk"
-    },
-    {
-      "date": "2026-07-13T11:34:10.388Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T11:34:03.076Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj58zpw-rx331a"
     }
   ]
 }
