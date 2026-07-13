@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T12:48:41.808Z",
+  "_updated": "2026-07-13T12:50:48.744Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -350,8 +350,8 @@
       "badge": "Autres réalisations",
       "badgeEn": "Autres réalisations",
       "badgeStyle": "grc",
-      "description": "•\tMémoire de master (Gertruide) : génération automatique de la table des matières, correction des styles de titres, pagination\n•\tMémoire pharmaceutique (AWENOUDE Immaculée, ISEG) : mise en forme complète (styles, TOC automatique, tableaux stylés, pied de page coloré)\n•\tTranscription d'un mémoire en réplique (Cour Spéciale des Affaires Foncières, Cotonou)",
-      "descriptionEn": "• Master’s thesis (Gertruide): automatic generation of the table of contents, correction of heading styles, pagination\n• Pharmaceutical thesis (AWENOUDE Immaculée, ISEG): full formatting (styles, automatic TOC, styled tables, colored footer)\n• Transcription of a thesis into a brief (Special Court for Land Affairs, Cotonou)\n• Skills: advanced Word layout (python-docx / Node.js docx), structuring long documents, writing precision, adherence to academic standards",
+      "description": "",
+      "descriptionEn": "",
       "bullets": [
         "• Mémoire de master (Gertruide) : génération automatique de la table des matières, correction des styles de titres, pagination",
         "• Mémoire pharmaceutique (AWENOUDE Immaculée, ISEG) : mise en forme complète (styles, TOC automatique, tableaux stylés, pied de page coloré)",
@@ -1029,6 +1029,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T12:50:48.682Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj7pm0b-b5qlwf"
+    },
+    {
+      "date": "2026-07-13T12:49:17.789Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T12:48:41.746Z",
       "type": "edit",
       "message": "Save projects: projects-mrj7pm0b-b5qlwf"
@@ -1167,16 +1177,6 @@
       "date": "2026-07-13T12:07:46.223Z",
       "type": "edit",
       "message": "Save skills: skills-mrj6ftmn-80vm6v"
-    },
-    {
-      "date": "2026-07-13T12:05:15.380Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:05:08.136Z",
-      "type": "edit",
-      "message": "Save skills: skills-mrj6czcg-z5xomf"
     }
   ]
 }
