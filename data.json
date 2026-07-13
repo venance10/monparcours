@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T12:56:15.604Z",
+  "_updated": "2026-07-13T13:00:55.859Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -386,6 +386,37 @@
       "descriptionEn": "Proposal document detailing equipment, budget, and tools for livestreaming religious events (Facebook, YouTube, TikTok)",
       "bullets": [],
       "bulletsEn": [],
+      "category": "Autres réalisations",
+      "categoryEn": "Other achievements",
+      "tags": [],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "projects-mrj8aytc-e34pdb",
+      "title": "Organisation documentaire",
+      "titleEn": "Document Organization",
+      "organization": "Station Sainte Jeanne d'Arc de Zoundja — en tant que Chargé de communication digitale, RCC Zoundja",
+      "organizationEn": "Sainte Jeanne d'Arc Station in Zoundja — as Digital Communications Officer, RCC Zoundja",
+      "date": "Juin 2026",
+      "dateEn": "Juin 2026",
+      "badge": "Autres réalisations",
+      "badgeEn": "Other achievements",
+      "badgeStyle": "grc",
+      "description": "",
+      "descriptionEn": "",
+      "bullets": [
+        "• Élaboration du budget prévisionnel de l'événement",
+        "• Rédaction du programme du triduum précédant le concert",
+        "• Proposition de dispositif de diffusion en direct (livestreaming) de l'événement"
+      ],
+      "bulletsEn": [
+        "• Preparing the event's provisional budget",
+        "• Writing the program for the triduum before the concert",
+        "• Suggesting a live streaming setup for the event"
+      ],
       "category": "Autres réalisations",
       "categoryEn": "Other achievements",
       "tags": [],
@@ -1050,6 +1081,21 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T13:00:55.800Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj8aytc-e34pdb"
+    },
+    {
+      "date": "2026-07-13T12:56:32.041Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrj7pm0b-b5qlwf"
+    },
+    {
+      "date": "2026-07-13T12:56:20.787Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T12:56:15.545Z",
       "type": "edit",
       "message": "Save projects: projects-mrj83sbt-augxj2"
@@ -1183,21 +1229,6 @@
       "date": "2026-07-13T12:18:01.142Z",
       "type": "edit",
       "message": "Save gallery: gallery-mrj6t81q-f5icj9"
-    },
-    {
-      "date": "2026-07-13T12:17:08.465Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T12:16:58.254Z",
-      "type": "edit",
-      "message": "Save gallery: gallery-mrj6o0dq-peb4fn"
-    },
-    {
-      "date": "2026-07-13T12:10:36.831Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
     }
   ]
 }
