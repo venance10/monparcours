@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-13T11:46:52.050Z",
+  "_updated": "2026-07-13T11:48:08.840Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -410,24 +410,24 @@
       "name": "PSSIE Bénin / Code Numérique",
       "nameEn": "Benin PSSIE / Digital Code",
       "level": 88,
-      "category": "Gouvernance & Conformité",
-      "categoryEn": "Governance & Compliance"
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     },
     {
       "id": "sk-raci",
       "name": "Rédaction PSSI & RACI",
       "nameEn": "ISSP Writing & RACI",
       "level": 85,
-      "category": "Gouvernance & Conformité",
-      "categoryEn": "Governance & Compliance"
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     },
     {
       "id": "sk-gap",
       "name": "Gap Analysis / Audit",
       "nameEn": "Gap Analysis / Audit",
       "level": 82,
-      "category": "Gouvernance & Conformité",
-      "categoryEn": "Governance & Compliance"
+      "category": "Gouvernance, Risques & Conformité",
+      "categoryEn": "Governance, Risk & Compliance"
     },
     {
       "id": "sk-wireshark",
@@ -717,6 +717,26 @@
   ],
   "activity": [
     {
+      "date": "2026-07-13T11:48:08.826Z",
+      "type": "edit",
+      "message": "Save skills: sk-gap"
+    },
+    {
+      "date": "2026-07-13T11:47:43.610Z",
+      "type": "edit",
+      "message": "Save skills: sk-raci"
+    },
+    {
+      "date": "2026-07-13T11:47:16.722Z",
+      "type": "edit",
+      "message": "Save skills: sk-pssie"
+    },
+    {
+      "date": "2026-07-13T11:47:00.090Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-13T11:46:52.034Z",
       "type": "edit",
       "message": "Save skills: sk-itil"
@@ -845,26 +865,6 @@
       "date": "2026-07-12T03:03:28.984Z",
       "type": "edit",
       "message": "Update resume"
-    },
-    {
-      "date": "2026-07-12T02:58:54.361Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-12T02:58:45.183Z",
-      "type": "edit",
-      "message": "Update resume"
-    },
-    {
-      "date": "2026-07-12T02:53:33.932Z",
-      "type": "github",
-      "message": "GitHub data.json save"
-    },
-    {
-      "date": "2026-07-12T02:48:25.640Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
     }
   ]
 }
