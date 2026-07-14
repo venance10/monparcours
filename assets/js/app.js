@@ -1,4 +1,4 @@
-import { BUILD_VERSION, CONTACT_MIN_SECONDS, EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
+import { BUILD_VERSION, CONTACT_FORM_ENDPOINT, CONTACT_MIN_SECONDS, EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, LANG_KEY, STORAGE_KEY, THEME_KEY } from "./config.js";
 import { D, loadData } from "./data.js";
 import { closeLightbox, openLightbox } from "./gallery.js";
 import { lang, setLang, tr } from "./i18n.js";
@@ -149,6 +149,10 @@ async function sendContactMessage(payload) {
     });
     return;
   }
+  if (CONTACT_FORM_ENDPOINT) {
+    await sendViaFormSubmit(payload);
+    return;
+  }
   const href = buildMailto(payload);
   if (!href) throw new Error("missing-email");
   const anchor = document.createElement("a");
@@ -157,6 +161,28 @@ async function sendContactMessage(payload) {
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
+}
+
+async function sendViaFormSubmit(payload) {
+  const response = await fetch(CONTACT_FORM_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      name: payload.name,
+      email: payload.email,
+      subject: payload.subject || "Contact portfolio",
+      message: payload.message,
+      _subject: payload.subject || "Nouveau message depuis le portfolio",
+      _template: "table",
+      _captcha: "false"
+    })
+  });
+  if (!response.ok) {
+    throw new Error(`form-submit-${response.status}`);
+  }
 }
 
 function updateContactFallback(form) {

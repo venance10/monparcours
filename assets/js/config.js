@@ -1,5 +1,5 @@
 export const APP_VERSION = "2.0.0";
-export const BUILD_VERSION = "2026-07-14-sw-v26";
+export const BUILD_VERSION = "2026-07-14-sw-v27";
 export const DATA_URL = "./data.json";
 export const STORAGE_KEY = "venanceportfolio:data";
 export const THEME_KEY = "venanceportfolio:theme";
@@ -14,6 +14,7 @@ export const DEFAULT_BRANCH = "main";
 export const EMAILJS_PUBLIC_KEY = "";
 export const EMAILJS_SERVICE_ID = "";
 export const EMAILJS_TEMPLATE_ID = "";
+export const CONTACT_FORM_ENDPOINT = "https://formsubmit.co/ajax/vhoundete@gmail.com";
 export const CONTACT_MIN_SECONDS = 1;
 
 
