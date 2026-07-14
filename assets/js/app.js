@@ -53,6 +53,10 @@ function bindEvents() {
     const form = event.target.closest("#contactForm");
     if (form) handleContactSubmit(event, form);
   });
+  document.addEventListener("input", event => {
+    const form = event.target.closest("#contactForm");
+    if (form) updateContactFallback(form);
+  });
   window.addEventListener("storage", async event => {
     if (event.key === STORAGE_KEY) {
       await loadData();
@@ -72,6 +76,7 @@ async function handleContactSubmit(event, form) {
   clearContactErrors(form);
   if (!validateContactForm(form, status)) return;
   if (form.elements.website?.value) return;
+  updateContactFallback(form);
   const startedAt = Number(form.dataset.startedAt || Date.now());
   if ((Date.now() - startedAt) / 1000 < CONTACT_MIN_SECONDS) {
     setContactStatus(status, tr("contactTooFast"), "error");
@@ -84,7 +89,6 @@ async function handleContactSubmit(event, form) {
   try {
     await sendContactMessage(Object.fromEntries(new FormData(form).entries()));
     setContactStatus(status, tr("messageSent"), "success");
-    form.reset();
     form.dataset.startedAt = Date.now();
   } catch (error) {
     console.warn("Contact send failed", error);
@@ -145,9 +149,28 @@ async function sendContactMessage(payload) {
     });
     return;
   }
+  const href = buildMailto(payload);
+  if (!href) throw new Error("missing-email");
+  const anchor = document.createElement("a");
+  anchor.href = href;
+  anchor.style.display = "none";
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+}
+
+function updateContactFallback(form) {
+  const fallback = $("#contactFallback");
+  if (!fallback) return;
+  fallback.href = buildMailto(Object.fromEntries(new FormData(form).entries())) || `mailto:${D?.infos?.email || ""}`;
+}
+
+function buildMailto(payload) {
+  const to = D?.infos?.email || "";
+  if (!to) return "";
   const subject = encodeURIComponent(payload.subject || "Contact portfolio");
-  const body = encodeURIComponent(`${payload.message}\n\n${payload.name}\n${payload.email}`);
-  window.location.href = `mailto:${D?.infos?.email || ""}?subject=${subject}&body=${body}`;
+  const body = encodeURIComponent(`${payload.message || ""}\n\n${payload.name || ""}\n${payload.email || ""}`.trim());
+  return `mailto:${to}?subject=${subject}&body=${body}`;
 }
 
 function loadEmailJs() {
