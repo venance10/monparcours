@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-17T14:00:13.988Z",
+  "_updated": "2026-07-17T14:04:17.292Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -594,6 +594,41 @@
         "TLS",
         "SCA",
         "HTTP Security Headers"
+      ],
+      "image": "./assets/images/project-portfolio.svg",
+      "link": "#",
+      "repo": "#",
+      "featured": false
+    },
+    {
+      "id": "projects-mrp09uzp-llkunn",
+      "title": "Maintenance d'une imprimante à cartes",
+      "titleEn": "Card Printer Maintenance",
+      "organization": "GRAFNET Consulting — Mission cliente",
+      "organizationEn": "GRAFNET Consulting — Client engagement",
+      "date": "17 juillet 2026",
+      "dateEn": "July 17, 2026",
+      "badge": "Maintenance matérielle",
+      "badgeEn": "Hardware Maintenance",
+      "badgeStyle": "grc",
+      "description": "Intervention de maintenance matérielle sur un appareil d'impression de cartes présentant un dysfonctionnement, dans le cadre du stage GRC/Audit de sécurité chez GRAFNET Consulting.",
+      "descriptionEn": "Hardware maintenance task on a malfunctioning card printing device, carried out during the GRC/Security Audit internship at GRAFNET Consulting.",
+      "bullets": [
+        "Démontage complet de l'appareil pour diagnostic de la panne",
+        "Remplacement de la carte mère défectueuse",
+        "Remise en service de l'équipement"
+      ],
+      "bulletsEn": [
+        "Full teardown of the device for fault diagnosis",
+        "Replacement of the faulty motherboard",
+        "Equipment restored to working condition"
+      ],
+      "category": "Support technique",
+      "categoryEn": "Technical Support",
+      "tags": [
+        "Diagnostic matériel",
+        "Maintenance",
+        "Hardware Troubleshooting"
       ],
       "image": "./assets/images/project-portfolio.svg",
       "link": "#",
@@ -1270,6 +1305,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-17T14:04:17.237Z",
+      "type": "edit",
+      "message": "Save projects: projects-mrp09uzp-llkunn"
+    },
+    {
+      "date": "2026-07-17T14:00:23.645Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-17T14:00:13.941Z",
       "type": "edit",
       "message": "Save projects: projects-mrp05au2-ef7oc2"
@@ -1408,16 +1453,6 @@
       "date": "2026-07-13T13:06:04.104Z",
       "type": "edit",
       "message": "Save projects: projects-mrj8fp88-xn2gi3"
-    },
-    {
-      "date": "2026-07-13T13:01:33.486Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T13:00:55.800Z",
-      "type": "edit",
-      "message": "Save projects: projects-mrj8aytc-e34pdb"
     }
   ]
 }
