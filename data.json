@@ -1,6 +1,6 @@
 {
   "_v": 2,
-  "_updated": "2026-07-17T14:06:15.701Z",
+  "_updated": "2026-07-17T14:06:50.762Z",
   "infos": {
     "name": "Venance Arnolde Yéminvènon HOUNDETE",
     "shortName": "Venance A.Y HOUNDETE",
@@ -799,9 +799,9 @@
     },
     {
       "id": "skills-mrj57eos-0kwgx7",
-      "name": "Nmap",
-      "nameEn": "Nmap",
-      "level": 75,
+      "name": "Nmap,Nikto, WhatWeb, DIRB, npm audit, curl",
+      "nameEn": "Nmap,Nikto, WhatWeb, DIRB, npm audit, curl",
+      "level": 85,
       "category": "Outils",
       "categoryEn": "Tools"
     },
@@ -1297,6 +1297,16 @@
   ],
   "activity": [
     {
+      "date": "2026-07-17T14:06:50.709Z",
+      "type": "edit",
+      "message": "Save skills: skills-mrj57eos-0kwgx7"
+    },
+    {
+      "date": "2026-07-17T14:06:20.455Z",
+      "type": "github",
+      "message": "Automatic GitHub sync"
+    },
+    {
       "date": "2026-07-17T14:06:15.637Z",
       "type": "delete",
       "message": "Delete skills: skills-mrj5bkrv-liporw"
@@ -1435,16 +1445,6 @@
       "date": "2026-07-13T13:19:40.966Z",
       "type": "edit",
       "message": "Save projects: projects-mrj8ugye-u2n5eu"
-    },
-    {
-      "date": "2026-07-13T13:13:22.863Z",
-      "type": "github",
-      "message": "Automatic GitHub sync"
-    },
-    {
-      "date": "2026-07-13T13:12:48.175Z",
-      "type": "edit",
-      "message": "Save projects: projects-mrj8kdag-0m0s89"
     }
   ]
 }
