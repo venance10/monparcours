@@ -63,8 +63,8 @@ export function normalizeData(raw = {}) {
     _localDraft: Boolean(raw._localDraft),
     infos: {
       name: infos.name || infos.nom || legacySettings.site_name || "Venance Houndete",
-      shortName: infos.shortName || infos.short_name || infos.name || infos.nom || "Venance HoundÃ©tÃ©",
-      role: infos.role || hero.status || "Developpeur web et cybersÃ©curitÃ©",
+      shortName: infos.shortName || infos.short_name || infos.name || infos.nom || "Venance Houndete",
+      role: infos.role || hero.status || "Developpeur web et cybersecurite",
       roleEn: infos.roleEn || infos.role || hero.status || "Web developer and cybersecurity",
       tagline: infos.tagline || infos.hero || hero.desc || "Portfolio professionnel.",
       taglineEn: infos.taglineEn || infos.tagline || infos.hero || hero.desc || "Professional portfolio.",
