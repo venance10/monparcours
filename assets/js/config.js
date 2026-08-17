@@ -1,5 +1,5 @@
 export const APP_VERSION = "2.0.0";
-export const BUILD_VERSION = "2026-07-14-sw-v27";
+export const BUILD_VERSION = "2026-08-17-sw-v29";
 export const DATA_URL = "./data.json";
 export const STORAGE_KEY = "venanceportfolio:data";
 export const THEME_KEY = "venanceportfolio:theme";
@@ -11,11 +11,6 @@ export const ADMIN_PASS_HASH = "3d2d940665a34415e08f6814661e6898a6f8fd7035d9a809
 export const DEFAULT_OWNER = "venance10";
 export const DEFAULT_REPO = "monparcours";
 export const DEFAULT_BRANCH = "main";
-export const EMAILJS_PUBLIC_KEY = "";
-export const EMAILJS_SERVICE_ID = "";
-export const EMAILJS_TEMPLATE_ID = "";
-export const CONTACT_FORM_ENDPOINT = "https://formsubmit.co/ajax/vhoundete@gmail.com";
-export const CONTACT_MIN_SECONDS = 1;
 
 
 

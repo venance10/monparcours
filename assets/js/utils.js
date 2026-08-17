@@ -1,4 +1,4 @@
-export const $ = (selector, root = document) => root.querySelector(selector);
+﻿export const $ = (selector, root = document) => root.querySelector(selector);
 export const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 export const uid = (prefix = "id") => `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 export const escapeHtml = (value = "") => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
@@ -8,10 +8,10 @@ export const toArray = value => Array.isArray(value) ? value : [];
 
 export const IMAGE_UPLOAD = {
   maxOriginalBytes: 30 * 1024 * 1024,
-  maxEmbeddedBytes: 4200 * 1024,
-  maxWidth: 1600,
-  maxHeight: 1600,
-  quality: 0.86,
+  maxEmbeddedBytes: 650 * 1024,
+  maxWidth: 1200,
+  maxHeight: 1200,
+  quality: 0.76,
   allowedTypes: ["image/jpeg", "image/png", "image/webp", "image/svg+xml", "image/heic", "image/heif"],
   allowedExtensions: [".jpg", ".jpeg", ".png", ".webp", ".svg", ".heic", ".heif"]
 };
@@ -101,7 +101,7 @@ export async function readImageAsOptimizedDataUrl(file) {
     return readFileAsDataUrl(file);
   }
   const original = await readFileAsDataUrl(file);
-  const optimized = file.size <= 900 * 1024 ? original : await compressRasterImage(original, IMAGE_UPLOAD.maxEmbeddedBytes);
+  const optimized = await compressRasterImage(original, IMAGE_UPLOAD.maxEmbeddedBytes);
   if (dataUrlBytes(optimized) > IMAGE_UPLOAD.maxEmbeddedBytes) {
     throw new Error("embedded-image-too-large");
   }
@@ -137,8 +137,8 @@ function compressRasterImage(dataUrl, targetBytes = IMAGE_UPLOAD.maxEmbeddedByte
     image.onload = () => {
       compressCanvas(image, {
         targetBytes,
-        widths: [1600, 1400, 1200, 1000, 820],
-        qualities: [IMAGE_UPLOAD.quality, 0.78, 0.7, 0.62, 0.54]
+        widths: [1200, 1000, 820, 680, 540, 420],
+        qualities: [IMAGE_UPLOAD.quality, 0.68, 0.6, 0.52, 0.44, 0.36]
       }).then(resolve, reject);
     };
     image.onerror = () => reject(new Error("image-load-failed"));
@@ -173,10 +173,10 @@ function cropSquareImage(dataUrl, size, targetBytes) {
         }
         compressCanvas(canvas, {
           targetBytes,
-          widths: [720, 640, 560, 480],
-          qualities: [0.84, 0.76, 0.68, 0.6]
+          widths: [720, 640, 560, 480, 360],
+          qualities: [0.8, 0.7, 0.6, 0.5, 0.42]
         }).then(resolve, reject);
-      }, "image/webp", 0.84);
+      }, "image/webp", 0.8);
     };
     image.onerror = () => reject(new Error("image-load-failed"));
     image.src = dataUrl;
@@ -215,3 +215,4 @@ function canvasToDataUrl(canvas, quality) {
     }, "image/webp", quality);
   });
 }
+

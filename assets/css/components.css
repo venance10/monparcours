@@ -99,34 +99,9 @@
   color: var(--text);
   padding: 12px 13px;
 }
-.field input[aria-invalid="true"],
-.field textarea[aria-invalid="true"] {
-  border-color: var(--danger);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger), transparent 78%);
-}
-.field-error {
-  color: #ffb3b3;
-  font-weight: 800;
-  font-size: .84rem;
-}
-.form-status {
-  margin-top: 12px;
-  min-height: 24px;
-  font-weight: 850;
-}
-.form-status[data-state="success"] { color: var(--success); }
-.form-status[data-state="error"] { color: #ffb3b3; }
-.form-status[data-state="pending"] { color: var(--brand); }
-.hp-field {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-  pointer-events: none;
-}
 .field textarea { min-height: 110px; resize: vertical; }
 @media (max-width: 720px) {
   .form-grid,
   .smart-filter { grid-template-columns: 1fr; }
   .btn, .icon-btn { min-height: 46px; }
-  .contact-form { padding: 18px; }
 }

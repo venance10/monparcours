@@ -33,7 +33,6 @@
 .timeline-item::before { content: ""; position: absolute; left: -28px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--brand); border: 3px solid var(--bg); }
 .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .cert-card { padding: 22px; display: grid; gap: 11px; }
-.contact-form { padding: clamp(20px, 3vw, 30px); margin-top: 18px; }
 @media (min-width: 1180px) {
   .service-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .contact-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }

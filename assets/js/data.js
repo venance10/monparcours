@@ -1,10 +1,29 @@
-import { DATA_URL, STORAGE_KEY } from "./config.js";
+﻿import { DATA_URL, STORAGE_KEY } from "./config.js";
 
 export let D = null;
 
+function readLocalData() {
+  try {
+    return localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function persistData(data) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch (error) {
+    console.warn("Stockage local plein. Les donnees restent en memoire et peuvent etre envoyees sur GitHub.", error);
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    return false;
+  }
+}
+
 export async function loadData(options = {}) {
   const preferLocal = Boolean(options.preferLocal);
-  const local = localStorage.getItem(STORAGE_KEY);
+  const local = readLocalData();
   const res = await fetch(DATA_URL, { cache: "no-cache" });
   const remoteData = normalizeData(await res.json());
   if (local) {
@@ -14,13 +33,13 @@ export async function loadData(options = {}) {
   } else {
     D = remoteData;
   }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(D));
+  persistData(D);
   return D;
 }
 
 export function setData(next) {
   D = normalizeData({ ...next, _updated: new Date().toISOString(), _localDraft: true });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(D));
+  persistData(D);
   return D;
 }
 
@@ -44,8 +63,8 @@ export function normalizeData(raw = {}) {
     _localDraft: Boolean(raw._localDraft),
     infos: {
       name: infos.name || infos.nom || legacySettings.site_name || "Venance Houndete",
-      shortName: infos.shortName || infos.short_name || infos.name || infos.nom || "Venance Houndété",
-      role: infos.role || hero.status || "Developpeur web et cybersécurité",
+      shortName: infos.shortName || infos.short_name || infos.name || infos.nom || "Venance HoundÃ©tÃ©",
+      role: infos.role || hero.status || "Developpeur web et cybersÃ©curitÃ©",
       roleEn: infos.roleEn || infos.role || hero.status || "Web developer and cybersecurity",
       tagline: infos.tagline || infos.hero || hero.desc || "Portfolio professionnel.",
       taglineEn: infos.taglineEn || infos.tagline || infos.hero || hero.desc || "Professional portfolio.",
@@ -218,3 +237,4 @@ function isNewer(a, b) {
   if (Number.isNaN(bt)) return true;
   return at > bt;
 }
+
