@@ -2,23 +2,39 @@
 
 export let D = null;
 
+const LOCAL_DATA_LIMIT = 700 * 1024;
+
 function readLocalData() {
   try {
-    return localStorage.getItem(STORAGE_KEY);
+    const value = localStorage.getItem(STORAGE_KEY);
+    if (isTooLargeForLocalStorage(value)) {
+      localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+    return value;
   } catch {
     return null;
   }
 }
 
 function persistData(data) {
+  const value = JSON.stringify(data);
+  if (isTooLargeForLocalStorage(value)) {
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+    return false;
+  }
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem(STORAGE_KEY, value);
     return true;
   } catch (error) {
     console.warn("Stockage local plein. Les donnees restent en memoire et peuvent etre envoyees sur GitHub.", error);
     try { localStorage.removeItem(STORAGE_KEY); } catch {}
     return false;
   }
+}
+
+function isTooLargeForLocalStorage(value) {
+  return Boolean(value && (value.length > LOCAL_DATA_LIMIT || value.includes("data:image/") || value.includes("data:application/pdf")));
 }
 
 export async function loadData(options = {}) {

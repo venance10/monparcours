@@ -145,7 +145,7 @@ const formSchemas = {
     ["labelEn", "Libelle EN", "text"],
     ["value", "Valeur affichee", "text"],
     ["url", "Lien", "url"],
-    ["icon", "Icone", "select", ["mail", "phone", "linkedin", "github"]]
+    ["icon", "Icone", "select", ["mail", "phone", "linkedin", "github", "map"]]
   ]
 };
 
